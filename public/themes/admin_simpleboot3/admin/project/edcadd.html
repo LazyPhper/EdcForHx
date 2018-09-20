@@ -1,0 +1,81 @@
+<include file="public@header" />
+<style type="text/css">
+	.addbutton{height: 40px;width: 150px;position: absolute;top:15%;left: 65%;background-color:#5FB878;text-align:center;line-height:40px;color:#FFF;}
+	.appendbutton{height: 40px;width: 50px;background-color:#5FB878;text-align:center;line-height:40px;color:#FFF;}
+	.input-div{width: 58%;float: left;}
+	.input-a{margin-left: 20px;}
+	.input-div-margin{margin:20px ;}
+</style>
+</head>
+
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li ><a href="{:url('project/edit')}">项目基本信息</a></li>
+			<li class="active"><a href="{:url('project/edcadd')}">项目CRF</a></li>
+		</ul>
+		<form action="{:url('AdminArticle/addPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row" style='position: relative;'>
+        	<div class='addbutton'>+增加事件</div>
+        	<form>
+
+	            <div class="col-md-7 col-sm-10" id='project-crf' >
+	            		<div id='crf-con-1'>
+	            			<label for="input-name" class="col-sm-2 control-label"><span class="form-required">*</span>事件名称</label>
+			            	<div class="input-div">
+								<input class="form-control" type="text" name="post[post_keywords]" value="" id='input-name' placeholder="事件名称">
+							</div>
+
+						</div>
+	            		
+						<div class='input-div input-div-margin'><a class='btn btn-primary input-a' href="">追加表格</a><a class='btn btn-primary input-a' href="">追加填空</a><a class='btn btn-primary input-a' href="">追加选择</a></div> 
+	                <!-- end div -->
+	            </div>
+
+	            
+
+
+            </form>
+      
+        </div>
+    </form>
+	</div>
+<!--
+ table[table-1-1]  第一个 -1 是第一个事件中 第二个 -1 第一个表格 
+ input[input-1-1] 	第一个 -1 是第一个事件中 第二个 -1 第一个填空
+ input[select-1-1] 	第一个 -1 是第一个事件中 第二个 -1 第一个选择
+-->
+	<div id='crfTable' style=''>
+		<table>
+			<tr>
+				<td><input class="form-control" type="text" name="table[table-1-1]"></td>
+				
+			</tr>
+		</table>
+		<div class="appendbutton">追加</div>
+	</div>
+	<div id='crfInput' style=''>
+		<input type="text" class="form-control" style='width: 60%' name="" placeholder="填空描述">
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+	 function tableOnclick(id)
+	 {
+	 	var tableId=id;
+	 	tabStatus=document.getElementById(tableId).style.display;
+	 	if(tabStatus=='none')
+	 	{
+	 		document.getElementById(tableId).style.display='block';
+	 		document.getElementById(tableId+'-show').innerHTML='-';
+	 	
+	 	}
+	 	if(tabStatus=='block')
+	 	{
+	 		document.getElementById(tableId).style.display='none';	
+	 		document.getElementById(tableId+'-show').innerHTML='+';
+	 	}
+	 	// alert(tab);
+	 }
+</script>
