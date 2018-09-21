@@ -38,11 +38,9 @@
 			<li class="active"><a href="{:url('project/edcadd')}">项目CRF</a></li>
 		</ul>
 		<form action="{:url('AdminArticle/addPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
-        <div class="row" style='position: relative;'>
-        	<div class='addbutton'>+增加事件</div>
-        	<form>
-
-	            <div class="col-md-7 col-sm-10" id='project-crf-1' >
+        <div class="row" style='position: relative;' id="crf">
+        	<div class='addbutton' onclick="crfAdd()">+增加事件</div>
+	            <div class="col-md-7 col-sm-10 crf-num"  id='project-crf-1' >
 	            		<div id='crf-con-1'>
 							<div class="form-group">
 								<label for="input-name" class="col-sm-2 control-label"><span class="form-required">*</span>事件名称</label>
@@ -57,15 +55,11 @@
 							<a class='btn btn-primary input-a' href="javascript:;" onclick="crfTableAdd('project-crf-1')">追加表格</a>
 							<a class='btn btn-primary input-a' href="javascript:;" onclick="crfInputAdd('project-crf-1')">追加填空</a>
 							<a class='btn btn-primary input-a' href="javascript:;" onclick="crfSelectAdd('project-crf-1')">追加选择</a>
+							<a class='btn btn-danger input-a' href="javascript:;" onclick="crfDel('project-crf-1')">删除事件</a>
 						</div>
 	                <!-- end div -->
 	            </div>
 
-	            
-
-
-            </form>
-      
         </div>
     </form>
 	</div>
@@ -80,8 +74,52 @@
 </body>
 </html>
 <script type="text/javascript">
-	/*追加表格*/
 
+	/*增加事件*/
+	function crfAdd()
+	{
+	    var hhtml=crfcon();
+	    $("#crf").append(hhtml);
+
+	}
+
+	/*事件内容*/
+	function crfcon(){
+        var crf_num=$("#crf").find(".crf-num").length;
+        crf_num=crf_num+1;
+        // alert(crf_num);
+        var crf_id='project-crf-'+crf_num;
+        var crf_con='crf-con-'+crf_num;
+		var con='<div class="col-md-7 col-sm-10 crf-num"  id="'+crf_id+'" >'+
+            '<div id="'+crf_con+'">' +
+            '<div class="form-group">' +
+            '<label for="input-name" class="col-sm-2 control-label"><span class="form-required">*</span>事件名称</label>' +
+            '<div class="col-md-6 col-sm-10">' +
+            '<input class="form-control" type="text" name="post[post_keywords]" value=""  placeholder="事件名称">' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '<div class=\'input-div input-div-margin\'>' +
+            '<a class=\'btn btn-primary input-a\' href="javascript:;" onclick="crfTableAdd(\''+crf_id+'\')">追加表格</a>' +
+            '<a class=\'btn btn-primary input-a\' href="javascript:;" onclick="crfInputAdd(\''+crf_id+'\')">追加填空</a>' +
+            '<a class=\'btn btn-primary input-a\' href="javascript:;" onclick="crfSelectAdd(\''+crf_id+'\')">追加选择</a>' +
+            '<a class=\'btn btn-danger input-a\' href="javascript:;" onclick="crfDel(\''+crf_id+'\')">删除事件</a>' +
+            '</div>' +
+            '</div>';
+		return con;
+    }
+    
+    /*删除事件*/
+	function crfDel(crfId) {
+	    $('#'+crfId).remove();
+
+    }
+
+
+
+
+
+	/*追加表格*/
 	function crfTableAdd(crfId)
 	{
 		var crfId=crfId;
@@ -304,8 +342,6 @@
 		{
             $('#'+select_id+' tr:last-child').remove();
 		}
-
-
     }
 
     /*字母增加*/
