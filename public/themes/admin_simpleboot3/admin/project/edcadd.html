@@ -115,13 +115,17 @@
     
     /*删除事件*/
 	function crfDel(crfId) {
-	    $('#'+crfId).remove();
+	    //不能删除最后一个事件
+        var crf_num=$("#crf").find(".crf-num").length;
+        if(crf_num >1 )
+		{
+            $('#'+crfId).remove();
+		}else{
+			//
+		}
+
 
     }
-
-
-
-
 
 	/*追加表格*/
 	function crfTableAdd(crfId)
@@ -241,6 +245,7 @@
 	{
 	    var crf_num=crf_num;
 	    var input_name="crf["+crf_num+"][input][]";
+	    var select_name="crf["+crf_num+"][input][type][]";
         var input_num=$("#"+crfId).find(".input-num").length;
         input_num=input_num+1;
         var div_input='input-'+crf_num+"-"+input_num;
@@ -249,6 +254,7 @@
             '<label for="input-name" class="col-sm-2 control-label"><span class="form-required">*</span>填空描述</label>' +
             '<div class="col-md-6 col-sm-10">' +
             '<input class="form-control input-num" type="text" name="'+input_name+'" value="" placeholder="填空描述">' +
+			'<div style="display:inline;float: left;"><select name=""><option value="1">填空&nbsp;&nbsp;&nbsp;</option><option value="2">描述&nbsp;&nbsp;</option><option value="3">时间选择器</option></select></div>'+
             '<a class="btn btn-danger"  href="javascript:;" onclick="crfInputDelAll('+crf_num+','+input_num+')">删除填空</a>'+
             '</div>' +
             '</div></div>';

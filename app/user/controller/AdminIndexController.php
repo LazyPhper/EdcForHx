@@ -136,4 +136,22 @@ class AdminIndexController extends AdminBaseController
             $this->error('数据传入失败！');
         }
     }
+
+    /**
+     *增加受试者
+     *
+     */
+    public function add()
+    {
+        return $this->fetch();
+    }
+
+    /**
+     *编辑受试者
+     *
+     */
+    public function edit()
+    {
+        return $this->fetch();
+    }
 }
