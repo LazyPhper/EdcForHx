@@ -41,7 +41,6 @@ class MainController extends AdminBaseController
             '_SystemCustom4'          => ['name' => 'Custom4', 'is_system' => 1],
             '_SystemCustom5'          => ['name' => 'Custom5', 'is_system' => 1],
         ];
-
         if (empty($widgets)) {
             $dashboardWidgets = $defaultDashboardWidgets;
         } else {
