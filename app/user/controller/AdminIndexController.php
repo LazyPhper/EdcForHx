@@ -61,7 +61,6 @@ class AdminIndexController extends AdminBaseController
         if (!empty($content)) {
             return $content;
         }
-
         $where   = [];
         $request = input('request.');
 

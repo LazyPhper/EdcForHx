@@ -37,6 +37,6 @@ class ExperimentController extends AdminBaseController
     {
         $content = hook_one('admin_index_index_view');
 
-        echo '这是受试者页';
+        return $this->fetch();
     }
 }
