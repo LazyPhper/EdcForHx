@@ -31,11 +31,13 @@ class ExperimentController extends AdminBaseController
     }
 
     /**
-     * 后台首页
+     * 受试者首页
      */
     public function index()
     {
         $content = hook_one('admin_index_index_view');
+
+//        Db::name('m_')
 
         return $this->fetch();
     }

@@ -22,41 +22,14 @@ class ProjectController extends AdminBaseController
     */
     public function index()
     {
-        $content = hook_one('admin_user_index_view');
+        $content = hook_one('admin_rbac_index_view');
 
         if (!empty($content)) {
             return $content;
         }
 
-        $where = ["user_type" => 1];
-        /**搜索条件**/
-        $userLogin = $this->request->param('user_login');
-        $userEmail = trim($this->request->param('user_email'));
-
-        if ($userLogin) {
-            $where['user_login'] = ['like', "%$userLogin%"];
-        }
-
-        if ($userEmail) {
-            $where['user_email'] = ['like', "%$userEmail%"];;
-        }
-        $users = Db::name('user')
-            ->where($where)
-            ->order("id DESC")
-            ->paginate(10);
-        $users->appends(['user_login' => $userLogin, 'user_email' => $userEmail]);
-        // 获取分页显示
-        $page = $users->render();
-
-        $rolesSrc = Db::name('role')->select();
-        $roles    = [];
-        foreach ($rolesSrc as $r) {
-            $roleId           = $r['id'];
-            $roles["$roleId"] = $r;
-        }
-        $this->assign("page", $page);
-        $this->assign("roles", $roles);
-        $this->assign("users", $users);
+        $data = Db::name('m_project')->order(["id" => "DESC"])->select();
+        $this->assign("project", $data);
         return $this->fetch();
     }
     /*
@@ -64,8 +37,35 @@ class ProjectController extends AdminBaseController
     */
     public function add()
     {
-
+        $user = Db::name('user')->select()->toArray();
+        $this->assign('user',$user);
         return $this->fetch();
+    }
+    public function addPost()
+    {
+        if ($this->request->isPost()) {
+            $data   = $this->request->param();
+            $data['create_people'] = session('ADMIN_ID');
+            $result = Db::name('m_project')->insert($data);
+            if ($result) {
+                $this->success("操作成功", url("project/index"));
+            } else {
+                $this->error("操作失败");
+            }
+            /*$result = $this->validate($data, 'role');
+            if ($result !== true) {
+                // 验证失败 输出错误信息
+                $this->error($result);
+            } else {
+                $result = Db::name('role')->insert($data);
+                if ($result) {
+                    $this->success("添加角色成功", url("rbac/index"));
+                } else {
+                    $this->error("添加角色失败");
+                }
+
+            }*/
+        }
     }
 
      /*
