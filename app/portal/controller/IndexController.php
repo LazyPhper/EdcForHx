@@ -17,5 +17,6 @@ class IndexController extends HomeBaseController
     public function index()
     {
         return $this->fetch(':index');
+
     }
 }

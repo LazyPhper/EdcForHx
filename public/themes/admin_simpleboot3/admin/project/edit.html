@@ -4,10 +4,11 @@
 	<div class="wrap js-check-wrap">
 		<ul class="nav nav-tabs">
 			<li ><a href="{:url('project/index')}">项目列表</a></li>
-			<li class="active"><a href="{:url('project/add')}">添加项目</a></li>
+			<li class="active"><a href="">编辑项目</a></li>
 		</ul>
-		<form action="{:url('project/addPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+		<form action="{:url('project/editPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
         <div class="row">
+			<input  type="hidden" name="project_id" value="{$project_info.id}" />
             <div class="col-md-7">
             	<h1 style='font-size: 14px;color:#66CCCC;margin-left: 20px;'>研究项目的描述和状态</h1>
                 <table class="table table-bordered">
@@ -15,14 +16,14 @@
                         <th>项目编号<span class="form-required">*</span></th>
                         <td>
                             <input class="form-control" type="text" name="post[project_sn]"
-                                   id="project_sn" required value="" placeholder="请输入项目编号"/>
+                                   id="project_sn" required value="{$project_info.project_sn}" placeholder="请输入项目编号"/>
                         </td>
                     </tr>
                     <tr>
                         <th>项目名称<span class="form-required">*</span></th>
                         <td>
                             <input class="form-control" type="text" name="post[project_name]"
-                                   id="project_name" required value="" placeholder="请输入项目名称"/>
+                                   id="project_name" required value="{$project_info.project_name}" placeholder="请输入项目名称"/>
                         </td>
                     </tr>
                  
@@ -30,14 +31,14 @@
                         <th>项目摘要</th>
                         <td>
                             <textarea class="form-control" name="post[project_abstract]" style="height: 50px;"
-                                      placeholder="请填写摘要"></textarea>
+                                      placeholder="请填写摘要">{$project_info.project_abstract}</textarea>
                         </td>
                     </tr>
 
                      <tr>
                         <th>合作者</th>
                         <td>
-                            <input class="form-control" type="text" name="post[partner]"  value=""
+                            <input class="form-control" type="text" name="post[partner]"  value="{$project_info.partner}"
                                    placeholder="请输入合作者">
                             <p class="help-block">多合作者之间用英文逗号隔开</p>
                         </td>
@@ -84,14 +85,14 @@
                         <th>研究项目开始日期</th>
                         <td>
                             <input class="form-control js-date" type="text" name="post[start_time]"
-                                   value="{:date('Y-m-d',time())}">
+                                   value="{$project_info.start_time}">
                         </td>
                     </tr>
                      <tr>
                         <th>研究项目完成日期</th>
                         <td>
                             <input class="form-control js-date" type="text" name="post[end_time]"
-                                   value="{:date('Y-m-d',time())}">
+                                   value="{$project_info.start_time}">
                         </td>
                     </tr>
 
@@ -128,7 +129,7 @@
 	                        <th>条件</th>
 	                        <td>
 	                            <input class="form-control" type="text" name="condition[project_condition]"
-	                                     value="" placeholder="请输入条件"/>
+	                                     value="{$project_condition.project_condition}" placeholder="请输入条件"/>
 	                        </td>
 	                    </tr>
 	     
@@ -136,7 +137,7 @@
 	                     <tr>
 	                        <th>关键字</th>
 	                        <td>
-	                            <input class="form-control" type="text" name="condition[project_keywords]"  value=""
+	                            <input class="form-control" type="text" name="condition[project_keywords]"  value="{$project_condition.project_keywords}"
 	                                   placeholder="请输入关键字">
 	                            <p class="help-block">多关键字之间用英文逗号隔开</p>
 	                        </td>
@@ -145,7 +146,7 @@
 	                     <tr>
 	                        <th>合格的标准</th>
 	                        <td>
-	                            <textarea class="form-control" type="text" name="condition[project_standard]"></textarea>
+	                            <textarea class="form-control" type="text" name="condition[project_standard]">{$project_condition.project_standard}</textarea>
 	                           
 	                        </td>
 	                    </tr>
@@ -165,7 +166,7 @@
 	                     <tr>
 	                        <th>最小年龄</th>
 	                        <td>
-	                            <input class="form-control" type="text" name="condition[min_age]"  value=""
+	                            <input class="form-control" type="text" name="condition[min_age]"  value="{$project_condition.min_age}"
 	                                   placeholder="最小年龄">
 	                           
 	                        </td>
@@ -174,7 +175,7 @@
 	                     <tr>
 	                        <th>最大年龄</th>
 	                        <td>
-	                            <input class="form-control" type="text" name="condition[max_age]"  value=""
+	                            <input class="form-control" type="text" name="condition[max_age]"  value="{$project_condition.max_age}"
 	                                   placeholder="最大年龄">
 	                           
 	                        </td>
@@ -183,15 +184,18 @@
 	                    <tr>
 	                        <th>接受健康志愿者</th>
 	                        <td>
-	                            <input class="form-control" type="text" name="condition[project_receive]"  value=""
-	                                   placeholder="接受健康志愿者">
+								<label for="radio-l">是</label>
+								<input type="radio" value='1' name="condition[project_receive]"  id="radio-l" <php>if($project_condition['project_receive']==1) { echo 'checked';}</php> />&nbsp;&nbsp;&nbsp;
+								<label for="radio-a">否</label>
+								<input type="radio" value='2' name="condition[project_receive]" id="radio-a" <php>if($project_condition['project_receive']==2) { echo 'checked';}</php> />&nbsp;&nbsp;&nbsp;
+
 	                           
 	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <th>预期入组人数<span class="form-required">*</span></th>
 	                        <td>
-	                            <input class="form-control" type="text" name="condition[project_people_num]" required  value=""
+	                            <input class="form-control" type="text" name="condition[project_people_num]" required  value="{$project_condition.project_people_num}"
 	                                   placeholder="预期入组人数">
 	                           
 	                        </td>
@@ -208,7 +212,7 @@
 	                    <tr>
 	                        <th>设备名称</th>
 	                        <td>
-	                            <input class="form-control" type="text" name="device[device_name]"  value=""
+	                            <input class="form-control" type="text" name="device[device_name]"  value="{$project_device.device_name}"
 	                                   placeholder="设备名称">
 	                           
 	                        </td>
@@ -216,7 +220,7 @@
 	                    <tr>
 	                        <th>设备城市</th>
 	                        <td>
-	                            <input class="form-control" type="text" name="device[device_city]"  value=""
+	                            <input class="form-control" type="text" name="device[device_city]"  value="{$project_device.device_city}"
 	                                   placeholder="设备城市">
 	                           
 	                        </td>
@@ -224,7 +228,7 @@
 	                    <tr>
 	                        <th>设备 州/省</th>
 	                        <td>
-	                            <input class="form-control" type="text" name="device[device_province]"  value=""
+	                            <input class="form-control" type="text" name="device[device_province]"  value="{$project_device.device_province}"
 	                                   placeholder="设备 州/省">
 	                           
 	                        </td>
@@ -232,7 +236,7 @@
 	                     <tr>
 	                        <th>邮政编码</th>
 	                        <td>
-	                            <input class="form-control" type="text" name="device[device_postcode]"  value=""
+	                            <input class="form-control" type="text" name="device[device_postcode]"  value="{$project_device.device_postcode}"
 	                                   placeholder="邮政编码">
 	                           
 	                        </td>
@@ -240,7 +244,7 @@
 	                    <tr>
 	                        <th>设备国家</th>
 	                        <td>
-	                            <input class="form-control" type="text" name="device[device_country]"  value=""
+	                            <input class="form-control" type="text" name="device[device_country]"  value="{$project_device.device_country}"
 	                                   placeholder="设备国家">
 	                           
 	                        </td>
@@ -248,7 +252,7 @@
 	                    <tr>
 	                        <th>设备联系姓名</th>
 	                        <td>
-	                            <input class="form-control" type="text" name="device[device_connet_name]"  value=""
+	                            <input class="form-control" type="text" name="device[device_connet_name]"  value="{$project_device.device_connet_name}"
 	                                   placeholder="设备联系姓名">
 	                           
 	                        </td>
@@ -256,7 +260,7 @@
 	                     <tr>
 	                        <th>设备联系电话</th>
 	                        <td>
-	                            <input class="form-control" type="text" name="device[device_connet_phone]"  value=""
+	                            <input class="form-control" type="text" name="device[device_connet_phone]"  value="{$project_device.device_connet_phone}"
 	                                   placeholder="设备联系电话">
 	                           
 	                        </td>
@@ -264,7 +268,7 @@
 	                     <tr>
 	                        <th>设备联系电子邮件</th>
 	                        <td>
-	                            <input class="form-control" type="text" name="device[device_connet_email]"  value=""
+	                            <input class="form-control" type="text" name="device[device_connet_email]"  value="{$project_device.device_connet_email}"
 	                                   placeholder="设备联系电子邮件">
 	                           
 	                        </td>
@@ -281,20 +285,20 @@
 	                        <th>收集受试者的出生日期</th>
 	                        <td>
 	                              <label for="radio-1">是</label>
-								  <input type="radio" value='1' name="config[config_birthday]" checked id="radio-1" />&nbsp;&nbsp;&nbsp;
+								  <input type="radio" value='1' name="config[config_birthday]" id="radio-1" <php>if($project_config['config_birthday']==1) { echo 'checked';}</php>  />&nbsp;&nbsp;&nbsp;
 								  <label for="radio-2">否</label>
-								  <input type="radio" value='2' name="config[config_birthday]" id="radio-2" />&nbsp;&nbsp;&nbsp;
+								  <input type="radio" value='2' name="config[config_birthday]" id="radio-2" <php>if($project_config['config_birthday']==2) { echo 'checked';}</php>  />&nbsp;&nbsp;&nbsp;
 								  <label for="radio-3">出生年份</label>
-								  <input type="radio" value='3' name="config[config_birthday]" id="radio-3" />
+								  <input type="radio" value='3' name="config[config_birthday]" id="radio-3" <php>if($project_config['config_birthday']==3) { echo 'checked';}</php>  />
 	                        </td>
 	                    </tr>
 						<tr>
 							<th>性别必须？</th>
 							<td>
 								<label for="radio-4">是</label>
-								<input type="radio" value='1' name="config[config_sex]" id="radio-4" />&nbsp;&nbsp;&nbsp;
+								<input type="radio" value='1' name="config[config_sex]" id="radio-4"  <php>if($project_config['config_sex']==1) { echo 'checked';}</php> />&nbsp;&nbsp;&nbsp;
 								<label for="radio-5">否</label>
-								<input type="radio" value='2' name="config[config_sex]" checked id="radio-5" />
+								<input type="radio" value='2' name="config[config_sex]" checked id="radio-5"  <php>if($project_config['config_sex']==2) { echo 'checked';}</php> />
 							</td>
 						</tr>
 
@@ -302,103 +306,103 @@
 	                        <th>允许不一致管理？</th>
 	                        <td>
 	                              <label for="radio-4">是</label>
-								  <input type="radio" value='1' name="config[config_manage]" checked id="radio-41" />&nbsp;&nbsp;&nbsp;
+								  <input type="radio" value='1' name="config[config_manage]" checked id="radio-41"  <php>if($project_config['config_birthday']==1) { echo 'checked';}</php> />&nbsp;&nbsp;&nbsp;
 								  <label for="radio-5">否</label>
-								  <input type="radio" value='2' name="config[config_manage]" id="radio-51" />
+								  <input type="radio" value='2' name="config[config_manage]" id="radio-51"  <php>if($project_config['config_manage']==2) { echo 'checked';}</php> />
 	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <th>是否需要受试者ID？</th>
 	                        <td>
 	                              <label for="radio-6">必需的</label>
-								  <input type="radio" value='1' name="config[config_user_id]" checked id="radio-6" />&nbsp;&nbsp;&nbsp;
+								  <input type="radio" value='1' name="config[config_user_id]" checked id="radio-6" <php>if($project_config['config_user_id']==1) { echo 'checked';}</php> />&nbsp;&nbsp;&nbsp;
 								  <label for="radio-7">可选</label>
-								  <input type="radio" value='2' name="config[config_user_id]" id="radio-7" />
+								  <input type="radio" value='2' name="config[config_user_id]" id="radio-7" <php>if($project_config['config_user_id']==2) { echo 'checked';}</php> />
 								<label for="radio-71">未使用</label>
-								<input type="radio" value='3' name="config[config_user_id]" id="radio-71" />
+								<input type="radio" value='3' name="config[config_user_id]" id="radio-71" <php>if($project_config['config_user_id']==3) { echo 'checked';}</php> />
 	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <th>显示ID于CRF页眉？</th>
 	                        <td>
 	                              <label for="radio-8">是</label>
-								  <input type="radio" value='1' name="config[config_id_crf]" id="radio-8" />&nbsp;&nbsp;&nbsp;
+								  <input type="radio" value='1' name="config[config_id_crf]" id="radio-8" <php>if($project_config['config_id_crf']==1) { echo 'checked';}</php> />&nbsp;&nbsp;&nbsp;
 								  <label for="radio-9">否</label>
-								  <input type="radio" value='2' name="config[config_id_crf]" checked id="radio-9" />
+								  <input type="radio" value='2' name="config[config_id_crf]" checked id="radio-9" <php>if($project_config['config_id_crf']==2) { echo 'checked';}</php> />
 	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <th>如何生成研究项目受试者 ID?</th>
 	                        <td>
 	                              <label for="radio-10">手工录入</label>
-								  <input type="radio" value='1' name="config[config_user]" id="radio-10" />
+								  <input type="radio" value='1' name="config[config_user]" id="radio-10" <php>if($project_config['config_user']==1) { echo 'checked';}</php> />
 								<label for="radio-101">自动产生并可编辑</label>
-								<input type="radio" value='2' name="config[config_user]" id="radio-101" />
+								<input type="radio" value='2' name="config[config_user]" id="radio-101" <php>if($project_config['config_user']==2) { echo 'checked';}</php> />
 								  <label for="radio-11">自动产生并不可编辑</label>
-								  <input type="radio" value='3' name="config[config_user]" checked id="radio-11" />
+								  <input type="radio" value='3' name="config[config_user]" checked id="radio-11" <php>if($project_config['config_user']==3) { echo 'checked';}</php> />
 	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <th>录入数据时，是否需要访视者姓名？</th>
 	                        <td>
 	                              <label for="radio-12">是</label>
-								  <input type="radio" value='1' name="config[config_see_user]" checked id="radio-12" />&nbsp;&nbsp;&nbsp;
+								  <input type="radio" value='1' name="config[config_see_user]" checked id="radio-12" <php>if($project_config['config_see_user']==1) { echo 'checked';}</php> />&nbsp;&nbsp;&nbsp;
 								  <label for="radio-13">否</label>
-								  <input type="radio" value='2' name="config[config_see_user]" id="radio-13" />
+								  <input type="radio" value='2' name="config[config_see_user]" id="radio-13" <php>if($project_config['config_see_user']==2) { echo 'checked';}</php> />
 	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <th>访视者姓名默认为空？</th>
 	                        <td>
 	                              <label for="radio-14">空白</label>
-								  <input type="radio" value='1' name="config[config_see_user_null]" checked id="radio-14" />&nbsp;&nbsp;&nbsp;
+								  <input type="radio" value='1' name="config[config_see_user_null]" checked id="radio-14" <php>if($project_config['config_see_user_null']==1) { echo 'checked';}</php> />&nbsp;&nbsp;&nbsp;
 								  <label for="radio-15">从实际用户中准备人群化</label>
-								  <input type="radio" value='2' name="config[config_see_user_null]" id="radio-15" />
+								  <input type="radio" value='2' name="config[config_see_user_null]" id="radio-15" <php>if($project_config['config_see_user_null']==2) { echo 'checked';}</php> />
 	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <th>访视者姓名是否可以编辑？</th>
 	                        <td>
 	                              <label for="radio-16">是</label>
-								  <input type="radio" value='1' name="config[config_see_user_edit]" checked id="radio-16" />&nbsp;&nbsp;&nbsp;
+								  <input type="radio" value='1' name="config[config_see_user_edit]" checked id="radio-16" <php>if($project_config['config_see_user_edit']==1) { echo 'checked';}</php> />&nbsp;&nbsp;&nbsp;
 								  <label for="radio-17">不</label>
-								  <input type="radio" value='2' name="config[config_see_user_edit]" id="radio-17" />
+								  <input type="radio" value='2' name="config[config_see_user_edit]" id="radio-17" <php>if($project_config['config_see_user_edit']==2) { echo 'checked';}</php> />
 	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <th>访视日期是否必需？</th>
 	                        <td>
 	                              <label for="radio-24">是</label>
-								  <input type="radio" value='1' name="config[config_see_time]" checked id="radio-24" />&nbsp;&nbsp;&nbsp;
+								  <input type="radio" value='1' name="config[config_see_time]" checked id="radio-24" <php>if($project_config['config_see_time']==1) { echo 'checked';}</php> />&nbsp;&nbsp;&nbsp;
 								  <label for="radio-25">不</label>
-								  <input type="radio" value='2' name="config[config_see_time]" id="radio-25" />
+								  <input type="radio" value='2' name="config[config_see_time]" id="radio-25" <php>if($project_config['config_see_time']==2) { echo 'checked';}</php> />
 	                        </td>
 	                    </tr>
 	                     <tr>
 	                        <th>访视日期默认为空？</th>
 	                        <td>
 	                              <label for="radio-18">是</label>
-								  <input type="radio" value='1' name="config[config_see_time_null]" checked id="radio-18" />&nbsp;&nbsp;&nbsp;
+								  <input type="radio" value='1' name="config[config_see_time_null]" checked id="radio-18" <php>if($project_config['config_see_time_null']==1) { echo 'checked';}</php> />&nbsp;&nbsp;&nbsp;
 								  <label for="radio-19">不</label>
-								  <input type="radio" value='2' name="config[config_see_time_null]" id="radio-19" />
+								  <input type="radio" value='2' name="config[config_see_time_null]" id="radio-19" <php>if($project_config['config_see_time_null']==2) { echo 'checked';}</php> />
 	                        </td>
 	                    </tr>
 	                     <tr>
 	                        <th>访视日期是否可以编辑？</th>
 	                        <td>
 	                              <label for="radio-20">是</label>
-								  <input type="radio" value='1' name="config[config_see_time_edit]" checked id="radio-20" />&nbsp;&nbsp;&nbsp;
+								  <input type="radio" value='1' name="config[config_see_time_edit]" checked id="radio-20" <php>if($project_config['config_see_time_edit']==1) { echo 'checked';}</php> />&nbsp;&nbsp;&nbsp;
 								  <label for="radio-21">不</label>
-								  <input type="radio" value='2' name="config[config_see_time_edit]" id="radio-21" />
+								  <input type="radio" value='2' name="config[config_see_time_edit]" id="radio-21" <php>if($project_config['config_see_time_edit']==2) { echo 'checked';}</php> />
 	                        </td>
 	                    </tr>
 	                     <tr>
 	                        <th>管理员编辑强制修改原因？</th>
 	                        <td>
 	                              <label for="radio-22">是</label>
-								  <input type="radio" value='1' name="config[config_admin_edit]" checked id="radio-22" />&nbsp;&nbsp;&nbsp;
+								  <input type="radio" value='1' name="config[config_admin_edit]" checked id="radio-22" <php>if($project_config['config_admin_edit']==1) { echo 'checked';}</php> />&nbsp;&nbsp;&nbsp;
 								  <label for="radio-23">不</label>
-								  <input type="radio" value='2' name="config[config_admin_edit]" id="radio-23" />
+								  <input type="radio" value='2' name="config[config_admin_edit]" id="radio-23" <php>if($project_config['config_admin_edit']==2) { echo 'checked';}</php> />
 	                        </td>
 	                    </tr>
 	                </table>
