@@ -170,6 +170,14 @@ class ProjectController extends AdminBaseController
         return $this->fetch();
     }
 
+
+    /*项目crf 存储*/
+    public function edcaddPost()
+    {
+        file_put_contents('crf.txt',var_export($_POST,true));
+        print_r($_POST);die;
+    }
+
     /*
      * 项目规则
      * */

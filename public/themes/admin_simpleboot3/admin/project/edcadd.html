@@ -41,7 +41,7 @@
 			<li ><a href="{:url('project/edit')}">项目基本信息</a></li>
 			<li class="active"><a href="{:url('project/edcadd')}">项目CRF</a></li>
 		</ul>
-		<form action="{:url('AdminArticle/addPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+		<form action="{:url('project/edcaddPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
 			<input type="hidden" name="project_id" value="{$project_id}">
         <div class="row" style='position: relative;' id="crf">
         	<div class='addbutton' onclick="crfAdd()">+增加事件</div>
@@ -50,7 +50,7 @@
 							<div class="form-group">
 								<label for="input-name" class="col-sm-2 control-label"><span class="form-required">*</span>事件名称</label>
 								<div class="col-md-6 col-sm-10">
-									<input class="form-control" id="input-name" type="text" name="project_event[]" value=""  placeholder="事件名称">
+									<input class="form-control" id="input-name" type="text" required name="project_event[]" value=""  placeholder="事件名称">
 								</div>
 							</div>
 							<!--增加表格-->
@@ -62,8 +62,17 @@
 							<a class='btn btn-primary input-a' href="javascript:;" onclick="crfSelectAdd('project-crf-1')">追加选择</a>
 							<a class='btn btn-danger input-a'  href="javascript:;" onclick="crfDel('project-crf-1')">删除事件</a>
 						</div>
+
+
 	                <!-- end div -->
 	            </div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary js-ajax-submit">保存</button>
+					<a class="btn btn-default" href="{:url('AdminArticle/index')}">{:lang('BACK')}</a>
+					<!--<a class="btn btn-default" href="{:url('project/edcadd')}">生成CRF</a>-->
+				</div>
+			</div>
 
         </div>
     </form>
@@ -256,7 +265,7 @@
 	function crfInputCon(crfId,crf_num)
 	{
 	    var crf_num=crf_num;
-	    var input_name="crf["+crf_num+"][input][]";
+	    var input_name="crf["+crf_num+"][input][desc][]";
 	    var select_name="crf["+crf_num+"][input][type][]";
         var input_num=$("#"+crfId).find(".input-num").length;
         input_num=input_num+1;
@@ -276,7 +285,7 @@
             '<label for="input-name" class="col-sm-2 control-label"><span class="form-required">*</span>填空描述</label>' +
             '<div class="col-md-6 col-sm-10">' +
             '<input class="form-control input-num" type="text" name="'+input_name+'" value="" placeholder="填空描述">' +
-			'<div style="display:inline;float: left;"><select name=""><option value="1">填空&nbsp;&nbsp;&nbsp;</option><option value="2">描述&nbsp;&nbsp;</option><option value="3">时间选择器</option></select></div>'+
+			'<div style="display:inline;float: left;"><select name="'+select_name+'"><option value="1">填空&nbsp;&nbsp;&nbsp;</option><option value="2">描述&nbsp;&nbsp;</option><option value="3">时间选择器</option></select></div>'+
             '<a class="btn btn-danger"  href="javascript:;" onclick="crfInputDelAll('+crf_num+','+input_num+')">删除填空</a>'+
             '</div>' +
             '</div></div>';
