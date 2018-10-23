@@ -42,6 +42,7 @@
 			<li class="active"><a href="{:url('project/edcadd')}">项目CRF</a></li>
 		</ul>
 		<form action="{:url('AdminArticle/addPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+			<input type="hidden" name="project_id" value="{$project_id}">
         <div class="row" style='position: relative;' id="crf">
         	<div class='addbutton' onclick="crfAdd()">+增加事件</div>
 	            <div class="col-md-7 col-sm-10 crf-num"  id='project-crf-1' >
@@ -166,8 +167,16 @@
         }
 		var input_name="crf["+crf_num+"]['table']['desc']["+table_num+"][]";
         var table_name="crf["+crf_num+"]['table']['name']["+table_num+"]";
-
 		var input_type="crf["+crf_num+"]['table']['type']["+table_num+"][]";
+		var table_sort="crf["+crf_num+"]['table']['sort']["+table_num+"]";
+		//排序问题
+		var sort_class="crf-"+crf_num+"-sort";
+		var event_sort=$("."+sort_class).length;
+		if(!event_sort)
+		{
+		    event_sort=0;
+		}
+		event_sort=event_sort+1;
 		var input_append=crf_num+","+table_num;
 		//tr id 为动态数字
         var tr_id="tr-"+crf_num+"-"+table_num;
@@ -176,6 +185,7 @@
 	    contxt='<div id="'+div_table+'"><div class="form-group input-div-margin">' +
 				'<label  class="col-sm-2 control-label"><span class="form-required">*</span>表格名称</label>' +
 				'<div class="col-md-6 col-sm-10">' +
+            	'<input type="hidden" class="'+sort_class+'"  name="'+table_sort+'" value="'+event_sort+'">' +
 				'<input type="text" class="form-control"  name="'+table_name+'" placeholder="表格名称">' +
 				'</div>' +
 				'</div>' +
@@ -251,8 +261,18 @@
         var input_num=$("#"+crfId).find(".input-num").length;
         input_num=input_num+1;
         var div_input='input-'+crf_num+"-"+input_num;
+        //排序问题
+		var input_sort="crf["+crf_num+"][input][sort][]";
+        var sort_class="crf-"+crf_num+"-sort";
+        var event_sort=$("."+sort_class).length;
+        if(!event_sort)
+        {
+            event_sort=0;
+        }
+        event_sort=event_sort+1;
 	    var con='';
 	    con='<div id="'+div_input+'"><div class="form-group">' +
+            '<input type="hidden" class="'+sort_class+'"  name="'+input_sort+'" value="'+event_sort+'">' +
             '<label for="input-name" class="col-sm-2 control-label"><span class="form-required">*</span>填空描述</label>' +
             '<div class="col-md-6 col-sm-10">' +
             '<input class="form-control input-num" type="text" name="'+input_name+'" value="" placeholder="填空描述">' +
@@ -294,8 +314,18 @@
         var input_select_option="crf["+crf_num+"][select][option]["+select_num+"][]";
         var table_select='select-table-'+crf_num+"-"+select_num;
         var con='';
+        //排序问题
+		var select_sort="crf["+crf_num+"][select][sort]["+select_num+"]"
+        var sort_class="crf-"+crf_num+"-sort";
+        var event_sort=$("."+sort_class).length;
+        if(!event_sort)
+        {
+            event_sort=0;
+        }
+        event_sort=event_sort+1;
         	con='<div class="" id="'+div_select+'">' +
                 '<div class="form-group">' +
+                '<input type="hidden" class="'+sort_class+'"  name="'+select_sort+'" value="'+event_sort+'">' +
                 '<label for="input-name" class="col-sm-2 control-label"><span class="form-required">*</span>选择题目描述</label>' +
                 '<div class="col-md-6 col-sm-10">' +
                 '<input class="form-control" type="text" name="'+input_select_name+'" value=""  placeholder="选择题目描述">' +

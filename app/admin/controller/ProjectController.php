@@ -164,7 +164,9 @@ class ProjectController extends AdminBaseController
     */
     public function edcadd()
     {
+        $project_id=$this->request->param('id');
 
+        $this->assign('project_id',$project_id);
         return $this->fetch();
     }
 
