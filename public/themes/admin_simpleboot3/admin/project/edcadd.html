@@ -66,15 +66,16 @@
 
 	                <!-- end div -->
 	            </div>
+
+
+        </div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
 					<button type="submit" class="btn btn-primary js-ajax-submit">保存</button>
-					<a class="btn btn-default" href="{:url('AdminArticle/index')}">{:lang('BACK')}</a>
+					<a class="btn btn-default" href="{:url('project/index')}">{:lang('BACK')}</a>
 					<!--<a class="btn btn-default" href="{:url('project/edcadd')}">生成CRF</a>-->
 				</div>
 			</div>
-
-        </div>
     </form>
 	</div>
 
@@ -174,10 +175,10 @@
         {
             table_num=1;
         }
-		var input_name="crf["+crf_num+"]['table']['desc']["+table_num+"][]";
-        var table_name="crf["+crf_num+"]['table']['name']["+table_num+"]";
-		var input_type="crf["+crf_num+"]['table']['type']["+table_num+"][]";
-		var table_sort="crf["+crf_num+"]['table']['sort']["+table_num+"]";
+		var input_name="crf["+crf_num+"][table][desc]["+table_num+"][]";
+        var table_name="crf["+crf_num+"][table][name]["+table_num+"]";
+		var input_type="crf["+crf_num+"][table][type]["+table_num+"][]";
+		var table_sort="crf["+crf_num+"][table][sort]["+table_num+"]";
 		//排序问题
 		var sort_class="crf-"+crf_num+"-sort";
 		var event_sort=$("."+sort_class).length;
@@ -228,14 +229,14 @@
 
 	 function crfTableAppend(crf_num,table_num) {
         // alert(1);
-		 var input_name="crf["+crf_num+"]['table']['desc']["+table_num+"][]";
-         var input_type="crf["+crf_num+"]['table']['type']["+table_num+"][]";
+		 var input_name="crf["+crf_num+"][table][desc]["+table_num+"][]";
+         var input_type="crf["+crf_num+"][table][type]["+table_num+"][]";
 		 var  tr_id="tr-"+crf_num+"-"+table_num;
        	html='<td><input class="form-control" type="text" name="'+input_name+'">' +
             '<select style="display: inline" name="'+input_type+'">'+
-            '<option value="1">文本输入</option>' +
-            '<option value="2">两项单选</option>' +
-            '<option value="3">时间选择器</option>' +
+            '<option value="text">文本输入</option>' +
+            '<option value="radio_or">两项单选</option>' +
+            '<option value="date">时间选择器</option>' +
             '</select>'+
             '</td>';
         $('#'+tr_id).append(html);
@@ -285,7 +286,7 @@
             '<label for="input-name" class="col-sm-2 control-label"><span class="form-required">*</span>填空描述</label>' +
             '<div class="col-md-6 col-sm-10">' +
             '<input class="form-control input-num" type="text" name="'+input_name+'" value="" placeholder="填空描述">' +
-			'<div style="display:inline;float: left;"><select name="'+select_name+'"><option value="1">填空&nbsp;&nbsp;&nbsp;</option><option value="2">描述&nbsp;&nbsp;</option><option value="3">时间选择器</option></select></div>'+
+			'<div style="display:inline;float: left;"><select name="'+select_name+'"><option value="fill">填空&nbsp;&nbsp;&nbsp;</option><option value="desc">描述&nbsp;&nbsp;</option><option value="date">时间选择器</option></select></div>'+
             '<a class="btn btn-danger"  href="javascript:;" onclick="crfInputDelAll('+crf_num+','+input_num+')">删除填空</a>'+
             '</div>' +
             '</div></div>';
