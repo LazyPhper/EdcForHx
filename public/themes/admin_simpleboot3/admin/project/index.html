@@ -37,7 +37,8 @@
 					<td>{$vo.project_charge}</td>
 					<td>{$vo.start_time}</td>
 					<td>
-							<a href='{:url("project/edit",array("id"=>$vo["id"]))}'>{:lang('EDIT')}</a>
+							<a href='{:url("project/edit",array("id"=>$vo["id"]))}'>{:lang('EDIT')}</a> |
+							<a href='{:url("project/project_crf",array("project_id"=>$vo["id"]))}'>查看crf</a>
 
 					</td>
 				</tr>

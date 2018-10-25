@@ -228,10 +228,10 @@ class ProjectController extends AdminBaseController
             $newdata[$key]['event_type']='title';
             $newdata[$key]['event_num']=$key+1;
             $newdata[$key]['sort']=0;
-            $newdata[$key]['event_desc']=$value;
             $newdata[$key]['event_type_t']='title';
-            $newdata[$key]['rule']='';
+            $newdata[$key]['event_desc']=$value;
             $newdata[$key]['add_time']=time();
+            $newdata[$key]['rule']='';
             $newdata[$key]['project_id']=$project_id;
 
         }
@@ -271,13 +271,13 @@ class ProjectController extends AdminBaseController
                        $newdataarray['event_type']='table';
                        $newdataarray['event_num']=$key+1;
                        $newdataarray['sort']=$vv;
+                       $newdataarray['event_type_t']='table';
                        $table_arr['name']=$v['name'][$kk];
                        $table_arr['desc']=$v['desc'][$kk];
                        $table_arr['type']=$v['type'][$kk];
                        $newdataarray['event_desc']=json_encode($table_arr);
-                       $newdataarray['event_type_t']='table';
-                       $newdataarray['rule']='';
                        $newdataarray['add_time']=time();
+                       $newdataarray['rule']='';
                        $newdataarray['project_id']=$project_id;
                        array_push($newdata,$newdataarray);
                    }
@@ -292,13 +292,13 @@ class ProjectController extends AdminBaseController
                        $newdataarray['event_type']='select';
                        $newdataarray['event_num']=$key+1;
                        $newdataarray['sort']=$vv;
+                       $newdataarray['event_type_t']=$v['type'][$kk];
                        $table_arr['name']=$v['name'][$kk];
                        $table_arr['option']=$v['option'][$kk];
                        $table_arr['type']=$v['type'][$kk];
                        $newdataarray['event_desc']=json_encode($table_arr);
-                       $newdataarray['event_type_t']='select';
-                       $newdataarray['rule']='';
                        $newdataarray['add_time']=time();
+                       $newdataarray['rule']='';
                        $newdataarray['project_id']=$project_id;
                        array_push($newdata,$newdataarray);
 
@@ -313,6 +313,26 @@ class ProjectController extends AdminBaseController
 
         //
         return $newdata;
+    }
+
+
+    /*
+     *生成crf页面
+     *
+     *  */
+    public function project_crf()
+    {
+        $project_id=$this->request->param('project_id');
+        //查询出所有事件
+        $where['project_id']=$project_id;
+        $result=Db::name('admin_project_crf')->where($where)->order('event_num asc , sort asc')->select();
+        //字母
+        $letter=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+        $this->assign('result',$result);
+        $this->assign('project_id',$project_id);
+        $this->assign('letter',$letter);
+
+        return $this->fetch();
     }
 
     /*
