@@ -37,11 +37,11 @@
 
 						if($v['event_type_t']=='fill'){
 						?>
-						<div class="div_input">{$v.event_desc}&nbsp;&nbsp;&nbsp;<input class='input-normal' name="{$k}" type="text" value="" ></div>
+						<div class="div_input">{$v.event_desc}&nbsp;&nbsp;&nbsp;<input class='input-normal' name="" type="text" value="" ></div>
 				<?php
 						}elseif($v['event_type_t']=='date'){
 						?>
-						<div class="div_input">{$v.event_desc}&nbsp;&nbsp;&nbsp;<input class="input-normal js-date"   type="text" name="{$k}" value="{:date('Y-m-d',time())}" ></div>
+						<div class="div_input">{$v.event_desc}&nbsp;&nbsp;&nbsp;<input class="input-normal js-date"   type="text" name="" value="{:date('Y-m-d',time())}" ></div>
 				<?php
 						}elseif($v['event_type_t']=='desc'){
 						?>
@@ -81,30 +81,30 @@
 
 						<div class="div_select">
 							<span>{$table.name}</span>
-							<table class="table_border" id="crf-{$v.id}">
+							<table class="table_border" id="crf">
 								<tr>
 									<foreach name="table.desc" key="table_k" item="tab">
 									<td class="td_border">{$tab}</td>
 									</foreach>
 								</tr>
-								<tr id="crf-{$v.id}-tr">
+								<tr id="crf-tr">
 									<foreach name="table.type" key="table_k" item="tab_t">
 										<?php if($tab_t=='text')
 												{
 												?>
-												<td class="td_border"><input type="text" class="input-normal" name="table-{$v.id}-{$table_k}[]" value=""></td>
+												<td class="td_border"><input type="text" class="input-normal" name="" value=""></td>
 										<?php
 												}elseif($tab_t=='date'){
 												?>
-												<td class="td_border"><input class="input-normal  js-date" type="text"  name="table-{$v.id}-{$table_k}[]" value="{:date('Y-m-d',time())}"></td>
+												<td class="td_border"><input class="input-normal  js-date" type="text"  name="" value="{:date('Y-m-d',time())}"></td>
 										<?php
 												}elseif($tab_t=='radio_or'){
 												?>
-												<td class="td_border"><input type="radio" name="table-{$v.id}-{$table_k}[]" value="">是&nbsp;&nbsp;<input type="radio" name="table-{$v.id}-{$table_k}[]" value="">否</td>
+												<td class="td_border"><input type="radio" name="" value="">是&nbsp;&nbsp;<input type="radio" name="" value="">否</td>
 										<?php
 												}else{
 												?>
-												<td class="td_border"><input type="text" class="input-normal" name="table-{$v.id}-{$table_k}[]" value=""></td>
+												<td class="td_border"><input type="text" class="input-normal" name="" value=""></td>
 										<?php
 												}
 												?>
@@ -113,7 +113,7 @@
 
 								</tr>
 							</table>
-							<a class="btn btn-primary" href="javascript:;" onclick='crfAddTr("crf-{$v.id}")'>追加</a>
+							<a class="btn btn-primary" href="javascript:;" onclick='crfAddTr()'>追加</a>
 
 						</div>
 

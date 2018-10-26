@@ -214,7 +214,7 @@ class ProjectController extends AdminBaseController
     }
 
     /*
-     *把数据格式化
+     *把数据格式化 便于插入数据库
      * */
     public function edcaddFormat($postdata)
     {
@@ -267,7 +267,7 @@ class ProjectController extends AdminBaseController
                    {
                        $table_arr['name']='';
                        $table_arr['desc']=array();
-
+                       $table_arr['option']=array();
                        $newdataarray['event_type']='table';
                        $newdataarray['event_num']=$key+1;
                        $newdataarray['sort']=$vv;
@@ -289,6 +289,7 @@ class ProjectController extends AdminBaseController
                    {
                        $table_arr['name']='';
                        $table_arr['desc']=array();
+                       $table_arr['option']=array();
                        $newdataarray['event_type']='select';
                        $newdataarray['event_num']=$key+1;
                        $newdataarray['sort']=$vv;
@@ -333,6 +334,186 @@ class ProjectController extends AdminBaseController
         $this->assign('letter',$letter);
 
         return $this->fetch();
+    }
+
+    /*
+     *crf页面编辑
+     *
+     *  */
+    public function edcedit()
+    {
+        $project_id=$this->request->param('project_id');
+        //查询出所有事件
+        $where['project_id']=$project_id;
+//        $result=Db::name('admin_project_crf')->where($where)->order('event_num asc , sort asc')->select();
+        //本来的crf 数据
+        $crf_txt=Db::name('admin_project_crf_txt')->where($where)->find();
+        $result=json_decode($crf_txt['crf_txt'],true);
+        //处理数组 便于循环
+        if(empty($result))
+        {
+            $this->error("还未编辑crf", url("project/edcadd",['project_id'=>$project_id]));
+        }
+
+        $newdata=$this->edceditFormat($result);
+        //字母
+//        print_r($newdata);
+        $letter=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+        $this->assign('result',$newdata);
+        $this->assign('crf_txt',$crf_txt);
+        $this->assign('project_id',$project_id);
+        $this->assign('letter',$letter);
+
+        return $this->fetch();
+    }
+
+    /*crf编辑提交*/
+
+    public function edceditPost()
+    {
+//        print_r($_POST);die;
+        if ($this->request->isPost()) {
+            $id=$this->request->param('project_id');
+            $data=$this->request->param();
+            //data crf的数据
+            $returndata=$this->edcaddFormat($data);
+            //开始事务
+            $json_txt=json_encode($data);
+            $crf_txt['project_id']=$id;
+            $crf_txt['crf_txt']=$json_txt;
+            //因为是重新编辑 所以把之前的记录删除~
+            $where['project_id']=$id;
+            Db::startTrans();
+            try{
+                Db::name('admin_project_crf_txt')->where($where)->delete();
+                Db::name('admin_project_crf_txt')->where($where)->update($crf_txt);
+                Db::name('admin_project_crf')->insertAll($returndata);
+
+                // 提交事务
+                Db::commit();
+            } catch (\Exception $e) {
+                // 回滚事务
+                Db::rollback();
+                print_r($e->getMessage());
+                print_r(Db::getLastSql());
+                $this->error("crf更新失败！");
+            }
+            $this->success("crf更新成功！", url("project/index"));
+
+        }
+    }
+
+
+    /*crf预览页面*/
+
+    public function seefirst()
+    {
+        if ($this->request->isPost()) {
+            $id=$this->request->param('project_id');
+            $data=$this->request->param();
+            //data crf的数据
+            $returndata=$this->edcaddFormat($data);
+            $this->assign('result',$returndata);
+            return $this->fetch();
+        }
+
+    }
+
+    /*
+ *把数据格式化 便于插入数据库
+ * */
+    public function edceditFormat($postdata)
+    {
+        $project_event=$postdata['project_event'];
+        $project_id=$postdata['project_id'];
+        $crf=array_values($postdata['crf']);
+        //将数据格式化
+        $i=0;
+        foreach($project_event as $key=>$value)
+        {
+            $newdata[$key]=array();
+            $newdataarray['event_type']='title';
+            $newdataarray['event_num']=$key+1;
+            $newdataarray['sort']=0;
+            $newdataarray['event_type_t']='title';
+            $newdataarray['event_desc']=$value;
+            $newdataarray['project_id']=$project_id;
+            array_push($newdata[$key],$newdataarray);
+        }
+
+        //将crf格式化
+        //$value
+        foreach ($crf as $key=>$value)
+        {
+            foreach ($value as $k=>$v)
+            {
+                //
+                if($k=='input')
+                {
+                    foreach($v['sort'] as $kk=>$vv)
+                    {
+
+                        $newdataarray['event_type']='input';
+                        $newdataarray['event_num']=$key+1;
+                        $newdataarray['sort']=$vv;
+                        $newdataarray['event_type_t']=$v['type'][$kk];
+                        $newdataarray['event_desc']=$v['desc'][$kk];
+                        $newdataarray['project_id']=$project_id;
+                        array_push($newdata[$key],$newdataarray);
+
+                    }
+
+                }
+                //
+                if($k=='table')
+                {
+                    foreach($v['sort'] as $kk=>$vv)
+                    {
+                        $table_arr['name']='';
+                        $table_arr['desc']=array();
+                        $table_arr['option']=array();
+                        $newdataarray['event_type']='table';
+                        $newdataarray['event_num']=$key+1;
+                        $newdataarray['sort']=$vv;
+                        $newdataarray['event_type_t']='table';
+                        $table_arr['name']=$v['name'][$kk];
+                        $table_arr['desc']=$v['desc'][$kk];
+                        $table_arr['type']=$v['type'][$kk];
+                        $newdataarray['event_desc']=$table_arr;
+                        $newdataarray['project_id']=$project_id;
+                        array_push($newdata[$key],$newdataarray);
+                    }
+
+                }
+                if($k=='select')
+                {
+                    foreach($v['sort'] as $kk=>$vv)
+                    {
+                        $table_arr['name']='';
+                        $table_arr['desc']=array();
+                        $table_arr['option']=array();
+                        $newdataarray['event_type']='select';
+                        $newdataarray['event_num']=$key+1;
+                        $newdataarray['sort']=$vv;
+                        $newdataarray['event_type_t']=$v['type'][$kk];
+                        $table_arr['name']=$v['name'][$kk];
+                        $table_arr['option']=$v['option'][$kk];
+                        $table_arr['type']=$v['type'][$kk];
+                        $newdataarray['event_desc']=$table_arr;
+                        $newdataarray['project_id']=$project_id;
+                        array_push($newdata[$key],$newdataarray);
+
+                    }
+
+                }
+
+            }
+        }
+        //按照事件排序
+//       array_multisort(array_column($newdata,'event_num'),SORT_ASC,$newdata);
+
+        //
+        return $newdata;
     }
 
     /*
