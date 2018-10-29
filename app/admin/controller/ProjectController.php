@@ -330,6 +330,7 @@ class ProjectController extends AdminBaseController
         //字母
         $letter=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
         $this->assign('result',$result);
+
         $this->assign('project_id',$project_id);
         $this->assign('letter',$letter);
 
@@ -357,6 +358,7 @@ class ProjectController extends AdminBaseController
 
         $newdata=$this->edceditFormat($result);
         //字母
+
 //        print_r($newdata);
         $letter=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
         $this->assign('result',$newdata);
@@ -385,7 +387,7 @@ class ProjectController extends AdminBaseController
             $where['project_id']=$id;
             Db::startTrans();
             try{
-                Db::name('admin_project_crf_txt')->where($where)->delete();
+                Db::name('admin_project_crf')->where($where)->delete();
                 Db::name('admin_project_crf_txt')->where($where)->update($crf_txt);
                 Db::name('admin_project_crf')->insertAll($returndata);
 
@@ -408,15 +410,22 @@ class ProjectController extends AdminBaseController
 
     public function seefirst()
     {
-        if ($this->request->isPost()) {
-            $id=$this->request->param('project_id');
-            $data=$this->request->param();
-            //data crf的数据
-            $returndata=$this->edcaddFormat($data);
-            $this->assign('result',$returndata);
-            return $this->fetch();
-        }
+        print_r($_POST);die;
+//        if ($this->request->isGet()) {
+//
+//            $id=$this->request->param('project_id');
+//            $data=$this->request->param();
+//            //data crf的数据
+//            $returndata=$this->edcaddFormat($data);
+//            $this->assign('result',$returndata);
+//            return $this->fetch();
+//        }
 
+    }
+
+    public function see()
+    {
+        return $this->fetch();
     }
 
     /*
@@ -472,6 +481,7 @@ class ProjectController extends AdminBaseController
                         $table_arr['name']='';
                         $table_arr['desc']=array();
                         $table_arr['option']=array();
+
                         $newdataarray['event_type']='table';
                         $newdataarray['event_num']=$key+1;
                         $newdataarray['sort']=$vv;
@@ -506,11 +516,13 @@ class ProjectController extends AdminBaseController
                     }
 
                 }
+                //排序
+                array_multisort(array_column($newdata[$key],'sort'),SORT_ASC,$newdata[$key]);
 
             }
         }
-        //按照事件排序
-//       array_multisort(array_column($newdata,'event_num'),SORT_ASC,$newdata);
+
+
 
         //
         return $newdata;

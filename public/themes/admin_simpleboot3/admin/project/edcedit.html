@@ -41,8 +41,8 @@
 			<li ><a href="{:url('project/edit')}">项目基本信息</a></li>
 			<li class="active"><a href="{:url('project/edcadd')}">项目CRF</a></li>
 		</ul>
-		<form action="{:url('project/edceditPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
-			<input type="hidden" name="project_id" value="{$project_id}">
+		<form action="{:url('project/edceditPost')}" method="post" id="data-form" class="form-horizontal js-ajax-form margin-top-20">
+			<input type="hidden" name="project_id" id="project_id" value="{$project_id}">
         <div class="row" style='position: relative;' id="crf">
         	<div class='addbutton' onclick="crfAdd()">+增加事件</div>
 			<!--开始循环-->
@@ -110,15 +110,14 @@
 					 		 $crf_num=$va['event_num'];
 					 		 $tablenum=$table_num;
 					 		 $sort_class='crf-'.$crf_num.'-sort';
-					 		 $table_sort='crf['.$crf_num.'][table][sort]['.$tablenum.'][]';
-							 $table_name='crf['.$crf_num.'][table][name]['.$tablenum.'][]';
+					 		 $table_sort='crf['.$crf_num.'][table][sort]['.$tablenum.']';
+							 $table_name='crf['.$crf_num.'][table][name]['.$tablenum.']';
 					 		 $div_table='table-'.$crf_num."-".$tablenum;;
 					 		 $tr_id="tr-".$crf_num."-".$tablenum;
 					 		 $input_name='crf['.$crf_num.'][table][desc]['.$tablenum.'][]';
 					 		 $input_type='crf['.$crf_num.'][table][type]['.$tablenum.'][]';
 					?>
 								<div id="{$div_table}"><div class="form-group input-div-margin">
-									{$tablenum}
 								<label  class="col-sm-2 control-label"><span class="form-required">*</span>表格名称</label>
 								<div class="col-md-6 col-sm-10">
 									<input type="hidden" class="{$sort_class}"  name="{$table_sort}" value="{$va.sort}">
@@ -253,15 +252,12 @@
 							<!--<a class='btn btn-primary input-a' href="javascript:;" onclick="crfSelectAdd('project-crf-1')">追加选择</a>-->
 							<!--<a class='btn btn-danger input-a'  href="javascript:;" onclick="crfDel('project-crf-1')">删除事件</a>-->
 						<!--</div>-->
-
-
 	                <!--&lt;!&ndash; end div &ndash;&gt;-->
 	            <!--</div>-->
 
         </div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<a class="btn btn-danger" href="javascript:;" onclick="seeFirst()">预览</a>
 					<a class="btn btn-default" href="{:url('project/index')}">{:lang('BACK')}</a>
 					<button style="margin-left:50px;" type="submit" class="btn btn-primary js-ajax-submit">保存</button>
 
@@ -281,7 +277,6 @@
 	{
 	    var hhtml=crfcon();
 	    $("#crf").append(hhtml);
-
 	}
 
 	/*事件内容*/
@@ -598,18 +593,6 @@
 	    return new_array[num];
 
 	}
-	/*预览打开页面*/
-	function seeFirst() {
-        layer.open({
-            type: 2,
-            title: 'CRF预览',
-            shadeClose: true,
-            shade: false,
-            maxmin: true, //开启最大化最小化按钮
-            area: ['1200px', '800px'],
-            content: "{:url('project/seefirst')}"
-        });
 
-    }
 
 </script>
