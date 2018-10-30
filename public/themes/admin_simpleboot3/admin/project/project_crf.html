@@ -55,7 +55,6 @@
 
 				<?php if($v['event_type']=='select')
 					 {
-
 					  	$select=json_decode($v['event_desc'],true);
 					  	?>
 						<div class="div_select">
@@ -64,11 +63,8 @@
 								<foreach name="select.option" key="select_k" item="sel">
 									<div class="option_div"><span><?php echo $letter[$select_k]; ?></span>:&nbsp;&nbsp;&nbsp;<input type="{$v.event_type_t}" name="crf[{$v.id}]">&nbsp;<span class="select_input">{$sel}</span></div>
 								</foreach>
-
-
 							</div>
 						</div>
-
 				<?php
 					  }
 				?>
@@ -123,7 +119,6 @@
 
 
 			</foreach>
-
 
     </form>
 		<div class="form-group" style="margin-top: 5%">
