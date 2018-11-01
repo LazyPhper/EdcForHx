@@ -5,6 +5,8 @@
 		<ul class="nav nav-tabs">
 			<li ><a href="{:url('project/index')}">项目列表</a></li>
 			<li class="active"><a href="">编辑项目</a></li>
+			<li ><a  href="{:url('project/project_crf',['project_id'=>$project_info.id])}">项目CRF</a></li>
+			<li  ><a href="{:url('project/ruleedit',['project_id'=>$project_info.id])}">编辑规则</a></li>
 		</ul>
 		<form action="{:url('project/editPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
         <div class="row">
@@ -48,9 +50,9 @@
                         <th>主要研究者</th>
                         <td>
                              <select class="form-control" name="post[project_student]" >
-                                <option value="1">研究者1</option>
-                                <option value="2">研究者2</option>
-                                <option value="3">研究者3</option>
+								 <foreach name="admin_y" item="vv">
+									 <option value="{$vv.id}" <?php if($project_info['project_student']==$vv['id']){ echo 'selected';} ?> >{$vv.user_login}</option>
+								 </foreach>
                                
                             </select>
                         </td>
@@ -60,9 +62,9 @@
                         <th>负责人</th>
                         <td>
                               <select class="form-control" name="post[project_charge]" >
-                                <option value="1">负责人1</option>
-                                <option value="2">负责人2</option>
-                                <option value="3">负责人3</option>
+								  <foreach name="admin_f" item="vv">
+									  <option value="{$vv.id}" <?php if($project_info['project_charge']==$vv['id']){ echo 'selected';} ?> >{$vv.user_login}</option>
+								  </foreach>
                                
                             </select>
                         </td>

@@ -57,7 +57,6 @@ class AdminIndexController extends AdminBaseController
     public function index()
     {
         $content = hook_one('user_admin_index_view');
-
         if (!empty($content)) {
             return $content;
         }
@@ -68,6 +67,7 @@ class AdminIndexController extends AdminBaseController
         if (!empty($request['uid'])) {
             $where['id'] = intval($request['uid']);
         }
+        $where['user_type']=2;
         $keywordComplex = [];
         if (!empty($request['keyword'])) {
             $keyword = $request['keyword'];
@@ -138,7 +138,7 @@ class AdminIndexController extends AdminBaseController
     }
 
     /**
-     *增加受试者
+     * 增加受试者
      *
      */
     public function add()
@@ -147,11 +147,13 @@ class AdminIndexController extends AdminBaseController
     }
 
     /**
-     *编辑受试者
+     * 编辑受试者
      *
      */
     public function edit()
     {
         return $this->fetch();
     }
+
+
 }

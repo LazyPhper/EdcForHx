@@ -47,9 +47,10 @@
                         <th>主要研究者</th>
                         <td>
                              <select class="form-control" name="post[project_student]" >
-                                <option value="1">研究者1</option>
-                                <option value="2">研究者2</option>
-                                <option value="3">研究者3</option>
+								 <foreach name="admin_y" item="vv">
+									 <option value="{$vv.id}">{$vv.user_login}</option>
+								 </foreach>
+
                                
                             </select>
                         </td>
@@ -59,9 +60,9 @@
                         <th>负责人</th>
                         <td>
                               <select class="form-control" name="post[project_charge]" >
-                                <option value="1">负责人1</option>
-                                <option value="2">负责人2</option>
-                                <option value="3">负责人3</option>
+								  <foreach name="admin_f" item="vv">
+									  <option value="{$vv.id}">{$vv.user_login}</option>
+								  </foreach>
                                
                             </select>
                         </td>

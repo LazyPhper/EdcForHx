@@ -4,7 +4,7 @@
 <div class="wrap">
     <ul class="nav nav-tabs">
         <li class="active"><a>受试者列表</a></li>
-        <li ><a href="{:url('admin_index/add')}">增加受试者</a></li>
+        <li ><a href="{:url('user/user_add')}">增加受试者</a></li>
     </ul>
     <form class="well form-inline margin-top-20" method="post" action="{:url('user/adminIndex/index')}">
         用户ID：
@@ -23,9 +23,7 @@
                 <th>ID</th>
                 <th>{:lang('USERNAME')}</th>
                 <th>用户编号</th>
-                <th>{:lang('REGISTRATION_TIME')}</th>
-
-
+                <th>加入时间</th>
                 <th>{:lang('STATUS')}</th>
                 <th>{:lang('ACTIONS')}</th>
             </tr>
@@ -39,22 +37,12 @@
                     <td>{$vo.id}</td>
                     <td>{$vo['user_login']?$vo['user_login']:($vo['mobile']?$vo['mobile']:lang('THIRD_PARTY_USER'))}
                     </td>
-                    <td>{$vo['user_nickname']?$vo['user_nickname']:lang('NOT_FILLED')}</td>
+                    <td>{$vo['user_sn']?$vo['user_sn']:lang('NOT_FILLED')}</td>
                     <td>{$vo.create_time}</td>
                     <td>{$user_statuses[$vo['user_status']]}</td>
                     <td>
-                        <neq name="vo.id" value="1">
-                            <empty name="vo.user_status">
-                                <a href="{:url('adminIndex/cancelban',array('id'=>$vo['id']))}"
-                                   class="js-ajax-dialog-btn"
-                                   data-msg="{:lang('ACTIVATE_USER_CONFIRM_MESSAGE')}">{:lang('ACTIVATE_USER')}</a>
-                                <else/>
-                                <a href="{:url('adminIndex/ban',array('id'=>$vo['id']))}" class="js-ajax-dialog-btn"
-                                   data-msg="{:lang('BLOCK_USER_CONFIRM_MESSAGE')}">{:lang('BLOCK_USER')}</a>
-                            </empty>
-                            <else/>
-                            <a style="color: #ccc;">{:lang('BLOCK_USER')}</a>
-                        </neq>
+                        <a href='{:url("user/user_edit",array("id"=>$vo["id"]))}'>{:lang('EDIT')}</a>|
+                        <a href='{:url("user/user_crf",array("id"=>$vo["id"]))}'>录入</a>
                     </td>
                 </tr>
             </foreach>

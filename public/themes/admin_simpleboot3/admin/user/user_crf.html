@@ -14,12 +14,12 @@
 <body>
 	<div class="wrap js-check-wrap">
 		<ul class="nav nav-tabs">
-			<li ><a href="{:url('project/edit',['id'=>$project_id])}">项目基本信息</a></li>
-			<li class="active"><a href="">项目CRF</a></li>
-			<li  ><a href="{:url('project/ruleedit',['project_id'=>$project_id])}">编辑规则</a></li>
+			<li ><a href="{:url('user/project_info',['id'=>$project_id])}">项目基本信息</a></li>
+			<li class="active"><a href="">CRF录入</a></li>
 		</ul>
-		<form action="{:url('project/edceditPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+		<form action="{:url('user/crfpost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
 			<input type="hidden" name="project_id" value="{$project_id}">
+			<input type="hidden" name="user_id" value="{$user_id}">
 			<!--循环事件-->
 			<foreach name="result" key="k" item="v">
 				<!--标题-->
@@ -124,7 +124,7 @@
     </form>
 		<div class="form-group" style="margin-top: 5%">
 			<div class="col-sm-offset-2 col-sm-10">
-				<a class="btn btn-danger" href="{:url('project/edcedit',['project_id'=>$project_id])}">继续编辑CRF</a>
+				<a class="btn btn-danger" href="{:url('project/edcedit',['project_id'=>$project_id])}">保存</a>
 
 			</div>
 		</div>

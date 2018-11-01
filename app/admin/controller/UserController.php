@@ -370,4 +370,124 @@ class UserController extends AdminBaseController
             $this->error('数据传入失败！');
         }
     }
+
+
+    /**
+     * 增加受试者
+     *
+     */
+    public function user_add()
+    {
+        return $this->fetch();
+    }
+
+    /**
+     * 编辑受试者
+     *
+     */
+    public function user_edit()
+    {
+        if (!empty($content)) {
+            return $content;
+        }
+        $id    = $this->request->param('id', 0, 'intval');
+        $user = DB::name('user')->where(["id" => $id])->find();
+        $this->assign('info',$user);
+        return $this->fetch();
+
+    }
+
+    /**
+     * 受试者列表
+     *
+     */
+
+    public function user_list()
+    {
+        if (!empty($content)) {
+            return $content;
+        }
+
+        $where   = [];
+        $request = input('request.');
+
+        if (!empty($request['uid'])) {
+            $where['id'] = intval($request['uid']);
+        }
+        $where['user_type']=2;
+        $where['admin_id']=$_SESSION['think']['ADMIN_ID'];
+        $keywordComplex = [];
+        if (!empty($request['keyword'])) {
+            $keyword = $request['keyword'];
+
+            $keywordComplex['user_login|user_nickname|user_email|mobile']    = ['like', "%$keyword%"];
+        }
+        $usersQuery = Db::name('user');
+
+        $list = $usersQuery->whereOr($keywordComplex)->where($where)->order("create_time DESC")->paginate(10);
+        // 获取分页显示
+        $page = $list->render();
+        $this->assign('list', $list);
+        $this->assign('page', $page);
+        // 渲染模板输出
+        return $this->fetch();
+    }
+
+
+    /**
+     * 增加受试者
+     *
+     */
+
+    public function adduserpost()
+    {
+        if($this->request->isPost())
+        {
+            $request=$this->request->param();
+            $data=$request['post'];
+            $result = $this->validate($data, 'User.adduser');
+            if ($result !== true) {
+                $this->error($result);
+            }else{
+                //受试者user_type=2
+                $data['user_type']=2;
+                $data['admin_id']=$_SESSION['think']['ADMIN_ID'];
+                $res =Db::name('user')->insert($data);
+                if ($res !== false) {
+                    $this->success("受试者添加成功！", url("user/admin_index/index"));
+                } else {
+                    $this->error('受试者添加失败！');
+                }
+
+            }
+
+        }
+
+    }
+
+    /**
+     * user_crf
+     */
+
+    public function user_crf()
+    {
+        //只能查看自己的crf
+        $admin_id=$_SESSION['think']['ADMIN_ID'];
+        $user_id=$this->request->param('id');
+        $project_info=Db::name('admin_project')
+                ->where('project_student|project_charge','eq',$admin_id)
+                ->find();
+        $where['project_id']=$project_info['id'];
+        $result=Db::name('admin_project_crf')->where($where)->order('event_num asc , sort asc')->select();
+        //字母
+        $letter=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+        $this->assign('result',$result);
+        $this->assign('user_id',$user_id);
+        $this->assign('project_id',$project_info['id']);
+        $this->assign('letter',$letter);
+
+        return $this->fetch();
+    }
+
+
 }

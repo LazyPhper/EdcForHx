@@ -56,6 +56,21 @@ class ProjectController extends AdminBaseController
     */
     public function add()
     {
+        //取出 主要研究人4  负责人3
+        $where_y['r.role_id']=4;
+        $where_f['r.role_id']=3;
+        $admin_y=Db::name('user')
+            ->alias('u')
+            ->join(config('database.prefix').'role_user r','u.id = r.user_id')
+            ->where($where_y)
+            ->select();
+        $admin_f=Db::name('user')
+            ->alias('u')
+            ->join(config('database.prefix').'role_user r','u.id = r.user_id')
+            ->where($where_f)
+            ->select();
+        $this->assign('admin_y',$admin_y);
+        $this->assign('admin_f',$admin_f);
 
         return $this->fetch();
     }
@@ -63,7 +78,6 @@ class ProjectController extends AdminBaseController
     /*插入数据库项目内容*/
     public function addPost()
     {
-
         if ($this->request->isPost()) {
             $data=$this->request->param();
             $result = $this->validate($data['post'], 'Project.add');
@@ -106,6 +120,21 @@ class ProjectController extends AdminBaseController
     /*编辑项目信息*/
     public function edit()
     {
+        //取出 主要研究人4  负责人3
+        $where_y['r.role_id']=4;
+        $where_f['r.role_id']=3;
+        $admin_y=Db::name('user')
+            ->alias('u')
+            ->join(config('database.prefix').'role_user r','u.id = r.user_id')
+            ->where($where_y)
+            ->select();
+        $admin_f=Db::name('user')
+            ->alias('u')
+            ->join(config('database.prefix').'role_user r','u.id = r.user_id')
+            ->where($where_f)
+            ->select();
+        $this->assign('admin_y',$admin_y);
+        $this->assign('admin_f',$admin_f);
         $id   = $this->request->param('id', 0, 'intval');
         $project_info = DB::name('admin_project')->where(['id' => $id])->find();
         $project_device = DB::name('admin_project_device')->where(['project_id' => $id])->find();
@@ -204,8 +233,8 @@ class ProjectController extends AdminBaseController
             } catch (\Exception $e) {
                 // 回滚事务
                 Db::rollback();
-                print_r($e->getMessage());
-                print_r(Db::getLastSql());
+//                print_r($e->getMessage());
+//                print_r(Db::getLastSql());
                 $this->error("crf设置失败！");
             }
             $this->success("crf设置成功！", url("project/index"));
@@ -337,6 +366,109 @@ class ProjectController extends AdminBaseController
         return $this->fetch();
     }
 
+
+    /*规则编辑*/
+    public function ruleedit()
+    {
+        $project_id=$this->request->param('project_id');
+        //查询出所有事件
+        $where['project_id']=$project_id;
+        $result=Db::name('admin_project_crf')->where($where)->order('event_num asc , sort asc')->select();
+        //字母
+        $letter=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+        $this->assign('result',$result);
+
+        $this->assign('project_id',$project_id);
+        $this->assign('letter',$letter);
+        return $this->fetch();
+    }
+
+
+    /*规则提交*/
+    public function addrule()
+    {
+        if ($this->request->isPost()) {
+            $post=$this->request->param();
+            $rule=$post['rule'];
+            $i=0;
+            $rulestr='';
+            foreach($rule as $key=>$value)
+            {
+                if(is_array($value))
+                {
+
+                    foreach ($value as $k=>$v)
+                    {
+                        if(!empty($v))
+                        {
+
+                            if($this->rulegrep(htmlspecialchars_decode($v)))
+                            {
+                                $value[$k]=htmlspecialchars_decode($v);
+                            }else{
+                                $value[$k]='';
+                            }
+
+                        }else{
+                            $value[$k]='';
+                        }
+                    }
+                    $value=json_encode($value);
+
+                }else{
+                    if($this->rulegrep(htmlspecialchars_decode($value)))
+                    {
+                        $value=htmlspecialchars_decode($value);
+                    }else{
+                        $value='';
+                    }
+
+                }
+
+                $savearray['id']=$key;
+                $savearray['rule']=$value;
+                $updateAll[$i]=$savearray;
+                $i++;
+            }
+            $updatesql='';
+
+            Db::startTrans();
+            try{
+                foreach ($updateAll as $k=>$v)
+                {
+                    $where['id']=$v['id'];
+                    $save['rule']=$v['rule'];
+                    Db::name('admin_project_crf')->where($where)->update($save);
+                }
+                // 提交事务
+                Db::commit();
+            } catch (\Exception $e) {
+                // 回滚事务
+                Db::rollback();
+                $this->error("crf规则更新失败！");
+            }
+            $this->success("crf规则更新成功！");
+
+
+        }
+
+
+    }
+
+    /*判断规则是否合法  首字母 >  < ! */
+    public function rulegrep($string)
+    {
+        $array=array('<','>','!');
+        $str=substr(trim($string), 0, 1);
+        if(in_array($str,$array))
+        {
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
     /*
      *crf页面编辑
      *
@@ -373,7 +505,7 @@ class ProjectController extends AdminBaseController
 
     public function edceditPost()
     {
-//        print_r($_POST);die;
+
         if ($this->request->isPost()) {
             $id=$this->request->param('project_id');
             $data=$this->request->param();
@@ -396,8 +528,7 @@ class ProjectController extends AdminBaseController
             } catch (\Exception $e) {
                 // 回滚事务
                 Db::rollback();
-                print_r($e->getMessage());
-                print_r(Db::getLastSql());
+
                 $this->error("crf更新失败！");
             }
             $this->success("crf更新成功！", url("project/index"));
@@ -528,14 +659,6 @@ class ProjectController extends AdminBaseController
         return $newdata;
     }
 
-    /*
-     * 项目规则
-     * */
-
-    public function project_rule()
-    {
-        return $this->fetch();
-    }
 
 
     /*
