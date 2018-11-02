@@ -107,29 +107,24 @@
 												?>
 
 									</foreach>
-
 								</tr>
 							</table>
 							<a class="btn btn-primary" href="javascript:;" onclick='crfAddTr("crf-{$v.id}")'>追加</a>
 
 						</div>
-
 				<?php
 					}
 				?>
-
 
 			</foreach>
 
     </form>
 		<div class="form-group" style="margin-top: 5%">
 			<div class="col-sm-offset-2 col-sm-10">
-				<a class="btn btn-danger" href="{:url('project/edcedit',['project_id'=>$project_id])}">保存</a>
-
+				<button type="submit" class="btn btn-primary js-ajax-submit">{:lang('SAVE')}</button>
 			</div>
 		</div>
 	</div>
-
 	<script src="__STATIC__/js/admin.js"></script>
 </body>
 </html>
