@@ -10,6 +10,7 @@
 // +----------------------------------------------------------------------
 namespace app\admin\controller;
 
+use app\admin\model\ProjectModel;
 use cmf\controller\AdminBaseController;
 use think\Db;
 
@@ -28,7 +29,14 @@ class ProjectController extends AdminBaseController
             return $content;
         }
 
-        $data = Db::name('m_project')->order(["id" => "DESC"])->select();
+        $project = new ProjectModel();
+        $data = $project::with(['principal','user'])->select()
+                        /*->visible([
+                            'id',
+                            'project_name',
+                            'status',
+                            'principal.user_nickname'
+                        ])*/->toArray();
         $this->assign("project", $data);
         return $this->fetch();
     }
