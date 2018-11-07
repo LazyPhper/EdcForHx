@@ -3,6 +3,7 @@
 .project
 .settings
 .idea
+/data/runtime
 /api
 /public/api
 /public/assets/dist
