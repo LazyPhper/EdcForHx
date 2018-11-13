@@ -97,6 +97,25 @@ class ProjectController extends AdminBaseController
      */
     public function add()
     {
+        $user = DB::name('user')->select();
+        $this->assign('users', $user);
         return $this->fetch();
+    }
+
+    public function addPost()
+    {
+        if ($this->request->isPost()) {
+            $result = $this->validate($this->request->param(), 'Project');
+            if ($result !== true) {
+                $this->error($result);
+            } else {
+                $result = DB::name('admin_project')->insertGetId($_POST);
+                if ($result !== false) {
+                    $this->success("添加成功！", url("project/index"));
+                } else {
+                    $this->error("添加失败！");
+                }
+            }
+        }
     }
 }

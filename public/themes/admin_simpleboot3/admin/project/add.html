@@ -1,4 +1,12 @@
 <include file="public@header" />
+<style>
+    .row{
+        margin-top: 2em;
+    }
+    .panel-heading:hover{
+        cursor: pointer;
+    }
+</style>
 </head>
 <body>
 	<div class="wrap">
@@ -13,7 +21,7 @@
                         <div class="panel-heading">项目基础属性</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="project_name" class="col-sm-4 control-label"><span class="form-required">*</span>项目名称</label>
                                         <div class="col-md-8 col-sm-10">
@@ -21,7 +29,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="p" class="col-sm-4 control-label"><span class="form-required">*</span>项目编号</label>
                                         <div class="col-md-8 col-sm-10">
@@ -29,97 +37,64 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="p" class="col-sm-4 control-label"><span class="form-required">*</span>项目摘要</label>
+                                        <label for="p" class="col-sm-2 control-label"><span class="form-required">*</span>负责人</label>
                                         <div class="col-md-8 col-sm-10">
-                                            <textarea class="form-control" name="project_abstract"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="p" class="col-sm-4 control-label"><span class="form-required">*</span>合作者</label>
-                                        <div class="col-md-8 col-sm-10">
-                                            <input type="text" class="form-control" name="partner" value="">
+                                            <input type="text" class="form-control" name="project_charge" value="">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-8">
                                     <div class="form-group">
-                                        <label for="project_name" class="col-sm-4 control-label"><span class="form-required">*</span>研究者</label>
+                                        <label for="p" class="col-sm-2 control-label"><span class="form-required">*</span>项目摘要</label>
+                                        <div class="col-md-10 col-sm-10">
+                                            <textarea class="form-control" style="min-height: 10em" name="project_abstract"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="p" class="col-sm-2 control-label">合作者</label>
+                                        <div class="col-md-8 col-sm-10">
+                                            <textarea class="form-control" style="min-height: 10em" name="partner"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="project_name" class="col-sm-4 control-label"><span class="form-required">*</span>主要研究者</label>
                                         <div class="col-md-8 col-sm-10">
                                             <select class="form-control" name="project_student">
-                                                <option>研究员1</option>
-                                                <option>研究员2</option>
-                                                <option>研究员3</option>
+                                                <foreach name="users" item="vo">
+                                                    <option value="{$vo.id}">{$vo.user_login}</option>
+                                                </foreach>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="p" class="col-sm-4 control-label"><span class="form-required">*</span>负责人</label>
+                                        <label for="project_name" class="col-sm-4 control-label"><span class="form-required">*</span>授权操作用户</label>
                                         <div class="col-md-8 col-sm-10">
-                                            <select class="form-control" name="project_charge">
-                                                <option>负责人1</option>
-                                                <option>负责人2</option>
-                                                <option>负责人3</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="p" class="col-sm-4 control-label"><span class="form-required">*</span>项目阶段</label>
-                                        <div class="col-md-8 col-sm-10">
-                                            <select class="form-control" name="stage">
-                                                <option>第一阶段</option>
-                                                <option>第二阶段</option>
-                                                <option>第三阶段</option>
-                                                <option>第四阶段</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="p" class="col-sm-4 control-label"><span class="form-required">*</span>项目目的</label>
-                                        <div class="col-md-8 col-sm-10">
-                                            <select class="form-control" name="project_objective">
-                                                <option>自然史</option>
-                                                <option>筛选</option>
-                                                <option>心理学</option>
+                                            <select class="form-control" name="accredit">
+                                                <foreach name="users" item="vo">
+                                                    <option value="{$vo.id}">{$vo.user_login}</option>
+                                                </foreach>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="project_name" class="col-sm-4 control-label"><span class="form-required">*</span>开始日期</label>
-                                        <div class="col-md-8 col-sm-10">
-                                            <input type="text" class="form-control" id="start_time" name="project_name" value="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="p" class="col-sm-4 control-label"><span class="form-required">*</span>结束时间</label>
-                                        <div class="col-md-8 col-sm-10">
-                                            <input type="text" class="form-control" name="end_time" value="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="p" class="col-sm-4 control-label"><span class="form-required">*</span>时限</label>
-                                        <div class="col-md-8 col-sm-10">
-                                            <input type="text" class="form-control" name="project_timelimit" value="">
-                                        </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-primary js-ajax-submit">保存</button>
+                                        <a class="btn btn-default" href="javascript:history.back(-1);">返回</a>
                                     </div>
                                 </div>
                             </div>
@@ -128,84 +103,24 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-xs-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">条件和资格</div>
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <label for="input-user_email" class="col-sm-4 control-label"><span class="form-required">*</span>{:lang('ROLE')}</label>
-                                <div class="col-md-8 col-sm-10">
-                                    <input type="text" class="form-control" id="input-user_email" name="user_login" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">设备信息</div>
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <label for="input-user_email" class="col-sm-4 control-label"><span class="form-required">*</span>{:lang('ROLE')}</label>
-                                <div class="col-md-8 col-sm-10">
-                                    <input type="text" class="form-control" id="input-user_email" name="user_login" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">相关信息</div>
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <label for="input-user_email" class="col-sm-4 control-label"><span class="form-required">*</span>{:lang('ROLE')}</label>
-                                <div class="col-md-8 col-sm-10">
-                                    <input type="text" class="form-control" id="input-user_email" name="user_login" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">研究项目参数配置</div>
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <label for="input-user_email" class="col-sm-4 control-label"><span class="form-required">*</span>{:lang('ROLE')}</label>
-                                <div class="col-md-8 col-sm-10">
-                                    <input type="text" class="form-control" id="input-user_email" name="user_login" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 		</form>
 	</div>
 	<script src="__STATIC__/js/admin.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // 显示/隐藏
+            var heading = $(".panel-heading");
+            heading.each(function (key, item) {
+                $(item).on('click',function () {
+                    var body = $(this).siblings('.panel-body');
+                    if (body.is(':hidden')) {
+                        body.show('slow');
+                    } else {
+                        body.hide('slow');
+                    }
+               });
+           });
+        });
+    </script>
 </body>
 </html>
