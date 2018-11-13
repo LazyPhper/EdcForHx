@@ -1,0 +1,2201 @@
+---------------------------------------------------------------
+[ 2018-10-23T10:17:35+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edit/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edit/id/4.html [运行时间：0.562192s][吞吐率：1.78req/s] [内存消耗：3,332.44kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.015922s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.004885s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001311s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.015586s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edit[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edit.html [ array (
+  0 => 'admin',
+  1 => 'project_info',
+  2 => 'project_device',
+  3 => 'project_condition',
+  4 => 'project_config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.069052s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.042460s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.002320s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.010447s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000794s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_device` [ RunTime:0.010147s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_device` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000598s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_condition` [ RunTime:0.009951s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_condition` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000444s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_config` [ RunTime:0.015860s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_config` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000566s ]
+---------------------------------------------------------------
+[ 2018-10-23T10:17:37+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd.html [运行时间：0.105570s][吞吐率：9.47req/s] [内存消耗：3,267.85kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.003168s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edit/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001194s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000682s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003235s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010312s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.009419s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000466s ]
+---------------------------------------------------------------
+[ 2018-10-23T10:17:40+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edit/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edit/id/4.html [运行时间：0.140562s][吞吐率：7.11req/s] [内存消耗：3,332.45kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002883s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001553s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000651s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.004334s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edit[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edit.html [ array (
+  0 => 'admin',
+  1 => 'project_info',
+  2 => 'project_device',
+  3 => 'project_condition',
+  4 => 'project_config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010638s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010098s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000500s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.008579s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000352s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_device` [ RunTime:0.008529s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_device` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000419s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_condition` [ RunTime:0.008193s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_condition` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_config` [ RunTime:0.008302s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_config` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000388s ]
+---------------------------------------------------------------
+[ 2018-10-23T10:20:49+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edit/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edit/id/4.html [运行时间：0.194226s][吞吐率：5.15req/s] [内存消耗：3,358.64kb] [文件加载：80]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004492s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edit/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002395s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000778s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003500s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edit[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edit.html [ array (
+  0 => 'admin',
+  1 => 'project_info',
+  2 => 'project_device',
+  3 => 'project_condition',
+  4 => 'project_config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010172s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010216s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000540s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.009039s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000445s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_device` [ RunTime:0.014600s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_device` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000554s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_condition` [ RunTime:0.011523s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_condition` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000423s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_config` [ RunTime:0.008821s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_config` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000416s ]
+[ error ] [4]语法错误: unexpected 'none' (T_STRING), expecting ']'[G:\PHPTutorial\WWW\hx\data\runtime\temp\e0dac91409c5be9b728f634ace4dbd6b.php:517]
+---------------------------------------------------------------
+[ 2018-10-23T10:21:01+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edit/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edit/id/4.html [运行时间：0.137728s][吞吐率：7.26req/s] [内存消耗：3,332.80kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002814s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edit/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001197s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000677s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003398s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edit[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edit.html [ array (
+  0 => 'admin',
+  1 => 'project_info',
+  2 => 'project_device',
+  3 => 'project_condition',
+  4 => 'project_config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001413s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.009746s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000549s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.009032s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000502s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_device` [ RunTime:0.009461s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_device` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000456s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_condition` [ RunTime:0.009860s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_condition` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000461s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_config` [ RunTime:0.009834s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_config` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000572s ]
+---------------------------------------------------------------
+[ 2018-10-23T10:21:04+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.098055s][吞吐率：10.20req/s] [内存消耗：3,268.33kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002711s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edit/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001188s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000587s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003337s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010845s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.009644s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000550s ]
+---------------------------------------------------------------
+[ 2018-10-23T10:23:40+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edit/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edit/id/4.html [运行时间：0.149103s][吞吐率：6.71req/s] [内存消耗：3,333.16kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.005832s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edit/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002241s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000744s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003473s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edit[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edit.html [ array (
+  0 => 'admin',
+  1 => 'project_info',
+  2 => 'project_device',
+  3 => 'project_condition',
+  4 => 'project_config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000730s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010384s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000684s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.009111s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000418s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_device` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_device` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000452s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_condition` [ RunTime:0.008615s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_condition` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000471s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_config` [ RunTime:0.008619s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_config` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000386s ]
+---------------------------------------------------------------
+[ 2018-10-23T10:23:41+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.098271s][吞吐率：10.18req/s] [内存消耗：3,269.32kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002698s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edit/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001183s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000774s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003594s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010598s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.009505s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000481s ]
+---------------------------------------------------------------
+[ 2018-10-23T10:24:04+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.089304s][吞吐率：11.20req/s] [内存消耗：3,269.44kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002727s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001259s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000644s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003567s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000719s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.009578s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000496s ]
+---------------------------------------------------------------
+[ 2018-10-23T10:24:06+08:00 ] 127.0.0.1 GET /hx/public/admin/project/index.html
+[ info ] 127.0.0.1/hx/public/admin/project/index.html [运行时间：0.183357s][吞吐率：5.45req/s] [内存消耗：3,325.68kb] [文件加载：81]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.003117s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001168s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000558s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003572s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->index[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\index.html [ array (
+  0 => 'admin',
+  1 => 'page',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000867s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010560s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000638s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.009892s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmf_admin_project` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.035009s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  `id` > 0 ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.001728s ]
+---------------------------------------------------------------
+[ 2018-10-23T10:24:08+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edit/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edit/id/4.html [运行时间：0.140620s][吞吐率：7.11req/s] [内存消耗：3,333.19kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002690s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001187s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000654s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003248s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edit[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edit.html [ array (
+  0 => 'admin',
+  1 => 'project_info',
+  2 => 'project_device',
+  3 => 'project_condition',
+  4 => 'project_config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011176s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010552s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000532s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.009227s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000360s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_device` [ RunTime:0.007931s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_device` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000391s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_condition` [ RunTime:0.007948s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_condition` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000340s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_config` [ RunTime:0.008022s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_config` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000399s ]
+---------------------------------------------------------------
+[ 2018-10-23T10:24:10+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.099191s][吞吐率：10.08req/s] [内存消耗：3,269.32kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002752s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edit/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001306s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000545s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003323s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010527s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010645s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000513s ]
+---------------------------------------------------------------
+[ 2018-10-23T15:02:49+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.118839s][吞吐率：8.41req/s] [内存消耗：3,270.17kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004616s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002857s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001428s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003863s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005361s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.011822s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000848s ]
+---------------------------------------------------------------
+[ 2018-10-23T15:04:44+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.112826s][吞吐率：8.86req/s] [内存消耗：3,271.16kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.003440s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001219s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000756s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003671s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011436s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.011324s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000668s ]
+---------------------------------------------------------------
+[ 2018-10-23T15:07:36+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.146168s][吞吐率：6.84req/s] [内存消耗：3,271.38kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.005565s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.004504s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001211s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.008903s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001754s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010935s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000704s ]
+---------------------------------------------------------------
+[ 2018-10-23T15:08:38+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.112391s][吞吐率：8.90req/s] [内存消耗：3,271.38kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.003047s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001210s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000624s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003800s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011287s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010733s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000662s ]
+---------------------------------------------------------------
+[ 2018-10-23T15:08:38+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.108716s][吞吐率：9.20req/s] [内存消耗：3,271.37kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.003340s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001191s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000610s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.004198s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011290s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010993s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000807s ]
+---------------------------------------------------------------
+[ 2018-10-23T15:08:39+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.098017s][吞吐率：10.20req/s] [内存消耗：3,271.37kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002772s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001230s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001066s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003679s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002020s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.011333s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000580s ]
+---------------------------------------------------------------
+[ 2018-10-23T15:08:39+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.094347s][吞吐率：10.60req/s] [内存消耗：3,271.37kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.003202s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001296s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000647s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003849s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001514s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.008573s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000465s ]
+---------------------------------------------------------------
+[ 2018-10-23T15:08:39+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.093779s][吞吐率：10.66req/s] [内存消耗：3,271.37kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.003366s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001219s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000571s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003809s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001544s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.008232s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000708s ]
+---------------------------------------------------------------
+[ 2018-10-23T15:08:39+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.093033s][吞吐率：10.75req/s] [内存消耗：3,271.37kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002820s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001206s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000569s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003387s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001560s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.008878s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000487s ]
+---------------------------------------------------------------
+[ 2018-10-23T15:08:39+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.098311s][吞吐率：10.17req/s] [内存消耗：3,271.37kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002936s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001219s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000966s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003541s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001733s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.011028s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000619s ]
+---------------------------------------------------------------
+[ 2018-10-23T15:10:53+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.128871s][吞吐率：7.76req/s] [内存消耗：3,271.48kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004638s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003640s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000793s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003553s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012063s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010111s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000602s ]
+---------------------------------------------------------------
+[ 2018-10-23T15:11:50+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.109131s][吞吐率：9.16req/s] [内存消耗：3,271.55kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.003465s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001497s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000588s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003640s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002176s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010903s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000819s ]
+---------------------------------------------------------------
+[ 2018-10-23T15:12:48+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.111667s][吞吐率：8.96req/s] [内存消耗：3,271.68kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.003046s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001320s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001748s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.004332s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001913s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.011274s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000676s ]
+---------------------------------------------------------------
+[ 2018-10-23T18:26:47+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.123335s][吞吐率：8.11req/s] [内存消耗：3,272.51kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004363s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002694s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000797s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.004076s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011513s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.013073s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000803s ]
+---------------------------------------------------------------
+[ 2018-10-23T18:27:32+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.105057s][吞吐率：9.52req/s] [内存消耗：3,272.49kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002761s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001222s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000549s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003324s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010930s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.012452s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000737s ]
+---------------------------------------------------------------
+[ 2018-10-23T18:30:01+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.138310s][吞吐率：7.23req/s] [内存消耗：3,274.20kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.006286s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002348s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001703s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003891s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003505s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010385s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000616s ]
+---------------------------------------------------------------
+[ 2018-10-23T18:30:03+08:00 ] 127.0.0.1 POST /hx/public/admin/project/edcaddpost.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcaddpost.html [运行时间：0.081081s][吞吐率：12.33req/s] [内存消耗：2,913.40kb] [文件加载：70]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002856s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcaddpost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'content-length' => '33',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.1',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'project_id' => '4',
+  'project_event' => 
+  array (
+    0 => '',
+  ),
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001160s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000550s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003265s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcaddPost[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010925s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010500s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000551s ]
+---------------------------------------------------------------
+[ 2018-10-23T18:30:05+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.093299s][吞吐率：10.72req/s] [内存消耗：3,273.89kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002900s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001206s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000592s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.004238s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001836s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010242s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000588s ]
+---------------------------------------------------------------
+[ 2018-10-23T18:30:08+08:00 ] 127.0.0.1 POST /hx/public/admin/project/edcaddpost.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcaddpost.html [运行时间：0.087676s][吞吐率：11.41req/s] [内存消耗：2,913.40kb] [文件加载：70]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.003170s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcaddpost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'content-length' => '33',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.1',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'project_id' => '4',
+  'project_event' => 
+  array (
+    0 => '',
+  ),
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001341s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001118s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003502s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcaddPost[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012012s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010406s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000580s ]
+---------------------------------------------------------------
+[ 2018-10-23T18:30:15+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.111573s][吞吐率：8.96req/s] [内存消耗：3,273.90kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.003057s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003023s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001297s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003886s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001847s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010952s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000484s ]
+---------------------------------------------------------------
+[ 2018-10-23T18:30:38+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.103218s][吞吐率：9.69req/s] [内存消耗：3,274.20kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002788s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001453s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000671s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.004239s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002497s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.011067s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000708s ]
+---------------------------------------------------------------
+[ 2018-10-23T18:33:04+08:00 ] 127.0.0.1 POST /hx/public/admin/project/edcaddpost.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcaddpost.html [运行时间：0.089329s][吞吐率：11.19req/s] [内存消耗：2,918.80kb] [文件加载：70]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004168s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcaddpost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'content-length' => '1693',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.1',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'project_id' => '4',
+  'project_event' => 
+  array (
+    0 => '事件1',
+    1 => '事件2',
+  ),
+  'crf' => 
+  array (
+    1 => 
+    array (
+      '\'table\'' => 
+      array (
+        '\'sort\'' => 
+        array (
+          1 => '1',
+        ),
+        '\'name\'' => 
+        array (
+          1 => '表格1',
+        ),
+        '\'desc\'' => 
+        array (
+          1 => 
+          array (
+            0 => '表格标题1',
+            1 => '表格标题2',
+            2 => '表格标题3',
+          ),
+        ),
+        '\'type\'' => 
+        array (
+          1 => 
+          array (
+            0 => '1',
+            1 => '2',
+            2 => '1',
+          ),
+        ),
+      ),
+      'input' => 
+      array (
+        'sort' => 
+        array (
+          0 => '2',
+          1 => '3',
+          2 => '4',
+        ),
+        0 => '填空1',
+        1 => '时间选择器',
+        2 => '注释',
+      ),
+      'select' => 
+      array (
+        'sort' => 
+        array (
+          1 => '5',
+        ),
+        'name' => 
+        array (
+          1 => '选择题目1',
+        ),
+        'type' => 
+        array (
+          1 => 'check',
+        ),
+        'option' => 
+        array (
+          1 => 
+          array (
+            0 => 'A',
+            1 => 'B',
+            2 => 'C',
+          ),
+        ),
+      ),
+    ),
+    2 => 
+    array (
+      'input' => 
+      array (
+        'sort' => 
+        array (
+          0 => '1',
+        ),
+        0 => '天空2',
+      ),
+      '\'table\'' => 
+      array (
+        '\'sort\'' => 
+        array (
+          1 => '2',
+        ),
+        '\'name\'' => 
+        array (
+          1 => '表格2',
+        ),
+        '\'desc\'' => 
+        array (
+          1 => 
+          array (
+            0 => '表格标题22',
+            1 => '表格标题23',
+          ),
+        ),
+        '\'type\'' => 
+        array (
+          1 => 
+          array (
+            0 => '1',
+            1 => '3',
+          ),
+        ),
+      ),
+    ),
+  ),
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002435s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000787s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003328s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcaddPost[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001617s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010738s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000566s ]
+---------------------------------------------------------------
+[ 2018-10-23T18:40:44+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.123487s][吞吐率：8.10req/s] [内存消耗：3,273.93kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004209s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edcadd/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=rtr18cccg8nencjfe2bgt1cqv7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002952s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000786s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.004068s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010881s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010933s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000777s ]

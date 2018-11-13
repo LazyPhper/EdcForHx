@@ -1,0 +1,1810 @@
+---------------------------------------------------------------
+[ 2018-11-13T11:10:39+08:00 ] 127.0.0.1 GET /hx/public/admin/index/index.html
+[ info ] 127.0.0.1/hx/public/admin/index/index.html [运行时间：0.226503s][吞吐率：4.41req/s] [内存消耗：2,195.56kb] [文件加载：65]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.022303s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'admin_username=admin; Zv8J9n_admin_username=admin',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003400s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000932s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.015998s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-13T11:10:39+08:00 ] 127.0.0.1 GET /hx/public/admin/public/login.html
+[ info ] 127.0.0.1/hx/public/admin/public/login.html [运行时间：0.127545s][吞吐率：7.84req/s] [内存消耗：3,222.03kb] [文件加载：75]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002411s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001148s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000396s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->login[ G:\PHPTutorial\WWW\hx\app\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] G:\PHPTutorial\WWW\hx\public/plugins/custom_admin_login/view/widget.html [ array (
+) ]
+[ info ] [ BEHAVIOR ] Run plugins\custom_admin_login\CustomAdminLoginPlugin @admin_login [ RunTime:0.077691s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005990s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_plugin` [ RunTime:0.020446s ]
+[ sql ] [ SQL ] SELECT `config` FROM `cmf_plugin` WHERE  `name` = 'CustomAdminLogin' LIMIT 1 [ RunTime:0.000555s ]
+---------------------------------------------------------------
+[ 2018-11-13T11:10:39+08:00 ] 127.0.0.1 GET /hx/public/captcha/new.html?height=32&width=150&font_size=18
+[ info ] 127.0.0.1/hx/public/captcha/new.html?height=32&width=150&font_size=18 [运行时间：0.087346s][吞吐率：11.45req/s] [内存消耗：1,830.06kb] [文件加载：51]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004574s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/public/login.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002366s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ G:\PHPTutorial\WWW\hx\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-13T11:10:49+08:00 ] 127.0.0.1 POST /hx/public/admin/public/dologin.html
+[ info ] 127.0.0.1/hx/public/admin/public/dologin.html [运行时间：0.042206s][吞吐率：23.69req/s] [内存消耗：2,219.96kb] [文件加载：64]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.003023s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'dologin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'content-length' => '66',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.1',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/public/login.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => '123456',
+  'captcha' => '8uki',
+  '_captcha_id' => '',
+  'redirect' => '',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001275s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000903s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->doLogin[ G:\PHPTutorial\WWW\hx\app\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-13T11:10:50+08:00 ] 127.0.0.1 GET /hx/public/captcha/new.html?height=32&width=150&font_size=18&refresh=0.36670754689965945
+[ info ] 127.0.0.1/hx/public/captcha/new.html?height=32&width=150&font_size=18&refresh=0.36670754689965945 [运行时间：0.043361s][吞吐率：23.06req/s] [内存消耗：1,830.28kb] [文件加载：51]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002285s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/public/login.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18',
+  'refresh' => '0.36670754689965945',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001128s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ G:\PHPTutorial\WWW\hx\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-13T11:10:59+08:00 ] 127.0.0.1 POST /hx/public/admin/public/dologin.html
+[ info ] 127.0.0.1/hx/public/admin/public/dologin.html [运行时间：0.039123s][吞吐率：25.56req/s] [内存消耗：2,219.96kb] [文件加载：64]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002940s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'dologin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'content-length' => '66',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.1',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/public/login.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => '123456',
+  'captcha' => 'dpga',
+  '_captcha_id' => '',
+  'redirect' => '',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001112s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000957s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->doLogin[ G:\PHPTutorial\WWW\hx\app\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-13T11:10:59+08:00 ] 127.0.0.1 GET /hx/public/captcha/new.html?height=32&width=150&font_size=18&refresh=0.36670754689965945&refresh=0.8775393877354616
+[ info ] 127.0.0.1/hx/public/captcha/new.html?height=32&width=150&font_size=18&refresh=0.36670754689965945&refresh=0.8775393877354616 [运行时间：0.039272s][吞吐率：25.46req/s] [内存消耗：1,830.36kb] [文件加载：51]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002864s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\cmf\\controller\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/public/login.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'height' => '32',
+  'width' => '150',
+  'font_size' => '18',
+  'refresh' => '0.8775393877354616',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001125s ]
+[ info ] [ RUN ] cmf\controller\CaptchaController->index[ G:\PHPTutorial\WWW\hx\simplewind\cmf\controller\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-13T11:11:07+08:00 ] 127.0.0.1 POST /hx/public/admin/public/dologin.html
+[ info ] 127.0.0.1/hx/public/admin/public/dologin.html [运行时间：0.159756s][吞吐率：6.26req/s] [内存消耗：3,069.58kb] [文件加载：71]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002874s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'public',
+    2 => 'dologin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'content-length' => '66',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.1',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/public/login.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => '123456',
+  'captcha' => 'geye',
+  '_captcha_id' => '',
+  'redirect' => '',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001156s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000919s ]
+[ info ] [ RUN ] app\admin\controller\PublicController->doLogin[ G:\PHPTutorial\WWW\hx\app\admin\controller\PublicController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010105s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.035877s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `user_login` = 'admin' LIMIT 1 [ RunTime:0.000666s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_role_user` [ RunTime:0.013827s ]
+[ sql ] [ SQL ] SELECT `role_id` FROM `cmf_role_user` `a` INNER JOIN `cmf_role` `b` ON `a`.`role_id`=`b`.`id` WHERE  `user_id` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.001984s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user_token` [ RunTime:0.012544s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user_token` WHERE  `user_id` = 1  AND `device_type` = 'web' LIMIT 1 [ RunTime:0.000414s ]
+[ sql ] [ SQL ] UPDATE `cmf_user`  SET `user_type`=1,`sex`=0,`birthday`='0',`last_login_time`=1542078666,`create_time`='1536570750',`user_status`=1,`user_login`='admin',`user_pass`='###a2888d1e8b5b5ec67b145f27e417d4b9',`user_nickname`='admin',`user_email`='1016122628@qq.com',`avatar`='',`last_login_ip`='127.0.0.1',`mobile`='',`user_sn`=NULL,`start_time`=NULL,`group`=0,`admin_id`=NULL  WHERE  `id` = 1 [ RunTime:0.034080s ]
+---------------------------------------------------------------
+[ 2018-11-13T11:11:09+08:00 ] 127.0.0.1 GET /hx/public/admin/index/index.html
+[ info ] 127.0.0.1/hx/public/admin/index/index.html [运行时间：0.159250s][吞吐率：6.28req/s] [内存消耗：3,907.05kb] [文件加载：80]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002578s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/public/login.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001290s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.001354s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003368s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\IndexController->index[ G:\PHPTutorial\WWW\hx\app\admin\controller\IndexController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\index\index.html [ array (
+  0 => 'admin',
+  1 => 'menus',
+  2 => 'menus_js_var',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010634s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010387s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000575s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_menu` [ RunTime:0.036281s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_menu` ORDER BY `app` ASC,`controller` ASC,`action` ASC [ RunTime:0.002258s ]
+---------------------------------------------------------------
+[ 2018-11-13T11:11:09+08:00 ] 127.0.0.1 GET /hx/public/admin/main/index.html
+[ info ] 127.0.0.1/hx/public/admin/main/index.html [运行时间：0.104735s][吞吐率：9.55req/s] [内存消耗：3,276.95kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004647s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'main',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002293s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000855s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003484s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\MainController->index[ G:\PHPTutorial\WWW\hx\app\admin\controller\MainController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\main\index.html [ array (
+  0 => 'admin',
+  1 => 'dashboard_widgets',
+  2 => 'dashboard_widget_plugins',
+  3 => 'has_smtp_setting',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001005s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.009820s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000509s ]
+---------------------------------------------------------------
+[ 2018-11-13T11:11:10+08:00 ] 127.0.0.1 GET /hx/public/admin/project/index.html
+[ info ] 127.0.0.1/hx/public/admin/project/index.html [运行时间：0.161054s][吞吐率：6.21req/s] [内存消耗：3,414.66kb] [文件加载：81]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.003578s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002362s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000714s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003864s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->index[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\index.html [ array (
+  0 => 'admin',
+  1 => 'page',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010329s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.009824s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000497s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.034325s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmf_admin_project` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000572s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  `id` > 0 ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000442s ]
+---------------------------------------------------------------
+[ 2018-11-13T11:11:11+08:00 ] 127.0.0.1 GET /hx/public/admin/user/user_list.html
+[ info ] 127.0.0.1/hx/public/admin/user/user_list.html [运行时间：0.097275s][吞吐率：10.28req/s] [内存消耗：3,379.16kb] [文件加载：81]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002639s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'user_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001323s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000455s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003262s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\UserController->user_list[ G:\PHPTutorial\WWW\hx\app\admin\controller\UserController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\user\user_list.html [ array (
+  0 => 'admin',
+  1 => 'list',
+  2 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010903s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010198s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000485s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmf_user` WHERE  `user_type` = 2  AND `admin_id` = 1 LIMIT 1 [ RunTime:0.000642s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `user_type` = 2  AND `admin_id` = 1 ORDER BY `create_time` DESC LIMIT 0,10 [ RunTime:0.000556s ]
+---------------------------------------------------------------
+[ 2018-11-13T11:11:14+08:00 ] 127.0.0.1 GET /hx/public/admin/user/user_crf/id/5.html
+[ info ] 127.0.0.1/hx/public/admin/user/user_crf/id/5.html [运行时间：0.135370s][吞吐率：7.39req/s] [内存消耗：3,343.73kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002342s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'user_crf',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/user/user_list.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001390s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000413s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003781s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\UserController->user_crf[ G:\PHPTutorial\WWW\hx\app\admin\controller\UserController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\user\user_crf.html [ array (
+  0 => 'admin',
+  1 => 'result',
+  2 => 'user_id',
+  3 => 'project_id',
+  4 => 'letter',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010966s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010371s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000545s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.009407s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  ( `project_student` = 1 OR `project_charge` = 1 ) LIMIT 1 [ RunTime:0.000520s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_crf` [ RunTime:0.025078s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_crf` WHERE  `project_id` = 4 ORDER BY `event_num` ASC,`sort` ASC [ RunTime:0.000558s ]
+---------------------------------------------------------------
+[ 2018-11-13T12:04:40+08:00 ] 127.0.0.1 GET /hx/public/admin/user/user_crf/id/5.html
+[ info ] 127.0.0.1/hx/public/admin/user/user_crf/id/5.html [运行时间：0.118132s][吞吐率：8.47req/s] [内存消耗：3,344.63kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.003986s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'user_crf',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/user/user_crf/id/5.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003056s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000939s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.004100s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\UserController->user_crf[ G:\PHPTutorial\WWW\hx\app\admin\controller\UserController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\user\user_crf.html [ array (
+  0 => 'admin',
+  1 => 'result',
+  2 => 'user_id',
+  3 => 'project_id',
+  4 => 'letter',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001029s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010820s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000606s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.008878s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  ( `project_student` = 1 OR `project_charge` = 1 ) LIMIT 1 [ RunTime:0.000487s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_crf` [ RunTime:0.008489s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_crf` WHERE  `project_id` = 4 ORDER BY `event_num` ASC,`sort` ASC [ RunTime:0.000547s ]
+---------------------------------------------------------------
+[ 2018-11-13T12:05:43+08:00 ] 127.0.0.1 GET /hx/public/admin/user/user_crf/id/5.html
+[ info ] 127.0.0.1/hx/public/admin/user/user_crf/id/5.html [运行时间：0.115520s][吞吐率：8.66req/s] [内存消耗：3,344.63kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002656s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'user_crf',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/user/user_crf/id/5.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001323s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000421s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003419s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\UserController->user_crf[ G:\PHPTutorial\WWW\hx\app\admin\controller\UserController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\user\user_crf.html [ array (
+  0 => 'admin',
+  1 => 'result',
+  2 => 'user_id',
+  3 => 'project_id',
+  4 => 'letter',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000609s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.008960s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000557s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.010159s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  ( `project_student` = 1 OR `project_charge` = 1 ) LIMIT 1 [ RunTime:0.000468s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_crf` [ RunTime:0.009606s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_crf` WHERE  `project_id` = 4 ORDER BY `event_num` ASC,`sort` ASC [ RunTime:0.000597s ]
+---------------------------------------------------------------
+[ 2018-11-13T12:06:03+08:00 ] 127.0.0.1 POST /hx/public/admin/user/crfpost.html
+[ info ] 127.0.0.1/hx/public/admin/user/crfpost.html [运行时间：0.075451s][吞吐率：13.25req/s] [内存消耗：2,965.46kb] [文件加载：70]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.003012s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'crfpost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'content-length' => '266',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.1',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/user/user_crf/id/5.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'project_id' => '4',
+  'user_id' => '5',
+  'crf' => 
+  array (
+    44 => '1',
+    45 => '2018-11-13',
+    50 => '2018-11-13',
+    51 => '',
+    47 => '',
+    53 => '',
+    55 => '',
+  ),
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001460s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000440s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003330s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\UserController->crfpost[ G:\PHPTutorial\WWW\hx\app\admin\controller\UserController.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010850s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.011061s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000543s ]
+---------------------------------------------------------------
+[ 2018-11-13T12:06:20+08:00 ] 127.0.0.1 GET /hx/public/admin/user/user_crf/id/5.html
+[ info ] 127.0.0.1/hx/public/admin/user/user_crf/id/5.html [运行时间：0.121529s][吞吐率：8.23req/s] [内存消耗：3,344.41kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002435s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'user_crf',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/user/user_crf/id/5.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001230s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000885s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.004141s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\UserController->user_crf[ G:\PHPTutorial\WWW\hx\app\admin\controller\UserController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\user\user_crf.html [ array (
+  0 => 'admin',
+  1 => 'result',
+  2 => 'user_id',
+  3 => 'project_id',
+  4 => 'letter',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010338s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010714s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000810s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.010434s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  ( `project_student` = 1 OR `project_charge` = 1 ) LIMIT 1 [ RunTime:0.000440s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_crf` [ RunTime:0.009803s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_crf` WHERE  `project_id` = 4 ORDER BY `event_num` ASC,`sort` ASC [ RunTime:0.000583s ]
+---------------------------------------------------------------
+[ 2018-11-13T12:06:35+08:00 ] 127.0.0.1 POST /hx/public/admin/user/crfpost.html
+[ info ] 127.0.0.1/hx/public/admin/user/crfpost.html [运行时间：0.080915s][吞吐率：12.36req/s] [内存消耗：2,965.53kb] [文件加载：70]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002672s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'crfpost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'content-length' => '279',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.1',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/user/user_crf/id/5.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'project_id' => '4',
+  'user_id' => '5',
+  'crf' => 
+  array (
+    44 => '',
+    45 => '2018-11-13',
+    50 => '2018-11-13',
+    51 => '',
+    47 => '',
+    53 => '',
+    55 => '',
+  ),
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001433s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000432s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003506s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\UserController->crfpost[ G:\PHPTutorial\WWW\hx\app\admin\controller\UserController.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010316s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.011297s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000468s ]
+---------------------------------------------------------------
+[ 2018-11-13T12:07:32+08:00 ] 127.0.0.1 GET /hx/public/admin/user/user_crf/id/5.html
+[ info ] 127.0.0.1/hx/public/admin/user/user_crf/id/5.html [运行时间：0.134223s][吞吐率：7.45req/s] [内存消耗：3,344.38kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004935s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'user_crf',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/user/user_crf/id/5.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003409s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000803s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003550s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\UserController->user_crf[ G:\PHPTutorial\WWW\hx\app\admin\controller\UserController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\user\user_crf.html [ array (
+  0 => 'admin',
+  1 => 'result',
+  2 => 'user_id',
+  3 => 'project_id',
+  4 => 'letter',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010540s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.011601s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000633s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.009946s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  ( `project_student` = 1 OR `project_charge` = 1 ) LIMIT 1 [ RunTime:0.000659s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_crf` [ RunTime:0.010217s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_crf` WHERE  `project_id` = 4 ORDER BY `event_num` ASC,`sort` ASC [ RunTime:0.000778s ]
+---------------------------------------------------------------
+[ 2018-11-13T12:07:50+08:00 ] 127.0.0.1 POST /hx/public/admin/user/crfpost.html
+[ info ] 127.0.0.1/hx/public/admin/user/crfpost.html [运行时间：0.068404s][吞吐率：14.62req/s] [内存消耗：2,966.14kb] [文件加载：70]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002946s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'crfpost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'content-length' => '351',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.1',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/user/user_crf/id/5.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'project_id' => '4',
+  'user_id' => '5',
+  'crf' => 
+  array (
+    44 => '1',
+    45 => '2018-11-13',
+    50 => 
+    array (
+      0 => '2',
+      1 => '3',
+      2 => '4',
+      3 => '2018-11-13',
+    ),
+    51 => 
+    array (
+      0 => '',
+      1 => '',
+      2 => '',
+      3 => '',
+    ),
+    47 => '',
+    53 => 
+    array (
+      0 => '',
+      1 => '',
+      2 => '',
+      3 => '',
+    ),
+    55 => 
+    array (
+      0 => '',
+      1 => '',
+    ),
+  ),
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001317s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000451s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.004017s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\UserController->crfpost[ G:\PHPTutorial\WWW\hx\app\admin\controller\UserController.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000779s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010965s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000634s ]
+---------------------------------------------------------------
+[ 2018-11-13T12:25:59+08:00 ] 127.0.0.1 GET /hx/public/admin/user/user_crf/id/5.html
+[ info ] 127.0.0.1/hx/public/admin/user/user_crf/id/5.html [运行时间：0.118566s][吞吐率：8.43req/s] [内存消耗：3,344.38kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004521s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'user_crf',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/user/user_crf/id/5.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003498s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000748s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003333s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\UserController->user_crf[ G:\PHPTutorial\WWW\hx\app\admin\controller\UserController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\user\user_crf.html [ array (
+  0 => 'admin',
+  1 => 'result',
+  2 => 'user_id',
+  3 => 'project_id',
+  4 => 'letter',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001136s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010025s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000609s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.010106s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  ( `project_student` = 1 OR `project_charge` = 1 ) LIMIT 1 [ RunTime:0.000434s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_crf` [ RunTime:0.009224s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_crf` WHERE  `project_id` = 4 ORDER BY `event_num` ASC,`sort` ASC [ RunTime:0.000621s ]
+---------------------------------------------------------------
+[ 2018-11-13T18:12:07+08:00 ] 127.0.0.1 POST /hx/public/admin/user/crfpost.html
+[ info ] 127.0.0.1/hx/public/admin/user/crfpost.html [运行时间：0.086171s][吞吐率：11.60req/s] [内存消耗：2,969.50kb] [文件加载：70]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.005578s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'crfpost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'content-length' => '351',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.1',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/user/user_crf/id/5.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'project_id' => '4',
+  'user_id' => '5',
+  'crf' => 
+  array (
+    44 => '2',
+    45 => '2018-11-13',
+    50 => 
+    array (
+      0 => '2',
+      1 => '2',
+      2 => '2',
+      3 => '2018-11-13',
+    ),
+    51 => 
+    array (
+      0 => '',
+      1 => '',
+      2 => '',
+      3 => '',
+    ),
+    47 => '',
+    53 => 
+    array (
+      0 => '',
+      1 => '',
+      2 => '',
+      3 => '',
+    ),
+    55 => 
+    array (
+      0 => '',
+      1 => '',
+    ),
+  ),
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002231s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000775s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.004198s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\UserController->crfpost[ G:\PHPTutorial\WWW\hx\app\admin\controller\UserController.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001112s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.011056s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000729s ]
+---------------------------------------------------------------
+[ 2018-11-13T19:02:18+08:00 ] 127.0.0.1 GET /hx/public/admin/user/user_crf/id/5.html
+[ info ] 127.0.0.1/hx/public/admin/user/user_crf/id/5.html [运行时间：0.129002s][吞吐率：7.75req/s] [内存消耗：3,350.17kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004802s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'user_crf',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/user/user_crf/id/5.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002813s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000716s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003346s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\UserController->user_crf[ G:\PHPTutorial\WWW\hx\app\admin\controller\UserController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\user\user_crf.html [ array (
+  0 => 'admin',
+  1 => 'result',
+  2 => 'user_id',
+  3 => 'project_id',
+  4 => 'letter',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010610s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010808s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000597s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.009542s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  ( `project_student` = 1 OR `project_charge` = 1 ) LIMIT 1 [ RunTime:0.000422s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_crf` [ RunTime:0.009728s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_crf` WHERE  `project_id` = 4 ORDER BY `event_num` ASC,`sort` ASC [ RunTime:0.000574s ]
+---------------------------------------------------------------
+[ 2018-11-13T19:02:25+08:00 ] 127.0.0.1 POST /hx/public/admin/user/crfpost.html
+[ info ] 127.0.0.1/hx/public/admin/user/crfpost.html [运行时间：0.115767s][吞吐率：8.64req/s] [内存消耗：3,072.79kb] [文件加载：74]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002612s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'crfpost',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'content-length' => '367',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://127.0.0.1',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/user/user_crf/id/5.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'project_id' => '4',
+  'user_id' => '5',
+  'crf' => 
+  array (
+    44 => '填空-1',
+    45 => '2018-11-13',
+    50 => 
+    array (
+      0 => '',
+      1 => '',
+      2 => '',
+      3 => '2018-11-13',
+    ),
+    51 => 
+    array (
+      0 => '',
+      1 => '',
+      2 => '',
+      3 => '',
+    ),
+    47 => '',
+    53 => 
+    array (
+      0 => '',
+      1 => '',
+      2 => '',
+      3 => '',
+    ),
+    55 => 
+    array (
+      0 => '',
+      1 => '',
+    ),
+  ),
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001299s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000538s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.005091s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\UserController->crfpost[ G:\PHPTutorial\WWW\hx\app\admin\controller\UserController.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000719s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.011083s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_user_crf` [ RunTime:0.009921s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_user_crf` WHERE  `user_id` = 5  AND `crf_id` = 44 LIMIT 1 [ RunTime:0.000433s ]
+[ sql ] [ SQL ] INSERT INTO `cmf_admin_user_crf` (`user_id` , `crf_id` , `project_id` , `crf_desc`) VALUES (5 , 44 , 4 , '填空-1') [ RunTime:0.000397s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_user_crf` WHERE  `user_id` = 5  AND `crf_id` = 45 LIMIT 1 [ RunTime:0.000330s ]
+[ sql ] [ SQL ] INSERT INTO `cmf_admin_user_crf` (`user_id` , `crf_id` , `project_id` , `crf_desc`) VALUES (5 , 45 , 4 , '2018-11-13') [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_user_crf` WHERE  `user_id` = 5  AND `crf_id` = 50 LIMIT 1 [ RunTime:0.000409s ]
+[ sql ] [ SQL ] INSERT INTO `cmf_admin_user_crf` (`user_id` , `crf_id` , `project_id` , `crf_desc`) VALUES (5 , 50 , 4 , '[\"\",\"\",\"\",\"2018-11-13\"]') [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_user_crf` WHERE  `user_id` = 5  AND `crf_id` = 51 LIMIT 1 [ RunTime:0.000495s ]
+[ sql ] [ SQL ] INSERT INTO `cmf_admin_user_crf` (`user_id` , `crf_id` , `project_id` , `crf_desc`) VALUES (5 , 51 , 4 , '[\"\",\"\",\"\",\"\"]') [ RunTime:0.000476s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_user_crf` WHERE  `user_id` = 5  AND `crf_id` = 47 LIMIT 1 [ RunTime:0.000338s ]
+[ sql ] [ SQL ] INSERT INTO `cmf_admin_user_crf` (`user_id` , `crf_id` , `project_id` , `crf_desc`) VALUES (5 , 47 , 4 , '') [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_user_crf` WHERE  `user_id` = 5  AND `crf_id` = 53 LIMIT 1 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] INSERT INTO `cmf_admin_user_crf` (`user_id` , `crf_id` , `project_id` , `crf_desc`) VALUES (5 , 53 , 4 , '[\"\",\"\",\"\",\"\"]') [ RunTime:0.000447s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_user_crf` WHERE  `user_id` = 5  AND `crf_id` = 55 LIMIT 1 [ RunTime:0.000373s ]
+[ sql ] [ SQL ] INSERT INTO `cmf_admin_user_crf` (`user_id` , `crf_id` , `project_id` , `crf_desc`) VALUES (5 , 55 , 4 , '[\"\",\"\"]') [ RunTime:0.000276s ]
+---------------------------------------------------------------
+[ 2018-11-13T19:02:27+08:00 ] 127.0.0.1 GET /hx/public/admin/user/user_crf/id/5.html
+[ info ] 127.0.0.1/hx/public/admin/user/user_crf/id/5.html [运行时间：0.111052s][吞吐率：9.00req/s] [内存消耗：3,350.17kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002576s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'user_crf',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/user/user_crf/id/5.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001462s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000593s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003270s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\UserController->user_crf[ G:\PHPTutorial\WWW\hx\app\admin\controller\UserController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\user\user_crf.html [ array (
+  0 => 'admin',
+  1 => 'result',
+  2 => 'user_id',
+  3 => 'project_id',
+  4 => 'letter',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000779s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010597s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000614s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.010559s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  ( `project_student` = 1 OR `project_charge` = 1 ) LIMIT 1 [ RunTime:0.000420s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_crf` [ RunTime:0.010148s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_crf` WHERE  `project_id` = 4 ORDER BY `event_num` ASC,`sort` ASC [ RunTime:0.000765s ]
+---------------------------------------------------------------
+[ 2018-11-13T19:24:58+08:00 ] 127.0.0.1 GET /hx/public/admin/project/index.html
+[ info ] 127.0.0.1/hx/public/admin/project/index.html [运行时间：0.113045s][吞吐率：8.85req/s] [内存消耗：3,414.48kb] [文件加载：81]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.004631s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.003326s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000758s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003379s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->index[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\index.html [ array (
+  0 => 'admin',
+  1 => 'page',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000837s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010157s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000543s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.009392s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cmf_admin_project` WHERE  `id` > 0 LIMIT 1 [ RunTime:0.000542s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  `id` > 0 ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000382s ]
+---------------------------------------------------------------
+[ 2018-11-13T19:25:00+08:00 ] 127.0.0.1 GET /hx/public/admin/project/project_crf/project_id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/project_crf/project_id/4.html [运行时间：0.106884s][吞吐率：9.36req/s] [内存消耗：3,367.45kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002696s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'project_crf',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'project_id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001573s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000422s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003414s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->project_crf[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\project_crf.html [ array (
+  0 => 'admin',
+  1 => 'result',
+  2 => 'project_id',
+  3 => 'letter',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000831s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010780s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_crf` [ RunTime:0.010041s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_crf` WHERE  `project_id` = 4 ORDER BY `event_num` ASC,`sort` ASC [ RunTime:0.000487s ]
+---------------------------------------------------------------
+[ 2018-11-13T19:25:06+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edit/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edit/id/4.html [运行时间：0.212456s][吞吐率：4.71req/s] [内存消耗：3,433.33kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002539s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/project_crf/project_id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001304s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000452s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.004196s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edit[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edit.html [ array (
+  0 => 'admin',
+  1 => 'admin_y',
+  2 => 'admin_f',
+  3 => 'project_info',
+  4 => 'project_device',
+  5 => 'project_condition',
+  6 => 'project_config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010500s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010696s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000742s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` `u` INNER JOIN `cmf_role_user` `r` ON `u`.`id`=`r`.`user_id` WHERE  `r`.`role_id` = 4 [ RunTime:0.000768s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` `u` INNER JOIN `cmf_role_user` `r` ON `u`.`id`=`r`.`user_id` WHERE  `r`.`role_id` = 3 [ RunTime:0.000415s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project` [ RunTime:0.009481s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000521s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_device` [ RunTime:0.031208s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_device` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000575s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_condition` [ RunTime:0.016989s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_condition` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000724s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_admin_project_config` [ RunTime:0.036307s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_admin_project_config` WHERE  `project_id` = 4 LIMIT 1 [ RunTime:0.000746s ]
+---------------------------------------------------------------
+[ 2018-11-13T19:25:09+08:00 ] 127.0.0.1 GET /hx/public/admin/project/edcadd/id/4.html
+[ info ] 127.0.0.1/hx/public/admin/project/edcadd/id/4.html [运行时间：0.102866s][吞吐率：9.72req/s] [内存消耗：3,358.30kb] [文件加载：78]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.002314s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'project',
+    2 => 'edcadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/hx/public/admin/project/edit/id/4.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'thinkphp_show_page_trace=0|0; admin_username=admin; Zv8J9n_admin_username=admin; PHPSESSID=ovfofsef82rh137odlu6svbgc7',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001391s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitAppHookBehavior @module_init [ RunTime:0.000439s ]
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] G:\PHPTutorial\WWW\hx\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003305s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ProjectController->edcadd[ G:\PHPTutorial\WWW\hx\app\admin\controller\ProjectController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/admin\project\edcadd.html [ array (
+  0 => 'admin',
+  1 => 'project_id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010768s ] mysql:host=127.0.0.1;port=3306;dbname=thinkcmf5;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cmf_user` [ RunTime:0.010488s ]
+[ sql ] [ SQL ] SELECT * FROM `cmf_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000512s ]

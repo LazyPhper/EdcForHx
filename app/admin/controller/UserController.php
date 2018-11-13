@@ -489,5 +489,55 @@ class UserController extends AdminBaseController
         return $this->fetch();
     }
 
+    /**
+     *crfpost
+     */
+
+    public function crfpost()
+    {
+
+        if($this->request->isPost())
+        {
+            $request = $this->request->param();
+            $user_id=$request['user_id'];
+            $project_id=$request['project_id'];
+            $crf=$request['crf'];
+            Db::startTrans();
+            try{
+                foreach($crf as $key=>$value)
+                {
+                    $where['user_id']=$user_id;
+                    $where['crf_id']=$key;
+                    $data['user_id']=$user_id;
+                    $data['crf_id']=$key;
+                    $data['project_id']=$project_id;
+                    if(is_array($value))
+                    {
+                        $data['crf_desc']=json_encode($value);
+                    }else{
+                        $data['crf_desc']=$value;
+                    }
+                    $res=Db::name('admin_user_crf')->where($where)->find();
+                    if($res)
+                    {
+
+                        Db::name('admin_project_crf_txt')->where($where)->update($data);
+                    }else{
+                        Db::name('admin_user_crf')->where($where)->insert($data);
+                    }
+                }
+                // 提交事务
+                Db::commit();
+            } catch (\Exception $e) {
+                // 回滚事务
+                Db::rollback();
+                $this->error("数据更新失败！");
+            }
+            $this->success('数据更新成功');
+
+        }
+
+
+    }
 
 }
