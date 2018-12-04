@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:50:"themes/admin_simpleboot3/admin\user\user_edit.html";i:1541056701;s:72:"G:\PHPTutorial\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1540550792;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:50:"themes/admin_simpleboot3/admin\user\user_edit.html";i:1541056916;s:72:"G:\PHPTutorial\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1540550792;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,8 +116,8 @@
 				<label for="more-template-select" class="col-sm-2 control-label"><span class="form-required">*</span>性别</label>
 				<div class="col-md-5 col-sm-10">
 					<select class="form-control" name="post[sex]" id="more-template-select">
-						<option value="1">男</option>
-						<option value="2">女</option>
+						<option value="1" <?php if($info['sex']==1){echo 'selected';} ?> >男</option>
+						<option value="2" <?php if($info['sex']==2){echo 'selected';} ?> >女</option>
 					</select>
 				</div>
 			</div>
@@ -132,8 +132,8 @@
 				<label for="more-group-select" class="col-sm-2 control-label"><span class="form-required">*</span>受试者分组</label>
 				<div class="col-md-5 col-sm-10">
 					<select class="form-control" name="post[group]" id="more-group-select">
-						<option value="1">对照组</option>
-						<option value="2">受试组</option>
+						<option value="1" <?php if($info['group']==1){echo 'selected';} ?> >对照组</option>
+						<option value="2" <?php if($info['group']==2){echo 'selected';} ?> >受试组</option>
 					</select>
 				</div>
 			</div>

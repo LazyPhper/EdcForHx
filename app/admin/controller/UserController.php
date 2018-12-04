@@ -481,7 +481,29 @@ class UserController extends AdminBaseController
         $result=Db::name('admin_project_crf')->where($where)->order('event_num asc , sort asc')->select();
         //字母
         $letter=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+        //录入的数据
+        $where_crf['user_id']=$user_id;
+        $where_crf['project_id']=$project_info['id'];
+        $user_crf=Db::name('admin_user_crf')->where($where_crf)->select();
+        //foreach
+        $new_crf=array();
+        foreach ($user_crf as $k=>$v)
+        {
+            $key=$v['crf_id'];
+            $new_crf[$key]=$v;
+        }
+        
+        $this->assign('user_crf',$new_crf);
         $this->assign('result',$result);
+        //将crf结果格式化
+        $crf_result=array();
+        foreach($result as $k=>$v)
+        {
+
+           $crf_result[$v['event_num']][]=$v;
+            
+        }
+        $this->assign('crf_result',$crf_result);
         $this->assign('user_id',$user_id);
         $this->assign('project_id',$project_info['id']);
         $this->assign('letter',$letter);
@@ -495,13 +517,15 @@ class UserController extends AdminBaseController
 
     public function crfpost()
     {
-
+        // print_r($_REQUEST);die;
         if($this->request->isPost())
         {
+
             $request = $this->request->param();
             $user_id=$request['user_id'];
             $project_id=$request['project_id'];
             $crf=$request['crf'];
+             print_r($request);
             Db::startTrans();
             try{
                 foreach($crf as $key=>$value)
@@ -520,8 +544,7 @@ class UserController extends AdminBaseController
                     $res=Db::name('admin_user_crf')->where($where)->find();
                     if($res)
                     {
-
-                        Db::name('admin_project_crf_txt')->where($where)->update($data);
+                        Db::name('admin_user_crf')->where($where)->update($data);
                     }else{
                         Db::name('admin_user_crf')->where($where)->insert($data);
                     }
@@ -531,9 +554,15 @@ class UserController extends AdminBaseController
             } catch (\Exception $e) {
                 // 回滚事务
                 Db::rollback();
-                $this->error("数据更新失败！");
+                $da['code']=1;
+                $da['msg']='fail';
+                $da['sql']=$e->getMessage();
+                echo json_encode($da);die;
+                
             }
-            $this->success('数据更新成功');
+                $da['code']=0;
+                $da['msg']='fail';
+                echo json_encode($da);die;
 
         }
 

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:37:"themes/simpleboot3/portal\\index.html";i:1535858921;s:64:"G:\PHPTutorial\WWW\hx\public\themes\simpleboot3\public\head.html";i:1535858921;s:68:"G:\PHPTutorial\WWW\hx\public\themes\simpleboot3\public\function.html";i:1535858921;s:63:"G:\PHPTutorial\WWW\hx\public\themes\simpleboot3\public\nav.html";i:1535858921;s:66:"G:\PHPTutorial\WWW\hx\public\themes\simpleboot3\public\footer.html";i:1535858921;s:67:"G:\PHPTutorial\WWW\hx\public\themes\simpleboot3\public\scripts.html";i:1535858921;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:37:"themes/simpleboot3/portal\\index.html";i:1535858921;s:61:"D:\phpStudy\WWW\hx\public\themes\simpleboot3\public\head.html";i:1535858921;s:65:"D:\phpStudy\WWW\hx\public\themes\simpleboot3\public\function.html";i:1535858921;s:60:"D:\phpStudy\WWW\hx\public\themes\simpleboot3\public\nav.html";i:1535858921;s:63:"D:\phpStudy\WWW\hx\public\themes\simpleboot3\public\footer.html";i:1535858921;s:64:"D:\phpStudy\WWW\hx\public\themes\simpleboot3\public\scripts.html";i:1535858921;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,7 +123,7 @@ function _sp_helloworld3(){
 
     </style>
     <?php 
-    \think\Hook::listen('before_head_end',$temp5bd024876bd76,null,false);
+    \think\Hook::listen('before_head_end',$temp5bfdfefb6a49b,null,false);
  ?>
 </head>
 <body class="body-white">
@@ -144,8 +144,8 @@ function _sp_helloworld3(){
             <ul id="main-menu" class="nav navbar-nav">
                 <?php
 
-function __parse_navigation3c3cd07a889023a5bcb9fe54575be46b($menus,$level=1){
-$_parse_navigation_func_name = '__parse_navigation3c3cd07a889023a5bcb9fe54575be46b';
+function __parse_navigation98c12385ed489c27183693b5a131cee5($menus,$level=1){
+$_parse_navigation_func_name = '__parse_navigation98c12385ed489c27183693b5a131cee5';
 if(is_array($menus) || $menus instanceof \think\Collection || $menus instanceof \think\Paginator): if( count($menus)==0 ) : echo "" ;else: foreach($menus as $key=>$menu): if(empty($menu['children'])): if($level > 1): ?>
                             <li class="menu-item menu-item-level-<?php echo $level; ?> levelgt1">
                                 <a href="<?php echo (isset($menu['href']) && ($menu['href'] !== '')?$menu['href']:''); ?>" target="<?php echo (isset($menu['target']) && ($menu['target'] !== '')?$menu['target']:''); ?>">
@@ -177,9 +177,9 @@ if(is_array($menus) || $menus instanceof \think\Collection || $menus instanceof 
     $navMenuModel = new \app\admin\model\NavMenuModel();
     $menus = $navMenuModel->navMenusTreeArray('',0);
 if(''==''): ?>
-    <?php echo __parse_navigation3c3cd07a889023a5bcb9fe54575be46b($menus); else: ?>
+    <?php echo __parse_navigation98c12385ed489c27183693b5a131cee5($menus); else: ?>
     < id="main-navigation" class="nav navbar-nav navbar-nav-custom">
-        <?php echo __parse_navigation3c3cd07a889023a5bcb9fe54575be46b($menus); ?>
+        <?php echo __parse_navigation98c12385ed489c27183693b5a131cee5($menus); ?>
     </>
 <?php endif; ?>
 
@@ -283,7 +283,7 @@ if(count($__SLIDE_ITEMS__) == 0): ?>
         <?php 
             $features_count = count($widget['vars']['features']);
             $rows = ceil($features_count/3);
-         $__FOR_START_2457__=1;$__FOR_END_2457__=$rows;for($row=$__FOR_START_2457__;$row <= $__FOR_END_2457__;$row+=1){ 
+         $__FOR_START_26409__=1;$__FOR_END_26409__=$rows;for($row=$__FOR_START_26409__;$row <= $__FOR_END_26409__;$row+=1){ 
                 $first_row = ($row-1)*3;
                 $features = array_slice($widget['vars']['features'],$first_row,3);
              ?>
@@ -369,7 +369,7 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
 <hr>
 <div id="footer">
     <?php 
-    \think\Hook::listen('footer_start',$temp5bd024876bd95,null,false);
+    \think\Hook::listen('footer_start',$temp5bfdfefb6a49b,null,false);
  ?>
     <div class="links">
         <?php
@@ -501,7 +501,7 @@ if(is_array($__LINKS__) || $__LINKS__ instanceof \think\Collection || $__LINKS__
     });
 </script>
 <?php 
-    \think\Hook::listen('before_body_end',$temp5bd024876bda4,null,false);
+    \think\Hook::listen('before_body_end',$temp5bfdfefb6a49b,null,false);
  ?>
 </body>
 </html>
