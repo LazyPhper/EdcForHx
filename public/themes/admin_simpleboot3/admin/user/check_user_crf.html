@@ -1,0 +1,343 @@
+<include file="public@header" />
+<script type="text/javascript">
+    $(document).ready(function(e) {
+        $(".tab li").click(function(){
+            $(".tab li").eq($(this).index()).addClass("activ").siblings().removeClass("activ");
+            $(".divv").hide().eq($(this).index()).show();
+        })
+    });
+</script>
+<style>
+	/* 选项卡 */
+	body {
+		font: 12px/20px Open Sans,微软雅黑, Helvetica, Arial, sans-serif;
+		background:#F9F9F9;
+		margin:0;
+		padding:0;
+		color:#555555;
+		min-width:1000px
+	}
+	a {
+		color:#111111;
+		text-decoration:none;
+		-webkit-transition:color 0.2s linear;
+		-moz-transition:color 0.2s linear;
+		-o-transition:color 0.2s linear;
+		transition:color 0.2s linear
+	}
+	a:focus , a:link, a:active { outline:none}
+	a:hover { color:#F30}
+	ol, ul, li{	list-style: none}
+	*{margin:0;padding:0}
+	html,body { margin:0; padding:0; height:100%}
+	.table_card { width:100%; margin:0 auto;margin-top: 20px}
+	.table_card .tab { height:37px; font-size:14px; border-bottom:1px #e1e1e1 solid}
+	.table_card .tab li { float:left; height:36px; line-height:36px; padding:0 25px; margin-right:5px; background:#f0f0f0; border-top:1px #e1e1e1 solid; border-left:1px #e1e1e1 solid; border-right:1px #e1e1e1 solid;}
+	.table_card .tab li:hover { height:37px; background:#fff; color:#333; cursor:pointer}
+	.table_card .activ { height:37px !important; background:#fff !important; color:#333}
+	.table_card .tabCon { background:#fff; padding:15px; border-bottom:1px #e1e1e1 solid; border-left:1px #e1e1e1 solid; border-right:1px #e1e1e1 solid;}
+	.table_card .tabCon .off{ display:none}
+	.table_card .tabCon .on { display:block}
+
+	.newslist01 { font-size:14px; }
+	.newslist01 li { line-height:36px;}
+	.newslist01 li .ding { color:#F30; margin-left:5px}
+	.newslist01 li .time { float:right; font-size:12px; color:#888}
+	.div_title{background: #ecf0f1;margin-top:10px;height: 35px;line-height: 35px;font-family: "Microsoft YaHei", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;font-size: medium;text-align: center}
+	.div_input{margin-top: 1%;margin-left:5%;height: 35px;line-height: 35px;font-family: "Microsoft YaHei", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;font-size: medium;text-align: left}
+	.select_div{height:auto;margin-left: 8%;margin-top: 5px;}
+	.div_select{margin-top: 2%;margin-left:5%;height: auto;font-family: "Microsoft YaHei", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;font-size: medium;text-align: left}
+	.option_div{margin-top: 8px;}
+	.table_border{border: 1px solid #95a5a6;margin-top: 8px;}
+	.td_border{border: 1px solid #95a5a6;height:35px;width:150px;text-align: center}
+	.input-normal{width: 250px;}
+	.redclass{color: red;}
+	.askimg{height:20px;width:20px;margin-left:20px;}
+
+
+</style>
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li ><a href="{:url('user/project_info',['id'=>$project_id])}">项目基本信息</a></li>
+			<li class="active"><a href="">CRF审查</a></li>
+		</ul>
+		<!--# 选项卡 -->
+		<div class="table_card">
+			<ul class="tab">
+				<foreach name="result" key="k" item="v">
+					<if condition="$v.event_type=='title'">
+					 <if condition="$k==0">
+					 	<li class="activ">
+							{$v.event_desc}
+					 	</li>
+					 	<else>
+					 	<li>{$v.event_desc}</li>
+					 </if>
+					 </if>
+				</foreach>
+		
+			</ul>
+			<div class="tabCon">
+				<foreach name="crf_result" key="k" item="value">
+				<div <?php if($k==1){echo "class='on divv'"; }else{ echo "class='off divv'";} ?>>
+				<form action="" method="post" id='event-{$k}' class="margin-top-20">
+				<input type="hidden" name="project_id" value="{$project_id}">
+				<input type="hidden" name="user_id" value="{$user_id}">
+				<!--循环事件-->
+				<!--标题-->
+				<foreach name="value" key='kkk' item='v'>
+				<?php
+					if($v['event_type']=='title')
+					{
+				?>
+				<div class="div_title">{$v.event_desc}</div>
+				<?php
+					}
+				?>
+				<!--填空-->
+				<?php
+
+					if($v['event_type']=='input')
+					{
+
+						if($v['event_type_t']=='fill'){
+						if(!empty($user_crf))
+						{
+							$vv=$user_crf[$v['id']]['crf_desc'];
+
+						}else{
+							$vv='';
+						}
+						$rule=$v['rule'];
+						$con=$vv.$rule;
+						if(eval("return $con;"))
+						{
+						  $class='';
+						}else{
+						  $class='redclass';
+						}
+						?>
+						<div class="div_input">{$v.event_desc}&nbsp;&nbsp;&nbsp;<input class='input-normal {$class}' name="crf[{$v.id}]" type="text" value="{$vv}" >
+							<span><img onclick='askclick({$v.id})' class='askimg' src='__STATIC__/images/ask.jpg'></span>
+						</div>
+				<?php
+						}elseif($v['event_type_t']=='date'){
+						if(!empty($user_crf))
+						{
+							$vv=$user_crf[$v['id']]['crf_desc'];
+						}else{
+							$vv='';
+						}
+						$rule=$v['rule'];
+						$con=$vv.$rule;
+						if(eval("return $con;"))
+						{
+						  $class='';
+						}else{
+						  $class='redclass';
+						}
+						?>
+						<div class="div_input">{$v.event_desc}&nbsp;&nbsp;&nbsp;<input class="input-normal js-date {$class}"   type="text" name="crf[{$v.id}]" value="{$vv}" >
+							<span><img onclick='askclick({$v.id})' class='askimg' src='__STATIC__/images/ask.jpg'></span>
+						</div>
+				<?php
+						}elseif($v['event_type_t']=='desc'){
+						?>
+						<div class="div_input"><span class="form-required">*</span>{$v.event_desc}</div>
+				<?php
+						}
+					}
+				?>
+
+				<!--选择-->
+				<?php if($v['event_type']=='select')
+					 {
+					  	$select=json_decode($v['event_desc'],true);
+					  	?>
+						<div class="div_select">
+							<span>{$select.name}</span><span><img onclick='askclick({$v.id})' class='askimg' src='__STATIC__/images/ask.jpg'></span>
+							<div class="select_div">
+								<foreach name="select.option" key="select_k" item="sel">
+									<div class="option_div"><span><?php echo $letter[$select_k];?></span>
+										<?php if(isset($user_crf[$v['id']])){ $de=$user_crf[$v['id']]['crf_desc']; } if($v['event_type_t']=='radio'){ ?>
+
+										<input type="{$v.event_type_t}" name="crf[{$v.id}]" <?php if(isset($de)){if($de==$letter[$select_k]){ echo 'checked';}} ?> value="<?php echo $letter[$select_k]; ?>">
+										<?php  }else{ 
+												if(isset($user_crf[$v['id']])){ $de=$user_crf[$v['id']]['crf_desc']; $dearray=json_decode($de,true); }else{ $dearray=array();}
+											?>
+										<input type="{$v.event_type_t}" name="crf[{$v.id}][]" <?php if(in_array($letter[$select_k], $dearray)){ echo 'checked';} ?> value="<?php echo $letter[$select_k]; ?>">
+										<?php  } ?>
+										<span class="select_input">{$sel}</span></div>
+								</foreach>
+							</div>
+						</div>
+				<?php
+					  }
+				?>
+
+				<!--表格-->
+				<?php if($v['event_type']=='table')
+						{
+							$table=json_decode($v['event_desc'],true);
+				?>
+
+						<div class="div_select">
+							<span>{$table.name}</span><span><img onclick='askclick({$v.id})' class='askimg' src='__STATIC__/images/ask.jpg'></span>
+							<table class="table_border" id="crf-{$v.id}">
+								<tr>
+									<foreach name="table.desc" key="table_k" item="tab">
+									<td class="td_border">{$tab}</td>
+									</foreach>
+								</tr>
+								<!--数据循环-->
+								<?php if(!isset($user_crf[$v['id']])){ ?>
+								<tr id="crf-{$v.id}-tr"  class="tr_num">
+									<foreach name="table.type" key="table_k" item="tab_t">
+										<?php if($tab_t=='text')
+												{
+												?>
+												<td class="td_border"><input type="text" class="input-normal" name="crf[{$v.id}][1][]" value=""></td>
+										<?php
+												}elseif($tab_t=='date'){
+												?>
+												<td class="td_border"><input class="input-normal  js-date" type="text"  name="crf[{$v.id}][1][]" value="{:date('Y-m-d',time())}"></td>
+										<?php
+												}elseif($tab_t=='radio_or'){
+												?>
+												<td class="td_border"><input type="radio" name="crf[{$v.id}][1][]" checked value="1"> 是&nbsp;&nbsp;<input type="radio" name="crf[{$v.id}][1][]" value="2">否</td>
+										<?php
+												}else{
+												?>
+												<td class="td_border"><input type="text" class="input-normal" name="crf[{$v.id}][1][]" value=""></td>
+										<?php
+												}
+												?>
+									</foreach>
+								</tr>
+								<?php }else{
+									if(isset($user_crf[$v['id']]))
+									{
+										$crf=$user_crf[$v['id']];
+										$crf_desc=$crf['crf_desc'];
+										$des=json_decode($crf_desc,true);
+									}else{
+										$des=array();
+									}
+									
+									?>
+									<foreach name="des" key="kk" item="value">
+										<?php if($kk==1){ ?>
+										<tr id="crf-{$v.id}-tr"  class="tr_num">
+											<foreach name="table.type" key="table_k" item="tab_t">
+												<?php if(isset($value[$table_k])){ $dd=$value[$table_k]; }else{ $dd=''; }  ?>
+												<?php if($tab_t=='text')
+												{
+													$ruleArray=json_decode($v['rule']);
+													$rule=$ruleArray[$table_k];
+													$con=$dd.$rule;
+													if(eval("return $con;"))
+													{
+													  $class='';
+													}else{
+													  $class='redclass';
+													}
+												?>
+												<td class="td_border"><input type="text" class="input-normal {$class}" name="crf[{$v.id}][{$kk}][]" value="{$dd}"></td>
+												<?php
+												}elseif($tab_t=='date'){
+												?>
+												<td class="td_border"><input class="input-normal  js-date" type="text"  name="crf[{$v.id}][{$kk}][]" value="{$dd}"></td>
+												<?php
+												}elseif($tab_t=='radio_or'){
+												?>
+												<td class="td_border"><input type="radio" name="crf[{$v.id}][{$kk}][]" <?php if($dd==1){ echo 'checked';} ?> value="1"> 是&nbsp;&nbsp;<input type="radio" name="crf[{$v.id}][{$kk}][]" <?php if($dd==2){ echo 'checked';} ?> value="2">否</td>
+												<?php
+												}else{
+												?>
+												<td class="td_border"><input type="text" class="input-normal {$class}" name="crf[{$v.id}][{$kk}][]" value="{$dd}"></td>
+												<?php
+												}
+												?>
+											</foreach>
+										</tr>
+										<?php }else{ ?>
+										<tr  class="tr_num">
+											<foreach name="table.type" key="table_k" item="tab_t">
+												<?php if(isset($value[$table_k])){ $dd=$value[$table_k]; }else{ $dd=''; } ?>
+												<?php if($tab_t=='text')
+												{
+												$ruleArray=json_decode($v['rule']);
+												$rule=$ruleArray[$table_k];
+												$con=$dd.$rule;
+												if(eval("return $con;"))
+												{
+												  $class='';
+												}else{
+												  $class='redclass';
+												}
+												?>
+												<td class="td_border"><input type="text" class="input-normal {$class}" name="crf[{$v.id}][{$kk}][]" value="{$dd}"></td>
+												<?php
+												}elseif($tab_t=='date'){
+												?>
+												<td class="td_border"><input class="input-normal  js-date" type="text"  name="crf[{$v.id}][{$kk}][]" value="{$dd}"></td>
+												<?php
+												}elseif($tab_t=='radio_or'){
+												?>
+												<td class="td_border"><input type="radio" name="crf[{$v.id}][{$kk}][]" <?php if($dd==1){ echo 'checked';} ?> value="1"> 是&nbsp;&nbsp;<input type="radio" name="crf[{$v.id}][{$kk}][]" <?php if($dd==2){ echo 'checked';} ?> value="2">否</td>
+												<?php
+												}else{
+												?>
+												<td class="td_border"><input type="text" class="input-normal {$class}" name="crf[{$v.id}][{$kk}][]" value="{$dd}"></td>
+												<?php
+												}
+												?>
+											</foreach>
+										</tr>
+
+										<?php } ?>
+									</foreach>
+
+								<?php } ?>
+							</table>
+						
+						</div>
+				<?php
+					}
+				?>
+			</foreach>
+
+					</form>
+				</div>
+
+				</foreach>
+			</div>
+		</div>
+		<!--#@ 选项卡 -->
+
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>
+<script>
+function askclick(id)
+{
+	//iframe窗
+	var url='/hx/public/admin/user/user_ask/id/'+id;
+	// alert(url);
+    layer.open({
+      type: 2,
+      title: '疑问提交',
+      shadeClose: true,
+      shade: false,
+      maxmin: true, //开启最大化最小化按钮
+      area: ['893px', '600px'],
+      content: url
+    });
+ 
+}
+
+
+</script>

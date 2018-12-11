@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:50:"themes/admin_simpleboot3/admin\user\user_list.html";i:1542611825;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1540550792;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:50:"themes/admin_simpleboot3/admin\user\user_list.html";i:1544176264;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1540550792;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -124,7 +124,8 @@
                     <td><?php echo $user_statuses[$vo['user_status']]; ?></td>
                     <td>
                         <a href='<?php echo url("user/user_edit",array("id"=>$vo["id"])); ?>'><?php echo lang('EDIT'); ?></a>|
-                        <a href='<?php echo url("user/user_crf",array("id"=>$vo["id"])); ?>'>录入</a>
+                        <a href='<?php echo url("user/user_crf",array("id"=>$vo["id"])); ?>'>录入</a> |
+                        <a href='<?php echo url("user/check_user_crf",array("id"=>$vo["id"])); ?>'>审查</a>
 
                     </td>
                 </tr>

@@ -42,7 +42,8 @@
                     <td>{$user_statuses[$vo['user_status']]}</td>
                     <td>
                         <a href='{:url("user/user_edit",array("id"=>$vo["id"]))}'>{:lang('EDIT')}</a>|
-                        <a href='{:url("user/user_crf",array("id"=>$vo["id"]))}'>录入</a>
+                        <a href='{:url("user/user_crf",array("id"=>$vo["id"]))}'>录入</a> |
+                        <a href='{:url("user/check_user_crf",array("id"=>$vo["id"]))}'>审查</a>
 
                     </td>
                 </tr>

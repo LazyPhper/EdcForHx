@@ -1,0 +1,51 @@
+<include file="public@header" />
+</head>
+<body>
+	<div class="wrap">
+		<form method="post" class="form-horizontal js-ajax-form margin-top-20" id='ask' action="">
+			<div class="form-group">
+				<label for="input-user_login" class="col-sm-2 control-label"><span class="form-required">*</span>疑问</label>
+				<div class="col-md-5 col-sm-10">
+					<textarea name='ask' style='width:440px;height:200px;resize:none'></textarea>
+				</div>
+			</div>
+			<input name='id' type='hidden' value='{$id}'>
+		
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="button" onclick="postForm('ask')" class="btn btn-primary ">提交疑问</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+	function postForm(formId)
+	{
+		var formData = $("#"+formId).serialize(); 
+                //serialize() 方法通过序列化表单值，创建 URL 编码文本字符串,这个是jquery提供的方法  
+                $.ajax({  
+                    type:"post",  
+                    url:"{:url('admin/user/askpost')}",  
+                    dataType:"json",
+                    data:formData,//这里data传递过去的是序列化以后的字符串  
+                    success:function(data){  
+                      
+                       if(data.code==1)
+                       {
+                       		layer.msg(data.msg);
+
+                       }else{
+
+                      	 	parent.layer.closeAll();
+                      	 	parent.layer.msg(data.msg);
+                       }
+                    }  
+                });  
+
+	}
+</script>
+
+

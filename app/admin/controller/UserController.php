@@ -511,6 +511,53 @@ class UserController extends AdminBaseController
         return $this->fetch();
     }
 
+
+       /**
+     * check_user_crf
+     */
+
+    public function check_user_crf()
+    {
+        //只能查看自己的crf
+        $admin_id=$_SESSION['think']['ADMIN_ID'];
+        $user_id=$this->request->param('id');
+        $project_info=Db::name('admin_project')
+                ->where('project_student|project_charge','eq',$admin_id)
+                ->find();
+        $where['project_id']=$project_info['id'];
+        $result=Db::name('admin_project_crf')->where($where)->order('event_num asc , sort asc')->select();
+        //字母
+        $letter=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+        //录入的数据
+        $where_crf['user_id']=$user_id;
+        $where_crf['project_id']=$project_info['id'];
+        $user_crf=Db::name('admin_user_crf')->where($where_crf)->select();
+        //foreach
+        $new_crf=array();
+        foreach ($user_crf as $k=>$v)
+        {
+            $key=$v['crf_id'];
+            $new_crf[$key]=$v;
+        }
+        
+        $this->assign('user_crf',$new_crf);
+        $this->assign('result',$result);
+        //将crf结果格式化
+        $crf_result=array();
+        foreach($result as $k=>$v)
+        {
+
+           $crf_result[$v['event_num']][]=$v;
+            
+        }
+        $this->assign('crf_result',$crf_result);
+        $this->assign('user_id',$user_id);
+        $this->assign('project_id',$project_info['id']);
+        $this->assign('letter',$letter);
+
+        return $this->fetch();
+    }
+
     /**
      *crfpost
      */
@@ -525,7 +572,7 @@ class UserController extends AdminBaseController
             $user_id=$request['user_id'];
             $project_id=$request['project_id'];
             $crf=$request['crf'];
-             print_r($request);
+            
             Db::startTrans();
             try{
                 foreach($crf as $key=>$value)
@@ -566,6 +613,98 @@ class UserController extends AdminBaseController
 
         }
 
+
+    }
+    /*疑问页面*/
+    public function user_ask()
+    {
+        $id=$this->request->param('id');
+        $this->assign('id',$id);
+        return $this->fetch();
+    }
+    /*疑问插入*/
+    public function askpost()
+    {
+        if($this->request->isPost())
+        {
+            $request = $this->request->param();
+            $crf_id=$request['id'];
+            $where['id']=$crf_id;
+            $crf_info=Db::name('admin_project_crf')->where($where)->find();
+            if(empty($crf_info))
+            {
+                $da['code']=1;
+                $da['msg']='数据错误';
+                echo json_encode($da);die;
+            }
+            $ask=$request['ask'];
+            if(!$ask)
+            {
+                $da['code']=1;
+                $da['msg']='提交疑问不能为空';
+                echo json_encode($da);die;
+            }
+            $project_id=$crf_info['project_id'];
+            $admin_id=$_SESSION['think']['ADMIN_ID'];
+            if(!$ask)
+            {
+                $da['code']=1;
+                $da['msg']='提交疑问不能为空';
+                echo json_encode($da);die;
+            }
+            $askarray['ask']=$ask;
+            $askarray['answer']='';
+            $askarray['time']=time();
+            $save['project_id']=$project_id;
+            $save['admin_id']=$admin_id;
+            $save['crf_id']=$crf_id;
+            $save['add_time']=time();
+            //查询疑问表中是否有同样的数据
+            $where_c['crf_id']=$crf_id;
+            $ask_info=Db::name('user_ask')->where($where_c)->find();
+            if(empty($ask_info))
+            {
+                $sa=array();
+                array_push($sa, $askarray);
+                $save['ask']=json_encode($sa);
+                //插入
+                $res=Db::name('user_ask')->data($save)->insert();
+                if($res)
+                {
+                    $da['code']=0;
+                    $da['msg']='';
+                    echo json_encode($da);die;
+                }else{
+                     $da['code']=1;
+                     $da['msg']='提交疑问失败';
+                    echo json_encode($da);die;
+                }
+            }else{
+                //更新
+                $ask_id=$ask_info['id'];
+                $where_as['id']=$ask_id;
+                $where_as['crf_id']=$crf_id;
+                $sa['ask']=$ask_info['ask'];
+                $array=json_decode($sa['ask'],true);
+                array_push($array, $askarray);
+                $data['ask']=json_encode($array);
+                $res=Db::name('user_ask')->where($where_as)->data($data)->update();
+                if($res)
+                {
+                    $da['code']=0;
+                    $da['msg']='提交疑问成功';
+                    echo json_encode($da);die;
+                }else{
+                    $da['code']=1;
+                    $da['msg']='提交疑问失败';
+                    echo json_encode($da);die;
+                }
+
+            }
+
+
+
+        }
 
     }
 
