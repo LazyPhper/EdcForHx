@@ -102,6 +102,9 @@ class UserController extends AdminBaseController
         if (!empty($content)) {
             return $content;
         }
+        $center = Db::name('center')->where(['status' => 1])->order("id DESC")->select();
+        $this->assign("center", $center);
+
 
         $roles = Db::name('role')->where(['status' => 1])->order("id DESC")->select();
         $this->assign("roles", $roles);
@@ -173,6 +176,9 @@ class UserController extends AdminBaseController
         if (!empty($content)) {
             return $content;
         }
+
+        $center = Db::name('center')->where(['status' => 1])->order("id DESC")->select();
+        $this->assign("center", $center);
 
         $id    = $this->request->param('id', 0, 'intval');
         $roles = DB::name('role')->where(['status' => 1])->order("id DESC")->select();
@@ -410,20 +416,29 @@ class UserController extends AdminBaseController
 
         $where   = [];
         $request = input('request.');
-
+         $usersQuery = Db::name('user');
+        //
         if (!empty($request['uid'])) {
             $where['id'] = intval($request['uid']);
         }
         $where['user_type']=2;
         $where['admin_id']=$_SESSION['think']['ADMIN_ID'];
+        //查出center_id
+        $where_a['id']=$_SESSION['think']['ADMIN_ID'];
+        $info = $usersQuery->where($where_a)->find();
+        $center_id=$info['center_id'];
+        if($center_id)
+        {
+            $where['center_id']=$center_id;
+        }
+        
         $keywordComplex = [];
         if (!empty($request['keyword'])) {
             $keyword = $request['keyword'];
 
             $keywordComplex['user_login|user_nickname|user_email|mobile']    = ['like', "%$keyword%"];
         }
-        $usersQuery = Db::name('user');
-
+       
         $list = $usersQuery->whereOr($keywordComplex)->where($where)->order("create_time DESC")->paginate(10);
         // 获取分页显示
         $page = $list->render();

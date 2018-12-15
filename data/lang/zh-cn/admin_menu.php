@@ -1,5 +1,7 @@
 <?php
 return array (
+  'ADMIN_CENTER_DEFAULT' => '中心管理',
+  'ADMIN_CENTER_INDEX' => '中心列表',
   'ADMIN_HOOK_INDEX' => '钩子管理',
   'ADMIN_HOOK_PLUGINLISTORDER' => '钩子插件排序',
   'ADMIN_HOOK_PLUGINS' => '钩子插件管理',

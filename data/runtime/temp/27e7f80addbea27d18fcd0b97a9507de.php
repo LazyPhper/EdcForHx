@@ -1,107 +1,36 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:46:"themes/admin_simpleboot3/admin\main\index.html";i:1535858921;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1540550792;}*/ ?>
-<?php function _get_system_widget($name){ switch($name): case "CmfHub": ?>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">交流方式</h3>
-            </div>
-            <div class="panel-body home-info">
-                <ul class="list-unstyled">
-                    <li>
-                        <em>官网</em> <span><a href="http://www.thinkcmf.com" target="_blank">www.thinkcmf.com</a></span>
-                    </li>
-                    <li><em>QQ 群</em> <span>100828313,316669417</span></li>
-                    <li><em>联系邮箱</em> <span>catman@thinkcmf.com</span></li>
-                </ul>
-            </div>
-        </div>
-    <?php break; case "CmfDocuments": ?>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">开发手册</h3>
-            </div>
-            <div class="panel-body home-info">
-                <ul class="list-unstyled">
-                    <li>
-                        <em>完全开发手册</em>
-                        <span>
-                            <a class="label label-success" href="http://www.thinkcmf.com/doc.html"
-                               target="_blank">立即阅读</a>
-                        </span>
-                    </li>
-                    <li>
-                        <em>常见问题手册</em>
-                        <span>
-                            <a class="label label-success" href="http://www.thinkcmf.com/faq.html"
-                               target="_blank">立即阅读</a>
-                        </span>
-                    </li>
-                    <li>
-                        <em>模板开发教程</em>
-                        <span>
-                            <a class="label label-success" href="http://www.thinkcmf.com/theme_tutorial.html"
-                               target="_blank">立即阅读</a>
-                        </span>
-                    </li>
-                    <li>
-                        <em>API开发手册</em>
-                        <span>
-                            <a class="label label-success" href="http://www.thinkcmf.com/cmf5api.html"
-                               target="_blank">立即阅读</a>
-                        </span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    <?php break; case "MainContributors": ?>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">主要贡献者</h3>
-            </div>
-            <div class="panel-body home-info">
-                <ul class="list-inline">
-                    <li>老猫</li>
-                    <li>Sam</li>
-                    <li>Tuolaji</li>
-                    <li>睡不醒的猪</li>
-                    <li>小夏</li>
-                    <li>Powerless</li>
-                    <li>WelKinVan</li>
-                    <li>Kane</li>
-                    <li>iYting</li>
-                    <li>pl125</li>
-                    <li>五五</li>
-                </ul>
-            </div>
-        </div>
-    <?php break; case "Contributors": ?>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">贡献者</h3>
-            </div>
-            <div class="panel-body home-info">
-                <ul class="list-inline">
-                    <li>Kin Ho</li>
-                    <li><a href="https://www.wzxaini9.cn/" target="_blank">Powerless</a></li>
-                    <li>Jess</li>
-                    <li>木兰情</li>
-                    <li>Labulaka</li>
-                    <li><a href="http://www.syousoft.com/" target="_blank">WelKinVan</a></li>
-                    <li><a href="http://blog.sina.com.cn/u/1918098881" target="_blank">Jeson</a></li>
-                    <li>Yim</li>
-                    <li><a href="http://www.jamlee.cn/" target="_blank">Jamlee</a></li>
-                    <li>香香咸蛋黄</li>
-                    <li><a href="http://www.xdmeng.cn" target="_blank">小凯</a></li>
-                    <li>Co</li>
-                    <li>Rainfer</li>
-                    <li><a href="http://www.yaoweixiu.cn/" target="_blank">Kane</a></li>
-                    <li>北岸的云</li>
-                    <li>pl125</li>
-                    <li><a href="http://www.wuwuseo.com/" target="_blank">五五</a></li>
-                </ul>
-            </div>
-        </div>
-    <?php break; endswitch; } ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:46:"themes/admin_simpleboot3/admin\main\index.html";i:1544853166;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1540550792;}*/ ?>
 
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">联系方式</h3>
+            </div>
+            <div class="panel-body home-info">
+                <ul class="list-unstyled">
+                    <li>
+                        <em>官网</em> <span><a href="http://www.thinkcmf.com" target="_blank">www.baidu.com</a></span>
+                    </li>
+                    <li><em>QQ</em> <span>1016122628</span></li>
+                    <li><em>联系邮箱</em> <span>1016122628@qq.com</span></li>
+                </ul>
+            </div>
+        </div>
+   
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">系统通知</h3>
+            </div>
+            <div class="panel-body home-info">
+                <ul class="list-unstyled">
+                    <li>
+                        <em>您有疑问未解答</em>
+                        <em><a href="" target="_blank">查看</a></em>
+                        
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+   
 <!DOCTYPE html>
 <html>
 <head>
@@ -219,65 +148,12 @@
 
 </style>
 <?php 
-    \think\Hook::listen('admin_before_head_end',$temp5c0f79faabe3b,null,false);
+    \think\Hook::listen('admin_before_head_end',$temp5c14a55744cd1,null,false);
  ?>
 </head>
 <body>
 <div class="wrap">
-    <?php if(empty($has_smtp_setting) || (($has_smtp_setting instanceof \think\Collection || $has_smtp_setting instanceof \think\Paginator ) && $has_smtp_setting->isEmpty())): ?>
-        <div class="grid-item col-md-12">
-            <div class="alert alert-danger alert-dismissible fade in" role="alert" style="margin-bottom: 0;">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>提示!</strong> 邮箱配置未完成,无法进行邮件发送!
-                <a href="#" data-dismiss="alert" aria-label="Close"
-                   onclick="parent.openapp('<?php echo url('Mailer/index'); ?>','admin_mailer_index','邮箱配置');">现在设置</a>
-            </div>
-        </div>
-    <?php endif; if(!extension_loaded('fileinfo')): ?>
-        <div class="grid-item col-md-12">
-            <div class="alert alert-danger alert-dismissible fade in" role="alert" style="margin-bottom: 0;">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>提示!</strong> php_fileinfo扩展没有开启，无法正常上传文件！
-            </div>
-        </div>
-    <?php endif; ?>
 
-    <div class="grid-item col-md-12" id="thinkcmf-notices-grid" style="display:none;">
-        <div class="dashboard-box">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><?php echo lang('SYSTEM_NOTIFICATIONS'); ?></h3>
-                </div>
-                <div class="panel-body home-info">
-                    <ul id="thinkcmf-notices" class="list-unstyled">
-                        <li>
-                            <img src="/hx/public/themes/admin_simpleboot3/public/assets/images/loading.gif" style="vertical-align: middle;"/>
-                            <span style="display: inline-block; vertical-align: middle;">加载中...</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="home-grid">
-        <!-- width of .grid-sizer used for columnWidth -->
-        <div class="grid-sizer"></div>
-        <?php if(is_array($dashboard_widgets) || $dashboard_widgets instanceof \think\Collection || $dashboard_widgets instanceof \think\Paginator): if( count($dashboard_widgets)==0 ) : echo "" ;else: foreach($dashboard_widgets as $key=>$vo): if($vo['is_system']): ?>
-                <div class="grid-item col-md-12" data-system="1" data-widget="<?php echo $vo['name']; ?>">
-                    <div class="dashboard-box"><?php echo _get_system_widget($vo['name']); ?></div>
-                </div>
-                <?php else: if(isset($dashboard_widget_plugins[$vo['name']])): ?>
-                    <div class="grid-item col-md-<?php echo $dashboard_widget_plugins[$vo['name']]['width']; ?>" data-system="0"
-                         data-widget="<?php echo $vo['name']; ?>">
-                        <div class="dashboard-box"><?php echo $dashboard_widget_plugins[$vo['name']]['view']; ?></div>
-                    </div>
-                <?php endif; endif; endforeach; endif; else: echo "" ;endif; ?>
-    </div>
 </div>
 <script src="/hx/public/static/js/admin.js"></script>
 <?php 
@@ -386,27 +262,27 @@
     }
 
     //获取官方通知
-    $.getJSON("//www.thinkcmf.com/service/sms_jsonp.php?lang=<?php echo $lang_set; ?>&v=<?php echo $thinkcmf_version; ?>&callback=?",
-        function (data) {
-            var tpl      = '<li><em class="title"></em><span class="content"></span></li>';
-            var $notices = $("#thinkcmf-notices");
-            $notices.empty();
-            if (data.length > 0) {
-                $('#thinkcmf-notices-grid').show();
-                $.each(data, function (i, n) {
-                    var $tpl = $(tpl);
-                    $(".title", $tpl).html(n.title);
-                    $(".content", $tpl).html(n.content);
-                    $notices.append($tpl);
-                });
-            } else {
-                $notices.append("<li>^_^,<?php echo lang('NO_NOTICE'); ?>~~</li>");
-            }
+    // $.getJSON("//www.thinkcmf.com/service/sms_jsonp.php?lang=<?php echo $lang_set; ?>&v=<?php echo $thinkcmf_version; ?>&callback=?",
+    //     function (data) {
+    //         var tpl      = '<li><em class="title"></em><span class="content"></span></li>';
+    //         var $notices = $("#thinkcmf-notices");
+    //         $notices.empty();
+    //         if (data.length > 0) {
+    //             $('#thinkcmf-notices-grid').show();
+    //             $.each(data, function (i, n) {
+    //                 var $tpl = $(tpl);
+    //                 $(".title", $tpl).html(n.title);
+    //                 $(".content", $tpl).html(n.content);
+    //                 $notices.append($tpl);
+    //             });
+    //         } else {
+    //             $notices.append("<li>^_^,<?php echo lang('NO_NOTICE'); ?>~~</li>");
+    //         }
 
-        });
+    //     });
 </script>
 <?php 
-    \think\Hook::listen('admin_before_body_end',$temp5c0f79faabe3b,null,false);
+    \think\Hook::listen('admin_before_body_end',$temp5c14a55744cd1,null,false);
  ?>
 </body>
 </html>

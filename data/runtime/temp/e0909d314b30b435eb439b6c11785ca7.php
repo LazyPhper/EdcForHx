@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:44:"themes/admin_simpleboot3/admin\user\add.html";i:1535858921;s:72:"G:\PHPTutorial\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1540550792;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:44:"themes/admin_simpleboot3/admin\user\add.html";i:1544856146;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1540550792;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -102,10 +102,21 @@
 					<input type="text" class="form-control" id="input-user_pass" name="user_pass" placeholder="******">
 				</div>
 			</div>
+
 			<div class="form-group">
 				<label for="input-user_email" class="col-sm-2 control-label"><span class="form-required">*</span><?php echo lang('EMAIL'); ?></label>
 				<div class="col-md-6 col-sm-10">
 					<input type="text" class="form-control" id="input-user_email" name="user_email">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">所属中心:</label>
+				<div class="col-md-6 col-sm-10">
+					<select name="center_id" class="form-control">
+						<?php if(is_array($center) || $center instanceof \think\Collection || $center instanceof \think\Paginator): if( count($center)==0 ) : echo "" ;else: foreach($center as $k=>$vo): ?>
+							<option value="<?php echo $vo['id']; ?>" ><?php echo $vo['center_name']; ?></option>
+						<?php endforeach; endif; else: echo "" ;endif; ?>
+					</select>
 				</div>
 			</div>
 			<div class="form-group">

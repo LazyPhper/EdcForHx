@@ -27,6 +27,17 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<label class="col-sm-2 control-label">所属中心:</label>
+				<div class="col-md-6 col-sm-10">
+					<select name="center_id" class="form-control">
+						<foreach name="center" key="k" item="vo">
+							<php>$id_checked=$vo['id']==$center_id?"checked":"";</php>
+							<option value="{$vo['id']}" >{$vo['center_name']}</option>
+						</foreach>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
 				<label for="input-user_email" class="col-sm-2 control-label"><span class="form-required">*</span>{:lang('ROLE')}</label>
 				<div class="col-md-6 col-sm-10">
 					<foreach name="roles" item="vo">
