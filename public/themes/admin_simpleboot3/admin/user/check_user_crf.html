@@ -98,7 +98,7 @@
 				?>
 				<!--填空-->
 				<?php
-
+				
 					if($v['event_type']=='input')
 					{
 
@@ -120,7 +120,7 @@
 						}
 						?>
 						<div class="div_input">{$v.event_desc}&nbsp;&nbsp;&nbsp;<input class='input-normal {$class}' name="crf[{$v.id}]" type="text" value="{$vv}" >
-							<span><img onclick='askclick({$v.id})' class='askimg' src='__STATIC__/images/ask.jpg'></span>
+							<span><img onclick='askclick({$v.id},{$user_id})' class='askimg' src='__STATIC__/images/ask.jpg'></span>
 						</div>
 				<?php
 						}elseif($v['event_type_t']=='date'){
@@ -140,7 +140,7 @@
 						}
 						?>
 						<div class="div_input">{$v.event_desc}&nbsp;&nbsp;&nbsp;<input class="input-normal js-date {$class}"   type="text" name="crf[{$v.id}]" value="{$vv}" >
-							<span><img onclick='askclick({$v.id})' class='askimg' src='__STATIC__/images/ask.jpg'></span>
+							<span><img onclick='askclick({$v.id},{$user_id})' class='askimg' src='__STATIC__/images/ask.jpg'></span>
 						</div>
 				<?php
 						}elseif($v['event_type_t']=='desc'){
@@ -157,7 +157,7 @@
 					  	$select=json_decode($v['event_desc'],true);
 					  	?>
 						<div class="div_select">
-							<span>{$select.name}</span><span><img onclick='askclick({$v.id})' class='askimg' src='__STATIC__/images/ask.jpg'></span>
+							<span>{$select.name}</span><span><img onclick='askclick({$v.id},{$user_id})' class='askimg' src='__STATIC__/images/ask.jpg'></span>
 							<div class="select_div">
 								<foreach name="select.option" key="select_k" item="sel">
 									<div class="option_div"><span><?php echo $letter[$select_k];?></span>
@@ -184,7 +184,7 @@
 				?>
 
 						<div class="div_select">
-							<span>{$table.name}</span><span><img onclick='askclick({$v.id})' class='askimg' src='__STATIC__/images/ask.jpg'></span>
+							<span>{$table.name}</span><span><img onclick='askclick({$v.id},{$user_id})' class='askimg' src='__STATIC__/images/ask.jpg'></span>
 							<table class="table_border" id="crf-{$v.id}">
 								<tr>
 									<foreach name="table.desc" key="table_k" item="tab">
@@ -322,10 +322,10 @@
 </body>
 </html>
 <script>
-function askclick(id)
+function askclick(id,user_id)
 {
 	//iframe窗
-	var url='/hx/public/admin/user/user_ask/id/'+id;
+	var url='/hx/public/admin/user/user_ask/id/'+id+'/user_id/'+user_id;
 	// alert(url);
     layer.open({
       type: 2,

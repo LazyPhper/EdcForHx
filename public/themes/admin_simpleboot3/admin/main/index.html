@@ -21,13 +21,32 @@
             <div class="panel-body home-info">
                 <ul class="list-unstyled">
                     <li>
-                        <em>您有疑问未解答</em>
-                        <em><a href="" target="_blank">查看</a></em>
-                        
+                        <?php if($count>0){ ?>
+                        <em>您有疑问未解答&nbsp;&nbsp;<a style='display:inline' class='btn btn-sm btn-danger' href="{:url('admin/main/asklist')}">{$count}</a></em>
+                        <?php }else{ ?>
+                             <em>尚未有疑问</em>
+                        <?php } ?>                        
+                    </li>
+
+                     
+
+                </ul>
+            </div>
+
+               <div class="panel-body home-info">
+                <ul class="list-unstyled">
+                   <li>
+                        <?php if($count_ask>0){ ?>
+                        <em>您有回复尚未查看&nbsp;&nbsp;<a style='display:inline' class='btn btn-sm btn-danger' href="{:url('admin/main/answerlist')}">{$count_ask}</a></em>
+                        <?php }else{ ?>
+                             <em>尚未有疑问</em>
+                        <?php } ?>                        
                     </li>
 
                 </ul>
             </div>
+
+           
         </div>
    
 <include file="public@header"/>

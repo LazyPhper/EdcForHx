@@ -1,0 +1,210 @@
+<include file="public@header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="">疑问列表</a></li>
+		</ul> 
+       
+		<table class="table table-hover table-bordered">
+				<foreach name="list" key="k" item="v">
+				<!--标题-->
+				<div class="well form-inline margin-top-20" >
+				<?php $crf_desc=$v['crf_desc']; ?>
+				<?php
+					if($v['event_type']=='title')
+					{
+				?>
+				<div class="div_title">{$v.event_desc}</div>
+				<?php
+					}
+				?>
+				<!--填空-->
+				<?php
+					if($v['event_type']=='input')
+					{
+
+
+						if($v['event_type_t']=='fill'){
+						?>
+						<div class="div_input">{$v.event_desc}&nbsp;&nbsp;&nbsp;<input class='input-normal' name="crf[{$v.id}]" type="text" value="{$crf_desc}" ></div>
+				<?php
+						}elseif($v['event_type_t']=='date'){
+						?>
+						<div class="div_input">{$v.event_desc}&nbsp;&nbsp;&nbsp;<input class="input-normal js-date"   type="text" name="crf[{$v.id}]" value="{$crf_desc}" ></div>
+				<?php
+						}elseif($v['event_type_t']=='desc'){
+						?>
+						<div class="div_input"><span class="form-required">*</span>{$v.event_desc}</div>
+				<?php
+						}
+					}
+				?>
+
+				<!--选择-->
+
+				<?php if($v['event_type']=='select')
+					 {
+					  	$select=json_decode($v['event_desc'],true);
+					  	?>
+						<div class="div_select">
+							<span>{$select.name}</span>
+							<div class="select_div">
+								<foreach name="select.option" key="select_k" item="sel">
+										<div class="option_div"><span><?php echo $letter[$select_k];?></span>
+										<?php if(isset($crf_desc)){ $de=$crf_desc; } if($v['event_type_t']=='radio'){ ?>
+
+										<input type="{$v.event_type_t}" name="crf[{$v.id}]" <?php if(isset($de)){if($de==$letter[$select_k]){ echo 'checked';}} ?> value="<?php echo $letter[$select_k]; ?>">
+										<?php  }else{ 
+												if(isset($crf_desc)){ $de=$crf_desc; $dearray=json_decode($de,true); }else{ $dearray=array();}
+											?>
+										<input type="{$v.event_type_t}" name="crf[{$v.id}][]" <?php if(in_array($letter[$select_k], $dearray)){ echo 'checked';} ?> value="<?php echo $letter[$select_k]; ?>">
+										<?php  } ?>
+										<span class="select_input">{$sel}</span></div>
+								</foreach>
+							</div>
+						</div>
+				<?php
+					  }
+				?>
+
+				<!--表格-->
+				<?php if($v['event_type']=='table')
+						{
+							$table=json_decode($v['event_desc'],true);
+							$desc=json_decode($crf_desc,true);
+				?>
+
+						<div class="div_select">
+							<span>{$table.name}</span>
+							<table class="table_border" id="crf-{$v.id}">
+								<tr>
+									<foreach name="table.desc" key="table_k" item="tab">
+									<td class="td_border">{$tab}</td>
+									</foreach>
+								</tr>
+								<tr id="crf-{$v.id}-tr">
+									<foreach name="desc" key="kk" item="value">
+										<?php if($kk==1){ ?>
+										<tr id="crf-{$v.id}-tr"  class="tr_num">
+											<foreach name="table.type" key="table_k" item="tab_t">
+												<?php if(isset($value[$table_k])){ $dd=$value[$table_k]; }else{ $dd=''; }  ?>
+												<?php if($tab_t=='text')
+												{
+												?>
+												<td class="td_border"><input type="text" class="input-normal" name="crf[{$v.id}][{$kk}][]" value="{$dd}"></td>
+												<?php
+												}elseif($tab_t=='date'){
+												?>
+												<td class="td_border"><input class="input-normal  js-date" type="text"  name="crf[{$v.id}][{$kk}][]" value="{$dd}"></td>
+												<?php
+												}elseif($tab_t=='radio_or'){
+												?>
+												<td class="td_border"><input type="radio" name="crf[{$v.id}][{$kk}][]" <?php if($dd==1){ echo 'checked';} ?> value="1"> 是&nbsp;&nbsp;<input type="radio" name="crf[{$v.id}][{$kk}][]" <?php if($dd==2){ echo 'checked';} ?> value="2">否</td>
+												<?php
+												}else{
+												?>
+												<td class="td_border"><input type="text" class="input-normal" name="crf[{$v.id}][{$kk}][]" value="{$dd}"></td>
+												<?php
+												}
+												?>
+											</foreach>
+										</tr>
+										<?php }else{ ?>
+										<tr  class="tr_num">
+											<foreach name="table.type" key="table_k" item="tab_t">
+												<?php if(isset($value[$table_k])){ $dd=$value[$table_k]; }else{ $dd=''; } ?>
+												<?php if($tab_t=='text')
+												{
+												?>
+												<td class="td_border"><input type="text" class="input-normal" name="crf[{$v.id}][{$kk}][]" value="{$dd}"></td>
+												<?php
+												}elseif($tab_t=='date'){
+												?>
+												<td class="td_border"><input class="input-normal  js-date" type="text"  name="crf[{$v.id}][{$kk}][]" value="{$dd}"></td>
+												<?php
+												}elseif($tab_t=='radio_or'){
+												?>
+												<td class="td_border"><input type="radio" name="crf[{$v.id}][{$kk}][]" <?php if($dd==1){ echo 'checked';} ?> value="1"> 是&nbsp;&nbsp;<input type="radio" name="crf[{$v.id}][{$kk}][]" <?php if($dd==2){ echo 'checked';} ?> value="2">否</td>
+												<?php
+												}else{
+												?>
+												<td class="td_border"><input type="text" class="input-normal" name="crf[{$v.id}][{$kk}][]" value="{$dd}"></td>
+												<?php
+												}
+												?>
+											</foreach>
+										</tr>
+
+										<?php } ?>
+									</foreach>
+
+
+								</tr>
+							</table>
+							
+
+						</div>
+
+				<?php
+					}
+				?>
+
+				 </div>
+				 <!-- 提出的疑问 -->
+				 <?php $ask=json_decode($v['ask'],true); ?>
+				 <div>
+				 	
+					 	<foreach name='ask' item='va'>
+					 		<?php if($va['answer']){ ?>
+					 			<span>提出的疑问:&nbsp;&nbsp;&nbsp;<?php echo date('Y-m-d H:i',$va['time']); ?>&nbsp;&nbsp;&nbsp;<span style='color:red'>{$va.ask}</span></span><br>
+					 			<span>答复:&nbsp;&nbsp;&nbsp;<?php echo date('Y-m-d H:i',$va['respone_time']); ?>&nbsp;&nbsp;&nbsp;<span style='color:red'>{$va.answer}</span></span>
+					 			<hr>
+					 		 <?php }else{ ?>
+					 		<span>提出的疑问:&nbsp;&nbsp;&nbsp;<?php echo date('Y-m-d H:i',$va['time']); ?>&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:red'>{$va.ask}</span></span>
+					 		<div>
+					 	答复:&nbsp;&nbsp;&nbsp;
+					 		<textarea id='answer-{$v.ask_id}' id='content'  style='width:98%;height:100px;' placeholder='回复'>{$va.answer}</textarea>
+					 		<button class='btn btn-danger' onclick='answer({$v.ask_id})'>确认回复</button>
+					 		</div>
+					 	<?php } ?>
+					 	</foreach>
+				 	
+				 </div>
+			</foreach>
+
+		</table>
+		<div class="pagination">{$page}</div>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>
+
+<script>
+function answer(id)
+	{
+		var id=id;
+		//textarea
+		var textareahtml=$('#answer-'+id).val();
+                //serialize() 方法通过序列化表单值，创建 URL 编码文本字符串,这个是jquery提供的方法  
+                $.ajax({  
+                    type:"post",  
+                    url:"{:url('admin/main/answer')}",  
+                    dataType:"json",
+                    data:{id:id,answer:textareahtml},//这里data传递过去的是序列化以后的字符串  
+                    success:function(data){  
+                       if(data.code==1)
+                       {
+                       		layer.msg(data.msg);
+
+                       }else{
+                       		layer.msg(data.msg);
+                       		//刷新页面
+                       		window.location.href="{:url('admin/main/index')}";
+                      	 	
+                       }
+                    }  
+                });  
+
+	}
+</script>

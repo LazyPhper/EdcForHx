@@ -634,7 +634,31 @@ class UserController extends AdminBaseController
     public function user_ask()
     {
         $id=$this->request->param('id');
+        $user_id=$this->request->param('user_id');
+        //中心管理员
+        $admin_id=$_SESSION['think']['ADMIN_ID'];
+
+        if($admin_id==1)
+        {
+            $where_a=array();
+            $where=array();
+            $where['user_type']=1;
+            $where['id']=array('neq',$admin_id);
+        }else{
+            $where_a['id']=$admin_id;
+            $user_info=Db::name('user')->field('center_id')->where($where_a)->find();
+            $where['center_id']=$user_info['center_id'];
+            $where['id']=array('neq',$admin_id);
+            $user_info=Db::name('user')->field('center_id')->where($where_a)->find();
+            $where['center_id']=$user_info['center_id'];
+            $where['id']=array('neq',$admin_id);
+            $where['user_type']=1;
+        }
+       
+        $center_list=Db::name('user')->field('id,user_login')->where($where)->select();
+        $this->assign('center_list',$center_list);
         $this->assign('id',$id);
+        $this->assign('user_id',$user_id);
         return $this->fetch();
     }
     /*疑问插入*/
@@ -644,6 +668,7 @@ class UserController extends AdminBaseController
         {
             $request = $this->request->param();
             $crf_id=$request['id'];
+            $user_id=$request['user_id'];
             $where['id']=$crf_id;
             $crf_info=Db::name('admin_project_crf')->where($where)->find();
             if(empty($crf_info))
@@ -653,6 +678,7 @@ class UserController extends AdminBaseController
                 echo json_encode($da);die;
             }
             $ask=$request['ask'];
+            $respone_id=$request['respone_id'];
             if(!$ask)
             {
                 $da['code']=1;
@@ -667,6 +693,8 @@ class UserController extends AdminBaseController
                 $da['msg']='提交疑问不能为空';
                 echo json_encode($da);die;
             }
+            $save['respone_id']=$respone_id;
+            $save['user_id']=$user_id;
             $askarray['ask']=$ask;
             $askarray['answer']='';
             $askarray['time']=time();
@@ -676,51 +704,27 @@ class UserController extends AdminBaseController
             $save['add_time']=time();
             //查询疑问表中是否有同样的数据
             $where_c['crf_id']=$crf_id;
-            $ask_info=Db::name('user_ask')->where($where_c)->find();
-            if(empty($ask_info))
+           
+            $sa=array();
+            array_push($sa, $askarray);
+            $save['ask']=json_encode($sa);
+            //插入
+            $res=Db::name('user_ask')->data($save)->insert();
+            if($res)
             {
-                $sa=array();
-                array_push($sa, $askarray);
-                $save['ask']=json_encode($sa);
-                //插入
-                $res=Db::name('user_ask')->data($save)->insert();
-                if($res)
-                {
-                    $da['code']=0;
-                    $da['msg']='';
-                    echo json_encode($da);die;
-                }else{
-                     $da['code']=1;
-                     $da['msg']='提交疑问失败';
-                    echo json_encode($da);die;
-                }
+                $da['code']=0;
+                $da['msg']='提交疑问成功';
+                echo json_encode($da);die;
             }else{
-                //更新
-                $ask_id=$ask_info['id'];
-                $where_as['id']=$ask_id;
-                $where_as['crf_id']=$crf_id;
-                $sa['ask']=$ask_info['ask'];
-                $array=json_decode($sa['ask'],true);
-                array_push($array, $askarray);
-                $data['ask']=json_encode($array);
-                $res=Db::name('user_ask')->where($where_as)->data($data)->update();
-                if($res)
-                {
-                    $da['code']=0;
-                    $da['msg']='提交疑问成功';
-                    echo json_encode($da);die;
-                }else{
-                    $da['code']=1;
-                    $da['msg']='提交疑问失败';
-                    echo json_encode($da);die;
-                }
-
+                 $da['code']=1;
+                 $da['msg']='提交疑问失败';
+                echo json_encode($da);die;
             }
-
-
-
+           
         }
 
     }
+
+
 
 }

@@ -9,13 +9,24 @@
 					<textarea name='ask' style='width:440px;height:200px;resize:none'></textarea>
 				</div>
 			</div>
+			<div class="form-group">
+				<label for="input-user_login" class="col-sm-2 control-label"><span class="form-required">*</span>提问对象</label>
+				<div class="col-md-5 col-sm-10">
+					<select name='respone_id'>
+						<foreach name='center_list' item='v'>
+							<option value='{$v.id}'>{$v.user_login}</option>
+						</foreach>
+					</select>
+				</div>
+			</div>
 			<input name='id' type='hidden' value='{$id}'>
-		
+			<input name='user_id' type='hidden' value='{$user_id}'>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
 					<button type="button" onclick="postForm('ask')" class="btn btn-primary ">提交疑问</button>
 				</div>
 			</div>
+			
 		</form>
 	</div>
 	<script src="__STATIC__/js/admin.js"></script>

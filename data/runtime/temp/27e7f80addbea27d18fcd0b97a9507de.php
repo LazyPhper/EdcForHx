@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:46:"themes/admin_simpleboot3/admin\main\index.html";i:1544853166;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1540550792;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:46:"themes/admin_simpleboot3/admin\main\index.html";i:1546148266;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1540550792;}*/ ?>
 
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -22,13 +22,32 @@
             <div class="panel-body home-info">
                 <ul class="list-unstyled">
                     <li>
-                        <em>您有疑问未解答</em>
-                        <em><a href="" target="_blank">查看</a></em>
-                        
+                        <?php if($count>0){ ?>
+                        <em>您有疑问未解答&nbsp;&nbsp;<a style='display:inline' class='btn btn-sm btn-danger' href="<?php echo url('admin/main/asklist'); ?>"><?php echo $count; ?></a></em>
+                        <?php }else{ ?>
+                             <em>尚未有疑问</em>
+                        <?php } ?>                        
+                    </li>
+
+                     
+
+                </ul>
+            </div>
+
+               <div class="panel-body home-info">
+                <ul class="list-unstyled">
+                   <li>
+                        <?php if($count_ask>0){ ?>
+                        <em>您有回复尚未查看&nbsp;&nbsp;<a style='display:inline' class='btn btn-sm btn-danger' href="<?php echo url('admin/main/answerlist'); ?>"><?php echo $count_ask; ?></a></em>
+                        <?php }else{ ?>
+                             <em>尚未有疑问</em>
+                        <?php } ?>                        
                     </li>
 
                 </ul>
             </div>
+
+           
         </div>
    
 <!DOCTYPE html>
@@ -148,7 +167,7 @@
 
 </style>
 <?php 
-    \think\Hook::listen('admin_before_head_end',$temp5c14a55744cd1,null,false);
+    \think\Hook::listen('admin_before_head_end',$temp5c2877e13e72a,null,false);
  ?>
 </head>
 <body>
@@ -282,7 +301,7 @@
     //     });
 </script>
 <?php 
-    \think\Hook::listen('admin_before_body_end',$temp5c14a55744cd1,null,false);
+    \think\Hook::listen('admin_before_body_end',$temp5c2877e13e72a,null,false);
  ?>
 </body>
 </html>
