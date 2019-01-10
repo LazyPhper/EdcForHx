@@ -20,7 +20,7 @@ class ProjectController extends AdminBaseController
     /**
      * 项目
     */
-    public function index()
+ public function index()
     {
         $content = hook_one('admin_user_index_view');
 
@@ -31,7 +31,7 @@ class ProjectController extends AdminBaseController
         /**搜索条件**/
         $project_name = $this->request->param('project_name');
         $project_sn = trim($this->request->param('project_sn'));
-        $where['id']=array('gt',0);
+        $where['ap.id']=array('gt',0);
         if ($project_name) {
             $where['project_name'] = ['like', "%$project_name%"];
         }
@@ -40,9 +40,13 @@ class ProjectController extends AdminBaseController
             $where['project_sn'] = ['like', "%$project_sn%"];;
         }
         $list = Db::name('admin_project')
-            ->where($where)
-            ->order("id DESC")
-            ->paginate(10);
+                ->alias('ap')
+                ->field('ap.*,au.user_login project_student_name,bu.user_login project_charge_name')
+                ->where($where)
+                ->join('user au','au.id=ap.project_student')
+                ->join('user bu','bu.id=ap.project_charge')
+                ->order("id DESC")
+                ->paginate(10);
         $list->appends(['project_sn' => $project_sn, 'project_name' => $project_name]);
         // 获取分页显示
         $page = $list->render();
@@ -194,7 +198,12 @@ class ProjectController extends AdminBaseController
     public function edcadd()
     {
         $project_id=$this->request->param('id');
-
+        //查询是否有
+        $result=Db::name('admin_project_crf')->where(array('project_id'=>$project_id))->find();
+        if($result)
+        {
+            $this->redirect('admin/project/project_crf', ['project_id' => $project_id]);
+        }
         $this->assign('project_id',$project_id);
         return $this->fetch();
     }
@@ -354,6 +363,12 @@ class ProjectController extends AdminBaseController
     {
         $project_id=$this->request->param('project_id');
         //查询出所有事件
+        //查询是否有
+        $result=Db::name('admin_project_crf')->where(array('project_id'=>$project_id))->find();
+        if(empty($result))
+        {
+            $this->redirect('admin/project/edcadd', ['id' => $project_id]);
+        }
         $where['project_id']=$project_id;
         $result=Db::name('admin_project_crf')->where($where)->order('event_num asc , sort asc')->select();
         //字母

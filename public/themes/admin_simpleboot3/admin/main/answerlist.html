@@ -7,7 +7,9 @@
 		</ul> 
        
 		<table class="table table-hover table-bordered">
+
 				<foreach name="list" key="k" item="v">
+				<h2>{$v.project_name}</h2>
 				<!--标题-->
 				<div class="well form-inline margin-top-20" >
 				<?php $crf_desc=$v['crf_desc']; ?>
@@ -157,10 +159,10 @@
 				 	
 					 	<foreach name='ask' item='va'>
 					 		<?php if($va['answer']){ ?>
-					 			<span>提出的疑问:&nbsp;&nbsp;&nbsp;<span style='color:red'>{$va.ask}</span></span><br>
-					 			<span>回复:&nbsp;&nbsp;&nbsp;<span style='color:red'>{$va.answer}</span></span>
+					 			<span>提出的疑问:&nbsp;&nbsp;&nbsp;{$va.time|date="Y-m-d",###}&nbsp;&nbsp;&nbsp;<br><span style='color:red'>{$va.ask}</span></span><br>
+					 			<span>回复:&nbsp;&nbsp;&nbsp;{$va.respone_time|date="Y-m-d",###}&nbsp;&nbsp;&nbsp;<br><span style='color:red'>{$va.answer}</span></span>
 					 		 <?php }else{ ?>
-					 		<span>提出的疑问:&nbsp;&nbsp;&nbsp;<span style='color:red'>{$va.ask}</span></span>
+					 		<span>提出的疑问:&nbsp;&nbsp;&nbsp;{$va.time|date="Y-m-d",###}&nbsp;&nbsp;&nbsp;<br><span style='color:red'>{$va.ask}</span></span>
 					 		
 					 	<?php } ?>
 					 		<hr>

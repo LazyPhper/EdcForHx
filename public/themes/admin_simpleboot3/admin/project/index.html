@@ -22,6 +22,7 @@
 					<th>主要研究人</th>
 					<th>负责人</th>
 					<th>项目开始时间</th>
+					<th>项目状态</th>
 					<th width="130">{:lang('ACTIONS')}</th>
 				</tr>
 			</thead>
@@ -32,9 +33,10 @@
 					<td>{$vo.project_name}</td>
 					<td>{$vo.project_sn}</td>
 					<td>
-						{$vo.project_student}
+						{$vo.project_student_name}
 					</td>
-					<td>{$vo.project_charge}</td>
+					<td>{$vo.project_charge_name}</td>
+					<td>{$vo.start_time}</td>
 					<td>{$vo.start_time}</td>
 					<td>
 							<a href='{:url("project/edit",array("id"=>$vo["id"]))}'>{:lang('EDIT')}</a> |

@@ -384,6 +384,7 @@ class UserController extends AdminBaseController
      */
     public function user_add()
     {
+        //所属中心
         return $this->fetch();
     }
 
@@ -422,15 +423,19 @@ class UserController extends AdminBaseController
             $where['id'] = intval($request['uid']);
         }
         $where['user_type']=2;
-        $where['admin_id']=$_SESSION['think']['ADMIN_ID'];
+        $where['u.admin_id']=$_SESSION['think']['ADMIN_ID'];
         //查出center_id
         $where_a['id']=$_SESSION['think']['ADMIN_ID'];
         $info = $usersQuery->where($where_a)->find();
         $center_id=$info['center_id'];
+        $center_name='未选择中心';
         if($center_id)
         {
             $where['center_id']=$center_id;
+            $center_info=Db::name('center')->where(array('id'=>$center_id))->find();
+            $center_name=$center_info['center_name'];
         }
+       
         
         $keywordComplex = [];
         if (!empty($request['keyword'])) {
@@ -439,11 +444,19 @@ class UserController extends AdminBaseController
             $keywordComplex['user_login|user_nickname|user_email|mobile']    = ['like', "%$keyword%"];
         }
        
-        $list = $usersQuery->whereOr($keywordComplex)->where($where)->order("create_time DESC")->paginate(10);
+        $list = $usersQuery
+                        ->field('u.*,c.center_name')
+                        ->whereOr($keywordComplex)
+                        ->alias('u')
+                        ->join('center c','c.id = u.center_id')
+                        ->where($where)
+                        ->order("create_time DESC")
+                        ->paginate(10);
         // 获取分页显示
         $page = $list->render();
         $this->assign('list', $list);
         $this->assign('page', $page);
+        $this->assign('center_name', $center_name);
         // 渲染模板输出
         return $this->fetch();
     }
@@ -467,14 +480,16 @@ class UserController extends AdminBaseController
                 //受试者user_type=2
                 $data['user_type']=2;
                 $data['admin_id']=$_SESSION['think']['ADMIN_ID'];
+                $data['center_id']=$_SESSION['think']['CENTER_ID'];
                 $res =Db::name('user')->insert($data);
                 if ($res !== false) {
-                    $this->success("受试者添加成功！", url("user/admin_index/index"));
+                    $this->success("受试者添加成功！", url("admin/user/user_list"));
                 } else {
                     $this->error('受试者添加失败！');
                 }
 
             }
+             $this->error('受试者添加失败！');
 
         }
 
@@ -536,6 +551,8 @@ class UserController extends AdminBaseController
         //只能查看自己的crf
         $admin_id=$_SESSION['think']['ADMIN_ID'];
         $user_id=$this->request->param('id');
+        //
+
         $project_info=Db::name('admin_project')
                 ->where('project_student|project_charge','eq',$admin_id)
                 ->find();
@@ -546,6 +563,12 @@ class UserController extends AdminBaseController
         //录入的数据
         $where_crf['user_id']=$user_id;
         $where_crf['project_id']=$project_info['id'];
+        $res=Db::name('admin_user_crf')->where($where_crf)->find();
+        if(empty($res))
+        {
+             $this->redirect('admin/user/user_crf', ['id' => $user_id]);
+
+        }
         $user_crf=Db::name('admin_user_crf')->where($where_crf)->select();
         //foreach
         $new_crf=array();

@@ -74,7 +74,7 @@ class MainController extends AdminBaseController
 
     }
 
-        /**
+    /**
      *疑问列表 
      */
     public function asklist()
@@ -96,8 +96,9 @@ class MainController extends AdminBaseController
         $where['respone_status']=0;
         $list = Db::name('user_ask')
             ->alias('ua')
-            ->field('c.*,ua.admin_id,ua.ask,ua.user_id,ua.status,ua.respone_status,ua.crf_id,ua.id ask_id')
+            ->field('c.*,p.project_name,ua.admin_id,ua.ask,ua.user_id,ua.status,ua.respone_status,ua.crf_id,ua.id ask_id')
             ->join('admin_project_crf c','c.id = ua.crf_id')
+            ->join('admin_project p','p.id = ua.project_id')
             ->where($where)
             ->order("id DESC")
             ->paginate(10);
@@ -109,7 +110,7 @@ class MainController extends AdminBaseController
             $crf=Db::name('admin_user_crf')->field('crf_desc')->where($whee)->find();
             $items[$key]['crf_desc']=$crf['crf_desc'];
         }
-        $page = $list->render();
+        $page = $list->render();;
         $this->assign("page", $page);
         $this->assign("list", $items);
         $letter=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
@@ -140,8 +141,9 @@ class MainController extends AdminBaseController
         $where['respone_status']=1;
         $list = Db::name('user_ask')
             ->alias('ua')
-            ->field('c.*,ua.admin_id,ua.ask,ua.user_id,ua.status,ua.respone_status,ua.crf_id,ua.id ask_id')
+            ->field('c.*,p.project_name,ua.admin_id,ua.ask,ua.user_id,ua.status,ua.respone_status,ua.crf_id,ua.id ask_id')
             ->join('admin_project_crf c','c.id = ua.crf_id')
+            ->join('admin_project p','p.id = ua.project_id')
             ->where($where)
             ->order("id DESC")
             ->paginate(10);
@@ -153,9 +155,11 @@ class MainController extends AdminBaseController
             $crf=Db::name('admin_user_crf')->field('crf_desc')->where($whee)->find();
             $items[$key]['crf_desc']=$crf['crf_desc'];
         }
+       
         $page = $list->render();
         $this->assign("page", $page);
         $this->assign("list", $items);
+     
         $letter=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
         $this->assign("letter", $letter);
         return $this->fetch();

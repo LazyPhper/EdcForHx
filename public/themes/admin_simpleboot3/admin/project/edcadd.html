@@ -38,7 +38,7 @@
 <body>
 	<div class="wrap js-check-wrap">
 		<ul class="nav nav-tabs">
-			<li ><a href="{:url('project/edit')}">项目基本信息</a></li>
+			<li ><a href="{:url('project/edit',array('id'=>$project_id))}">项目基本信息</a></li>
 			<li class="active"><a href="{:url('project/edcadd')}">项目CRF</a></li>
 		</ul>
 		<form action="{:url('project/edcaddPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">

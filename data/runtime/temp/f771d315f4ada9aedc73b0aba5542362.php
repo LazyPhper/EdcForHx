@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:49:"themes/admin_simpleboot3/admin\project\index.html";i:1540436762;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1540550792;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:49:"themes/admin_simpleboot3/admin\project\index.html";i:1547112811;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1540550792;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,6 +105,7 @@
 					<th>主要研究人</th>
 					<th>负责人</th>
 					<th>项目开始时间</th>
+					<th>项目状态</th>
 					<th width="130"><?php echo lang('ACTIONS'); ?></th>
 				</tr>
 			</thead>
@@ -115,9 +116,10 @@
 					<td><?php echo $vo['project_name']; ?></td>
 					<td><?php echo $vo['project_sn']; ?></td>
 					<td>
-						<?php echo $vo['project_student']; ?>
+						<?php echo $vo['project_student_name']; ?>
 					</td>
-					<td><?php echo $vo['project_charge']; ?></td>
+					<td><?php echo $vo['project_charge_name']; ?></td>
+					<td><?php echo $vo['start_time']; ?></td>
 					<td><?php echo $vo['start_time']; ?></td>
 					<td>
 							<a href='<?php echo url("project/edit",array("id"=>$vo["id"])); ?>'><?php echo lang('EDIT'); ?></a> |

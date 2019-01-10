@@ -100,6 +100,7 @@ class PublicController extends AdminBaseController
                 }
                 //登入成功页面跳转
                 session('ADMIN_ID', $result["id"]);
+                session('CENTER_ID', $result["center_id"]);
                 session('name', $result["user_login"]);
                 $result['last_login_ip']   = get_client_ip(0, true);
                 $result['last_login_time'] = time();

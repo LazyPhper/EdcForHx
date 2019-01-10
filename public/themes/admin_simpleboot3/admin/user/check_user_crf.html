@@ -112,12 +112,19 @@
 						}
 						$rule=$v['rule'];
 						$con=$vv.$rule;
-						if(eval("return $con;"))
+						if($con)
 						{
-						  $class='';
+							if(@eval("return $con;"))
+							{
+							  $class='';
+							}else{
+							  $class='redclass';
+							}
 						}else{
-						  $class='redclass';
+							$class='';
 						}
+
+						
 						?>
 						<div class="div_input">{$v.event_desc}&nbsp;&nbsp;&nbsp;<input class='input-normal {$class}' name="crf[{$v.id}]" type="text" value="{$vv}" >
 							<span><img onclick='askclick({$v.id},{$user_id})' class='askimg' src='__STATIC__/images/ask.jpg'></span>
@@ -132,11 +139,16 @@
 						}
 						$rule=$v['rule'];
 						$con=$vv.$rule;
-						if(eval("return $con;"))
+						if($con)
 						{
-						  $class='';
+							if(@eval("return $con;"))
+							{
+							  $class='';
+							}else{
+							  $class='redclass';
+							}
 						}else{
-						  $class='redclass';
+							$class='';
 						}
 						?>
 						<div class="div_input">{$v.event_desc}&nbsp;&nbsp;&nbsp;<input class="input-normal js-date {$class}"   type="text" name="crf[{$v.id}]" value="{$vv}" >
@@ -237,11 +249,16 @@
 													$ruleArray=json_decode($v['rule']);
 													$rule=$ruleArray[$table_k];
 													$con=$dd.$rule;
-													if(eval("return $con;"))
+													if($con)
 													{
-													  $class='';
+														if(@eval("return $con;"))
+														{
+														  $class='';
+														}else{
+														  $class='redclass';
+														}
 													}else{
-													  $class='redclass';
+														$class='';
 													}
 												?>
 												<td class="td_border"><input type="text" class="input-normal {$class}" name="crf[{$v.id}][{$kk}][]" value="{$dd}"></td>
@@ -271,11 +288,16 @@
 												$ruleArray=json_decode($v['rule']);
 												$rule=$ruleArray[$table_k];
 												$con=$dd.$rule;
-												if(eval("return $con;"))
+												if($con)
 												{
-												  $class='';
+													if(@eval("return $con;"))
+													{
+													  $class='';
+													}else{
+													  $class='redclass';
+													}
 												}else{
-												  $class='redclass';
+													$class='';
 												}
 												?>
 												<td class="td_border"><input type="text" class="input-normal {$class}" name="crf[{$v.id}][{$kk}][]" value="{$dd}"></td>

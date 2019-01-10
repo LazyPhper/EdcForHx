@@ -4,20 +4,21 @@
 <div class="wrap js-check-wrap">
 	<ul class="nav nav-tabs">
 		<li><a href="{:url('center/index')}">中心列表</a></li>
-		<li class="active"><a href="{:url('center/add')}">添加中心</a></li>
+		<li class="active"><a href="{:url('center/edit')}">编辑中心</a></li>
+		
 	</ul>
-	<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('center/addPost')}">
+	<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('center/editPost')}">
 
 		<div class="form-group">
 			<label class="col-sm-2 control-label"><span class="form-required">*</span>中心名称:</label>
 			<div class="col-md-6 col-sm-10">
-				<input type="text" class="form-control" name="center_name" value="">
+				<input type="text" class="form-control" name="center_name" value="{$info.center_name}">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label"><span class="form-required">*</span>中心编号:</label>
 			<div class="col-md-6 col-sm-10">
-				<input type="text" class="form-control" name="center_sn" value="">
+				<input type="text" class="form-control" name="center_sn" value="{$info.center_sn}">
 			</div>
 		</div>
 		<div class="form-group">
@@ -26,7 +27,8 @@
 				<select name="admin_id" class="form-control">
 					<option value="" >请选择主要研究者</option>
 					<foreach name="admin_list" key="k" item="vo">
-						<option value="{$vo.user_id}" >{$vo.user_login}</option>
+						
+						<option value="{$vo.user_id}" <?php if($vo['user_id']== $info['admin_id']){echo 'selected';}?> >{$vo.user_login}</option>
 					</foreach>
 				</select>
 			</div>
@@ -34,31 +36,31 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label">伦理办公室（联系人和联系电话):</label>
 			<div class="col-md-6 col-sm-10">
-				<input type="text" class="form-control" name="ethic_tel" value="">
+				<input type="text" class="form-control" name="ethic_tel" value="{$info.ethic_tel}">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label"><span class="form-required">*</span>方案通过伦理审查日期:</label>
 			<div class="col-md-6 col-sm-10">
-				<input type="text" class="form-control js-date" name="checked_time" value="">
+				<input type="text" class="form-control js-date" name="checked_time" value="{$info.checked_time}">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label">临床试验机构办公室（联系人和联系电话）:</label>
 			<div class="col-md-6 col-sm-10">
-				<input type="text" class="form-control" name="clinical_tel" value="">
+				<input type="text" class="form-control" name="clinical_tel" value="{$info.clinical_tel}">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label"><span class="form-required">*</span>启动日期:</label>
 			<div class="col-md-6 col-sm-10">
-				<input type="text" class="form-control js-date" name="center_start_date" value="">
+				<input type="text" class="form-control js-date" name="center_start_date" value="{$info.center_start_date}">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label"><span class="form-required">*</span>分配入组人数:</label>
 			<div class="col-md-6 col-sm-10">
-				<input type="text" class="form-control" name="center_number" value="">
+				<input type="text" class="form-control" name="center_number" value="{$info.center_sn}">
 			</div>
 		</div>
 
@@ -72,6 +74,7 @@
 				</select>
 			</div>
 		</div>
+		<input name='id' type='hidden' value='{$info.id}'>
 		<div class="col-sm-offset-2 col-sm-10">
 			<button type="submit" class="btn btn-primary js-ajax-submit">{:lang("SAVE")}</button>
 			<a class="btn btn-default" href="__URL__">返回</a>

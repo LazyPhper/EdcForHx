@@ -15,6 +15,13 @@
             <tr>
                 <th width="50">ID</th>
                 <th>中心名称</th>
+                <th>中心编号</th>
+                <th>主要研究者</th>
+                <th>伦理办公室（联系人和联系电话)</th>
+                <th>方案通过伦理审查日期</th>
+                <th>临床试验机构办公室（联系人和联系电话）</th>
+                <th>启动日期</th>
+                <th>分配入组人数</th>
                 <th>状态</th>
                 <th width="160">操作</th>
             </tr>
@@ -24,15 +31,19 @@
                 <tr>
                     <td>{$vo.id}</td>
                     <td>{$vo.center_name}</td>
+                    <td>{$vo.center_sn}</td>
+                     <td>{$vo.center_sn}</td>
+                    <td>{$vo.ethic_tel}</td>
+                    <td>{$vo.checked_time}</td>
+                    <td>{$vo.clinical_tel}</td>
+                    <td>{$vo.center_start_date}</td>
+                    <td>{$vo.center_number}</td>
                     <td>{$arrStatus[$vo['status']]}</td>
                     <td>
-                        <if condition="$vo['status'] eq 1">
-                            <a class="js-ajax-dialog-btn"
-                               href="{:url('center/upStatus',['id'=>$vo['id'],'status'=>0])}">禁用</a>
-                            <else/>
-                            <a class="js-ajax-dialog-btn"
-                               href="{:url('center/upStatus',['id'=>$vo['id'] ,'status'=>1])}">启用</a>
-                        </if>
+                       
+                    <a class=""
+                               href="{:url('center/edit',['id'=>$vo['id']])}">编辑</a>
+                          
                         <a class="js-ajax-delete" href="{:url('center/delete',['id'=>$vo['id']])}">删除</a>
                     </td>
                 </tr>

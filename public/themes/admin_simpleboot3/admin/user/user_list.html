@@ -24,6 +24,7 @@
                 <th>{:lang('USERNAME')}</th>
                 <th>用户编号</th>
                 <th>加入时间</th>
+                <th>中心</th>
                 <th>{:lang('STATUS')}</th>
                 <th>{:lang('ACTIONS')}</th>
             </tr>
@@ -39,6 +40,7 @@
                     </td>
                     <td>{$vo['user_sn']?$vo['user_sn']:lang('NOT_FILLED')}</td>
                     <td>{$vo.create_time}</td>
+                    <td>{$vo.center_name}</td>
                     <td>{$user_statuses[$vo['user_status']]}</td>
                     <td>
                         <a href='{:url("user/user_edit",array("id"=>$vo["id"]))}'>{:lang('EDIT')}</a>|
