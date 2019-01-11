@@ -347,7 +347,9 @@
 function askclick(id,user_id)
 {
 	//iframe窗
-	var url='/hx/public/admin/user/user_ask/id/'+id+'/user_id/'+user_id;
+	var param='?id='+id+'&user_id='+user_id;
+	var url="{:url('admin/user/user_ask')}";
+	// var url='/hx/public/admin/user/user_ask/id/'+id+'/user_id/'+user_id;
 	// alert(url);
     layer.open({
       type: 2,
@@ -356,7 +358,7 @@ function askclick(id,user_id)
       shade: false,
       maxmin: true, //开启最大化最小化按钮
       area: ['893px', '600px'],
-      content: url
+      content: url+param
     });
  
 }

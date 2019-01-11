@@ -1,0 +1,60 @@
+<include file="public@header" />
+</head>
+<body>
+	<div class="wrap">
+		<span style='color:red'>请注意:进行电子签名法律效益等于纸质签名，对受试者数据负责。</span>
+		<form method="post" class="form-horizontal js-ajax-form margin-top-20" id='sign' action="">
+			<input type='hidden' name='user_id' value='{$user_id}'>
+			<div class="form-group">
+				<label for="input-user_login" class="col-sm-2 control-label"><span class="form-required">*</span>密码</label>
+				<div class="col-md-5 col-sm-10">
+					<input name='password' value='' type='password'>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="input-user_login" class="col-sm-2 control-label"><span class="form-required">*</span>验证码</label>
+				<div class="col-md-5 col-sm-10">
+					<input name='captcha' value='' type='text'>
+					<captcha height="30" width="100" font-size="15" length="3" bg="255,255,250" id=3 >
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="button" onclick="postForm('sign')" class="btn btn-primary ">签名</button>
+				</div>
+			</div>
+			
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+	function postForm(formId)
+	{
+		var formData = $("#"+formId).serialize(); 
+                //serialize() 方法通过序列化表单值，创建 URL 编码文本字符串,这个是jquery提供的方法  
+                $.ajax({  
+                    type:"post",  
+                    url:"{:url('admin/user/doSign')}",  
+                    dataType:"json",
+                    data:formData,//这里data传递过去的是序列化以后的字符串  
+                    success:function(data){  
+                       if(data.code==2)
+                       {
+                       		 layer.msg('签名完成~', {time: 1500, icon:6});
+
+                       }else{
+
+                      	 	parent.layer.closeAll();
+                      	 	parent.layer.msg(data.msg);
+                       }
+                    }  
+                });  
+
+	}
+</script>
+
+

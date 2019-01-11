@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:50:"themes/admin_simpleboot3/admin\user\user_list.html";i:1547112151;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1540550792;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:50:"themes/admin_simpleboot3/admin\user\user_list.html";i:1547198485;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1547178797;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,11 +123,12 @@
                     <td><?php echo !empty($vo['user_sn'])?$vo['user_sn']:lang('NOT_FILLED'); ?></td>
                     <td><?php echo $vo['create_time']; ?></td>
                     <td><?php echo $vo['center_name']; ?></td>
-                    <td><?php echo $user_statuses[$vo['user_status']]; ?></td>
+                    <td><?php echo $crf_status[$vo['crf_status']]; ?></td>
                     <td>
                         <a href='<?php echo url("user/user_edit",array("id"=>$vo["id"])); ?>'><?php echo lang('EDIT'); ?></a>|
                         <a href='<?php echo url("user/user_crf",array("id"=>$vo["id"])); ?>'>录入</a> |
-                        <a href='<?php echo url("user/check_user_crf",array("id"=>$vo["id"])); ?>'>审查</a>
+                        <a href='<?php echo url("user/check_user_crf",array("id"=>$vo["id"])); ?>'>审查</a> |
+                        <a href='<?php echo url("user/sign",array("user_id"=>$vo["id"])); ?>'>签名</a>
 
                     </td>
                 </tr>

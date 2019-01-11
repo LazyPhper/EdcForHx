@@ -1,4 +1,5 @@
 <include file="public@header" />
+ <link href="__STATIC__/js/layui/css/layui.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
     $(document).ready(function(e) {
         $(".tab li").click(function(){
@@ -57,10 +58,29 @@
 <body>
 	<div class="wrap js-check-wrap">
 		<ul class="nav nav-tabs">
-			<li ><a href="{:url('user/project_info',['id'=>$project_id])}">项目基本信息</a></li>
+			<li ><a href="{:url('project/edit',['id'=>$project_id])}">项目基本信息</a></li>
 			<li class="active"><a href="">CRF录入</a></li>
 		</ul>
 		<!--# 选项卡 -->
+		<div style='margin-top:20px;'>
+			<form class="layui-form"> <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+				<div class="layui-form-item">
+				    <label class="layui-form-label" style='width:8%'>受试者状态</label>
+				    <div class="layui-input-block">
+				    	<foreach name='crf_status' key='key' item='v'>
+				    		 <input type="radio" <?php if($user_info['crf_status']==$key){echo 'checked';}if($user_info['crf_status']>$key){echo 'disabled';}   ?> name="crf_status" value="{$key}" title="{$v}">
+				    	</foreach>
+				    	<php>if($user_info['crf_status'] != '4'){</php>
+			    		<a class="layui-btn" href='javascript:;' onclick='updateUserStatus()'>
+			  				<i class="layui-icon">&#xe608;</i> 更新状态
+			  		 	</a>
+			  		 	<php>}</php>
+				    </div>
+				   
+			  	</div>
+			</form>
+		</div>
+
 		<div class="table_card">
 			<ul class="tab">
 				<foreach name="result" key="k" item="v">
@@ -268,12 +288,13 @@
 				?>
 			</foreach>
 
-			
+					<php>if($user_info['crf_status'] < 3){</php>
 					<div class="form-group" style="margin-top: 5%">
 						<div class="col-sm-offset-2 col-sm-10">
 							<button type="button" class="btn btn-primary" onclick="postForm('event-{$k}')">{:lang('SAVE')}</button>
 						</div>
 					</div>
+					<php>}</php>
 					</form>
 				</div>
 
@@ -284,9 +305,14 @@
 
 	</div>
 	<script src="__STATIC__/js/admin.js"></script>
+	<script src="__STATIC__/js/layui/layui.js"></script>
 </body>
 </html>
 <script>
+		layui.use('form', function(){
+		  var form = layui.form;
+		  //各种基于事件的操作，下面会有进一步介绍
+		});
 	//删除tr
 	function crfDel(k) {
         $(k).parent().parent().remove();
@@ -323,12 +349,75 @@
                 $.ajax({  
                     type:"post",  
                     url:"{:url('admin/user/crfpost')}",  
-                    data:formData,//这里data传递过去的是序列化以后的字符串  
+                    data:formData,//这里data传递过去的是序列化以后的字符串 
+                    dataType:'json',
                     success:function(data){  
+                    	if(data.code==0)
+                    	{
+                    		 layer.msg('录入数据成功', {time: 1500, icon:6});
+                    	}else{
+                    		 layer.msg('录入数据失败', {time: 1500, icon:6});
+                    	}
                        
                     }  
                 });  
 
+	}
+
+	function updateUserStatus()
+	{
+		var crf_status=$('input[name="crf_status"]:checked').val();
+		var user_id={$user_id};
+		if(crf_status==3)
+		{
+			//询问框
+				layer.confirm('您确定录入已完成？完成后将不可继续录入！', {
+				  btn: ['确定','取消'] //按钮
+				}, function(){
+					//确定
+					$.ajax({  
+		                    type:"post",  
+		                    url:"{:url('admin/user/updateUserStatus')}",  
+		                    data:{crf_status:crf_status,user_id:user_id},//这里data传递过去的是序列化以后的字符串 
+		                    dataType:'json',
+		                    success:function(data){  
+		                    	if(data.code==0)
+		                    	{
+		                    		 layer.msg('更新状态成功', {time: 1500, icon:6});
+		                    		 location.reload();
+		                    	}else{
+		                    		 layer.msg('更新状态失败', {time: 1500, icon:6});
+		                    	}
+		                       
+		                    }  
+                	});  
+				  
+				},
+				//取消
+				 function(){
+				  layer.msg('已取消');
+				});
+
+
+		}
+		if(crf_status==4)
+		{
+			//打开页面 进行签名
+			//iframe窗
+			var param='?crf_status='+crf_status+'&user_id='+user_id;
+			var url="{:url('admin/user/sign')}";
+			// alert(url);
+		    layer.open({
+		      type: 2,
+		      title: '签名',
+		      shadeClose: true,
+		      shade: false,
+		      maxmin: true, //开启最大化最小化按钮
+		      area: ['893px', '600px'],
+		      content: url+param
+		    });
+		}
+		 
 	}
 
 </script>

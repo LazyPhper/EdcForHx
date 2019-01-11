@@ -41,11 +41,12 @@
                     <td>{$vo['user_sn']?$vo['user_sn']:lang('NOT_FILLED')}</td>
                     <td>{$vo.create_time}</td>
                     <td>{$vo.center_name}</td>
-                    <td>{$user_statuses[$vo['user_status']]}</td>
+                    <td>{$crf_status[$vo['crf_status']]}</td>
                     <td>
                         <a href='{:url("user/user_edit",array("id"=>$vo["id"]))}'>{:lang('EDIT')}</a>|
                         <a href='{:url("user/user_crf",array("id"=>$vo["id"]))}'>录入</a> |
-                        <a href='{:url("user/check_user_crf",array("id"=>$vo["id"]))}'>审查</a>
+                        <a href='{:url("user/check_user_crf",array("id"=>$vo["id"]))}'>审查</a> |
+                        <a href='{:url("user/sign",array("user_id"=>$vo["id"]))}'>签名</a>
 
                     </td>
                 </tr>

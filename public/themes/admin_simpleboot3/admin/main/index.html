@@ -1,4 +1,4 @@
-
+ <link href="__STATIC__/js/layui/css/layui.css" rel="stylesheet" type="text/css">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">联系方式</h3>
@@ -46,10 +46,66 @@
                 </ul>
             </div>
 
-           
+            <div class="panel-body home-info">
+                <ul class="list-unstyled">
+                   <li>
+                        <?php if($count_gone>0){ ?>
+                        <em>您有已结束疑问&nbsp;&nbsp;<a style='display:inline' class='btn btn-sm btn-default' href="#">{$count_gone}</a></em>
+                        <?php }else{ ?>
+                             <em>尚未有已结束</em>
+                        <?php } ?>                        
+                    </li>
+
+                </ul>
+            </div>
+
+
         </div>
+<table class="layui-table">
+  <colgroup>
+    <col width="150">
+    <col width="200">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th>受试者ID</th>
+      <th>受试者姓名</th>
+      <th>疑问状态</th>
+      <th>中心名字</th>
+      <th>项目名</th>
+      <th>事件名称</th>
+      <th>操作</th>
+    </tr> 
+  </thead>
+  <tbody>
+    <foreach name='list' item='vo'>
+        <tr>
+          <td>{$vo.user_sn}</td>
+          <td>{$vo.user_login}</td>
+          <td>
+            <php>if($vo['status']==1&&$vo['respone_status']==0){echo "<p style='color:red'>新增疑问</p>";}</php>
+            <php>if($vo['status']==1&&$vo['respone_status']==1){echo "<p style='color:green'>新增回复</p>";}</php>
+            <php>if($vo['status']==2){echo "<p style='color:#CCC'>已结束</p>";}</php>
+
+          </td>
+          <td>{$vo.center_name}</td>
+          <td>{$vo.project_name}</td>
+          <td>{$vo.event_desc}</td>
+          <td>
+             <a href="{:url('admin/main/info',['id'=>$vo['ask_id']])}" class="layui-btn">查看</a>
+          </td>
+        </tr>
+    </foreach>
+    
+   
+  </tbody>
+</table>
+<div class="pagination">{$page}</div>
+
    
 <include file="public@header"/>
+<script src="__STATIC__/js/layui/layui.js"></script>
 <style>
     .home-info li em {
         float: left;
@@ -90,12 +146,16 @@
 
 </div>
 <script src="__STATIC__/js/admin.js"></script>
+<script src="__STATIC__/js/layui/layui.js"></script>
 <php>
     $lang_set=defined('LANG_SET')?LANG_SET:'';
     $thinkcmf_version=defined('THINKCMF_VERSION')?THINKCMF_VERSION:'';
 </php>
 <script>
-
+    layui.use('form', function(){
+          var form = layui.form;
+          //各种基于事件的操作，下面会有进一步介绍
+        });
     Wind.css('dragula');
     Wind.use('masonry', 'imagesloaded', 'dragula', function () {
         var $homeGrid = $('.home-grid').masonry({
@@ -195,25 +255,7 @@
         });
     }
 
-    //获取官方通知
-    // $.getJSON("//www.thinkcmf.com/service/sms_jsonp.php?lang={$lang_set}&v={$thinkcmf_version}&callback=?",
-    //     function (data) {
-    //         var tpl      = '<li><em class="title"></em><span class="content"></span></li>';
-    //         var $notices = $("#thinkcmf-notices");
-    //         $notices.empty();
-    //         if (data.length > 0) {
-    //             $('#thinkcmf-notices-grid').show();
-    //             $.each(data, function (i, n) {
-    //                 var $tpl = $(tpl);
-    //                 $(".title", $tpl).html(n.title);
-    //                 $(".content", $tpl).html(n.content);
-    //                 $notices.append($tpl);
-    //             });
-    //         } else {
-    //             $notices.append("<li>^_^,{:lang('NO_NOTICE')}~~</li>");
-    //         }
 
-    //     });
 </script>
 <hook name="admin_before_body_end"/>
 </body>

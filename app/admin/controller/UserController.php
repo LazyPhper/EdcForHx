@@ -414,6 +414,8 @@ class UserController extends AdminBaseController
         if (!empty($content)) {
             return $content;
         }
+        // 0 未录入 1首次录入 2 二次录入 3 完成 4签名
+        $crf_status=array('0'=>'未录入','1'=>'首次录入','2'=>'二次录入','3'=>'录入完成','4'=>'签名',);
 
         $where   = [];
         $request = input('request.');
@@ -456,6 +458,7 @@ class UserController extends AdminBaseController
         $page = $list->render();
         $this->assign('list', $list);
         $this->assign('page', $page);
+        $this->assign('crf_status', $crf_status);
         $this->assign('center_name', $center_name);
         // 渲染模板输出
         return $this->fetch();
@@ -502,6 +505,8 @@ class UserController extends AdminBaseController
     public function user_crf()
     {
         //只能查看自己的crf
+        // 0 未录入 1首次录入 2 二次录入 3 完成 4签名
+        $crf_status=array('0'=>'未录入','1'=>'首次录入','2'=>'二次录入','3'=>'录入完成','4'=>'签名',);
         $admin_id=$_SESSION['think']['ADMIN_ID'];
         $user_id=$this->request->param('id');
         $project_info=Db::name('admin_project')
@@ -533,11 +538,14 @@ class UserController extends AdminBaseController
            $crf_result[$v['event_num']][]=$v;
             
         }
+        //会员状态
+        $user_info=Db::name('user')->field('user_login,user_sn,crf_status')->where(array('id'=>$user_id))->find();
         $this->assign('crf_result',$crf_result);
         $this->assign('user_id',$user_id);
+        $this->assign('crf_status',$crf_status);
+        $this->assign('user_info',$user_info);
         $this->assign('project_id',$project_info['id']);
         $this->assign('letter',$letter);
-
         return $this->fetch();
     }
 
@@ -630,8 +638,12 @@ class UserController extends AdminBaseController
                     if($res)
                     {
                         Db::name('admin_user_crf')->where($where)->update($data);
+                        //二次录入
+                        DB::name('user')->where(array('id'=>$user_id))->update(['crf_status'=>2]);
                     }else{
                         Db::name('admin_user_crf')->where($where)->insert($data);
+                        //首次录入
+                        DB::name('user')->where(array('id'=>$user_id))->update(['crf_status'=>1]);
                     }
                 }
                 // 提交事务
@@ -646,7 +658,7 @@ class UserController extends AdminBaseController
                 
             }
                 $da['code']=0;
-                $da['msg']='fail';
+                $da['msg']='success';
                 echo json_encode($da);die;
 
         }
@@ -746,6 +758,100 @@ class UserController extends AdminBaseController
            
         }
 
+    }
+
+    //更新受试者状态
+    public function updateUserStatus()
+    {
+         $crf_status = $this->request->param('crf_status');
+         $user_id= $this->request->param('user_id');
+         if(empty($crf_status))
+         {
+            $crf_status=0;
+         }
+         if(empty($user_id))
+         {
+            $data['code']=1;
+            $data['msg']='缺少必要参数';
+            echo json_encode($data);die;
+         }
+         $result=Db::name('user')->where(['id'=>$user_id])->update(['crf_status'=>$crf_status]);
+
+        if($result)
+            {
+                $da['code']=0;
+                $da['msg']='更新状态成功';
+                echo json_encode($da);die;
+            }else{
+                 $da['code']=1;
+                 $da['msg']='更新状态失败';
+                echo json_encode($da);die;
+            }
+
+
+    }
+
+    //签名页面
+    public function sign()
+    {
+        $user_id=$this->request->param('user_id');
+        if(!$user_id)
+        {
+            $this->error("错误hack");
+        }
+        //如果状态不是3 不能签名
+        $info=Db::name('user')->where(['id'=>$user_id])->find();
+        if($info['crf_status'] != 3)
+        {
+            $this->redirect('admin/user/user_crf', ['id' => $user_id]);
+        }
+        $this->assign('user_id',$user_id);
+        return $this->fetch();
+    }
+    //进行签名
+    public function doSign()
+    {
+        $user_id=$this->request->param('user_id');
+        $password=$this->request->param('password');
+        $captcha = $this->request->param('captcha');
+        if (empty($captcha)) {
+            $data['code']=2;
+            $data['msg']='验证码不能为空';
+            echo json_encode($data);die;
+        }
+        //验证码
+        if (!cmf_captcha_check($captcha)) {
+            $data['code']=2;
+            $data['msg']='验证码错误';
+            echo json_encode($data);die;
+        }
+        //密码验证
+         if (empty($password)) {
+            $data['code']=2;
+            $data['msg']='密码不能为空';
+            echo json_encode($data);die;
+        }
+        $admin_id=$_SESSION['think']['ADMIN_ID'];
+
+        $info = Db::name('user')->where(['id'=>$admin_id])->find();
+        if (cmf_password($password)==$info['user_pass']) {
+                $result=Db::name('user')->where(['id'=>$user_id])->update(['crf_status'=>4]);
+                if($result)
+                {
+                    $data['code']=0;
+                    $data['msg']='success';
+                    echo json_encode($data);die;
+                }else{
+                     $data['code']=2;
+                    $data['msg']='更新失败';
+                    echo json_encode($data);die;
+                }
+        }else{
+            $data['code']=2;
+            $data['msg']='输入密码错误';
+            echo json_encode($data);die;
+        }
+        
     }
 
 

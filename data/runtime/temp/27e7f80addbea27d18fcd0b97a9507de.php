@@ -1,5 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:46:"themes/admin_simpleboot3/admin\main\index.html";i:1546148266;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1540550792;}*/ ?>
-
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:46:"themes/admin_simpleboot3/admin\main\index.html";i:1547204452;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1547178797;}*/ ?>
+ <link href="/hx/public/static/js/layui/css/layui.css" rel="stylesheet" type="text/css">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">联系方式</h3>
@@ -47,8 +47,61 @@
                 </ul>
             </div>
 
-           
+            <div class="panel-body home-info">
+                <ul class="list-unstyled">
+                   <li>
+                        <?php if($count_gone>0){ ?>
+                        <em>您有已结束疑问&nbsp;&nbsp;<a style='display:inline' class='btn btn-sm btn-default' href="#"><?php echo $count_gone; ?></a></em>
+                        <?php }else{ ?>
+                             <em>尚未有已结束</em>
+                        <?php } ?>                        
+                    </li>
+
+                </ul>
+            </div>
+
+
         </div>
+<table class="layui-table">
+  <colgroup>
+    <col width="150">
+    <col width="200">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th>受试者ID</th>
+      <th>受试者姓名</th>
+      <th>疑问状态</th>
+      <th>中心名字</th>
+      <th>项目名</th>
+      <th>事件名称</th>
+      <th>操作</th>
+    </tr> 
+  </thead>
+  <tbody>
+    <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): if( count($list)==0 ) : echo "" ;else: foreach($list as $key=>$vo): ?>
+        <tr>
+          <td><?php echo $vo['user_sn']; ?></td>
+          <td><?php echo $vo['user_login']; ?></td>
+          <td>
+            <?php if($vo['status']==1&&$vo['respone_status']==0){echo "<p style='color:red'>新增疑问</p>";} if($vo['status']==1&&$vo['respone_status']==1){echo "<p style='color:green'>新增回复</p>";} if($vo['status']==2){echo "<p style='color:#CCC'>已结束</p>";} ?>
+
+          </td>
+          <td><?php echo $vo['center_name']; ?></td>
+          <td><?php echo $vo['project_name']; ?></td>
+          <td><?php echo $vo['event_desc']; ?></td>
+          <td>
+             <a href="<?php echo url('admin/main/info',['id'=>$vo['ask_id']]); ?>" class="layui-btn">查看</a>
+          </td>
+        </tr>
+    <?php endforeach; endif; else: echo "" ;endif; ?>
+    
+   
+  </tbody>
+</table>
+<div class="pagination"><?php echo $page; ?></div>
+
    
 <!DOCTYPE html>
 <html>
@@ -133,6 +186,7 @@
             }
         </style>
     <?php endif; ?>
+<script src="/hx/public/static/js/layui/layui.js"></script>
 <style>
     .home-info li em {
         float: left;
@@ -167,7 +221,7 @@
 
 </style>
 <?php 
-    \think\Hook::listen('admin_before_head_end',$temp5c37081e9f95e,null,false);
+    \think\Hook::listen('admin_before_head_end',$temp5c387765996f5,null,false);
  ?>
 </head>
 <body>
@@ -175,12 +229,16 @@
 
 </div>
 <script src="/hx/public/static/js/admin.js"></script>
+<script src="/hx/public/static/js/layui/layui.js"></script>
 <?php 
     $lang_set=defined('LANG_SET')?LANG_SET:'';
     $thinkcmf_version=defined('THINKCMF_VERSION')?THINKCMF_VERSION:'';
  ?>
 <script>
-
+    layui.use('form', function(){
+          var form = layui.form;
+          //各种基于事件的操作，下面会有进一步介绍
+        });
     Wind.css('dragula');
     Wind.use('masonry', 'imagesloaded', 'dragula', function () {
         var $homeGrid = $('.home-grid').masonry({
@@ -280,28 +338,10 @@
         });
     }
 
-    //获取官方通知
-    // $.getJSON("//www.thinkcmf.com/service/sms_jsonp.php?lang=<?php echo $lang_set; ?>&v=<?php echo $thinkcmf_version; ?>&callback=?",
-    //     function (data) {
-    //         var tpl      = '<li><em class="title"></em><span class="content"></span></li>';
-    //         var $notices = $("#thinkcmf-notices");
-    //         $notices.empty();
-    //         if (data.length > 0) {
-    //             $('#thinkcmf-notices-grid').show();
-    //             $.each(data, function (i, n) {
-    //                 var $tpl = $(tpl);
-    //                 $(".title", $tpl).html(n.title);
-    //                 $(".content", $tpl).html(n.content);
-    //                 $notices.append($tpl);
-    //             });
-    //         } else {
-    //             $notices.append("<li>^_^,<?php echo lang('NO_NOTICE'); ?>~~</li>");
-    //         }
 
-    //     });
 </script>
 <?php 
-    \think\Hook::listen('admin_before_body_end',$temp5c37081e9f95e,null,false);
+    \think\Hook::listen('admin_before_body_end',$temp5c387765996f5,null,false);
  ?>
 </body>
 </html>

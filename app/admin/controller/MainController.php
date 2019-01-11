@@ -36,21 +36,59 @@ class MainController extends AdminBaseController
         }else{
             $where['respone_id']=$admin_id;
         }
-        //已的提问
+        //新提问
         $where['status']=1;
         $where['respone_status']=0;
         $count = Db::name('user_ask')
             ->where($where)
             ->count();
         $this->assign("count", $count);
-         //已的提问
-        $where['status']=1;
-        $where['respone_status']=1;
+         //更新的提问
+        $where_1['status']=1;
+        $where_1['respone_status']=1;
         $count_ask = Db::name('user_ask')
-            ->where($where)
+            ->where($where_1)
             ->count();
         $this->assign("count_ask", $count_ask);
 
+        //统计结束疑问数量生成列表
+        $where_2['status']=2;
+        // $where_1['respone_status']=1;
+        $count_gone = Db::name('user_ask')
+            ->where($where_2)
+            ->count();
+        $this->assign("count_gone", $count_gone);
+        //查出所有列表
+        /**搜索条件**/
+        $admin_id=$_SESSION['think']['ADMIN_ID'];
+        if($admin_id==1)
+        {
+            //
+             $where_l['cp.sort']=0;
+             $whereComplex= [];
+
+        }else{
+
+            $whereComplex['admin_id|respone_id'] = $admin_id;
+            $where_l['cp.sort']=0;
+        }
+        $list = Db::name('user_ask')
+                ->alias('ua')
+                ->field('c.*,p.project_name,ua.admin_id,ua.ask,ua.user_id,ua.status,ua.respone_status,ua.crf_id,ua.id ask_id,cp.event_desc,u.user_login,u.user_sn,ce.center_name')
+                ->join('admin_project_crf c','c.id = ua.crf_id')
+                ->join('admin_project p','p.id = ua.project_id')
+                ->join('admin_project_crf cp','cp.event_num = c.event_num')
+                ->join('user u','ua.user_id = u.id')
+                ->join('center ce','ce.id = u.center_id')
+                ->whereOr($whereComplex)
+                ->where($where_l)
+                ->order("ua.id DESC")
+                ->paginate(10);
+        // 获取分页显示
+        
+        $page = $list->render();
+        $this->assign('list', $list);
+        $this->assign('page', $page);
         return $this->fetch();
     }
 
@@ -79,7 +117,7 @@ class MainController extends AdminBaseController
      */
     public function asklist()
     {
-         $content = hook_one('admin_user_index_view');
+        $content = hook_one('admin_user_index_view');
 
         if (!empty($content)) {
             return $content;
@@ -124,7 +162,7 @@ class MainController extends AdminBaseController
      */
     public function answerlist()
     {
-         $content = hook_one('admin_user_index_view');
+        $content = hook_one('admin_user_index_view');
 
         if (!empty($content)) {
             return $content;
@@ -165,6 +203,39 @@ class MainController extends AdminBaseController
         return $this->fetch();
 
     }
+
+    //查看某个疑问
+    public function info()
+    {
+        $content = hook_one('admin_user_index_view');
+
+        if (!empty($content)) {
+            return $content;
+        }
+        /**搜索条件**/
+        $id=$this->request->param('id');
+        $where['ua.id']=$id;
+        $info = Db::name('user_ask')
+            ->alias('ua')
+            ->field('c.*,p.project_name,ua.admin_id,ua.ask,ua.user_id,ua.status,ua.respone_status,ua.crf_id,ua.id ask_id')
+            ->join('admin_project_crf c','c.id = ua.crf_id')
+            ->join('admin_project p','p.id = ua.project_id')
+            ->where($where)
+            ->find();
+        // 获取分页显示
+        // $items = $list->items();
+       
+            $whee['user_id']=$info['user_id'];
+            $whee['crf_id']=$info['crf_id'];
+            $crf=Db::name('admin_user_crf')->field('crf_desc')->where($whee)->find();
+            $info['crf_desc']=$crf['crf_desc'];
+        
+        $this->assign("v", $info);
+        $letter=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+        $this->assign("letter", $letter);
+        return $this->fetch();
+    }
+
 
     //回复
     public function answer()
