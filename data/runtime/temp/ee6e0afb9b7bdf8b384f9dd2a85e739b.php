@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:50:"themes/admin_simpleboot3/admin\user\user_list.html";i:1547198485;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1547178797;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:50:"themes/admin_simpleboot3/admin\user\user_list.html";i:1547454287;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1547178797;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -108,6 +108,7 @@
                 <th>用户编号</th>
                 <th>加入时间</th>
                 <th>中心</th>
+                <th>分组</th>
                 <th><?php echo lang('STATUS'); ?></th>
                 <th><?php echo lang('ACTIONS'); ?></th>
             </tr>
@@ -123,6 +124,7 @@
                     <td><?php echo !empty($vo['user_sn'])?$vo['user_sn']:lang('NOT_FILLED'); ?></td>
                     <td><?php echo $vo['create_time']; ?></td>
                     <td><?php echo $vo['center_name']; ?></td>
+                    <td><?php echo $vo['group_name']; ?></td>
                     <td><?php echo $crf_status[$vo['crf_status']]; ?></td>
                     <td>
                         <a href='<?php echo url("user/user_edit",array("id"=>$vo["id"])); ?>'><?php echo lang('EDIT'); ?></a>|

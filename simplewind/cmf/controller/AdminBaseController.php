@@ -21,6 +21,8 @@ class AdminBaseController extends BaseController
         hook('admin_init');
         parent::_initialize();
         $session_admin_id = session('ADMIN_ID');
+        //操作url
+        $this->action=$this->request->path();
         if (!empty($session_admin_id)) {
             $user = Db::name('user')->where(['id' => $session_admin_id])->find();
 

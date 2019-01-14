@@ -20,6 +20,7 @@ class MainController extends AdminBaseController
     public function _initialize()
     {
         parent::_initialize();
+        //$this->action 访问url
     }
 
     /**
@@ -35,7 +36,10 @@ class MainController extends AdminBaseController
             //
         }else{
             $where['respone_id']=$admin_id;
+            $where_1['respone_id']=$admin_id;
+            $where_2['respone_id']=$admin_id;
         }
+
         //新提问
         $where['status']=1;
         $where['respone_status']=0;
@@ -43,7 +47,7 @@ class MainController extends AdminBaseController
             ->where($where)
             ->count();
         $this->assign("count", $count);
-         //更新的提问
+        //更新的提问
         $where_1['status']=1;
         $where_1['respone_status']=1;
         $count_ask = Db::name('user_ask')
@@ -53,6 +57,7 @@ class MainController extends AdminBaseController
 
         //统计结束疑问数量生成列表
         $where_2['status']=2;
+
         // $where_1['respone_status']=1;
         $count_gone = Db::name('user_ask')
             ->where($where_2)
@@ -69,7 +74,7 @@ class MainController extends AdminBaseController
 
         }else{
 
-            $whereComplex['admin_id|respone_id'] = $admin_id;
+            $whereComplex['ua.admin_id|ua.respone_id'] = $admin_id;
             $where_l['cp.sort']=0;
         }
         $list = Db::name('user_ask')
@@ -128,7 +133,7 @@ class MainController extends AdminBaseController
         {
             //
         }else{
-            $where['respone_id']=$admin_id;
+            $where['admin_id|respone_id']=$admin_id;
         }
         $where['status']=1;
         $where['respone_status']=0;
@@ -173,7 +178,7 @@ class MainController extends AdminBaseController
         {
             //
         }else{
-            $where['admin_id']=$admin_id;
+            $where['admin_id|respone_id']=$admin_id;
         }
         $where['status']=1;
         $where['respone_status']=1;
@@ -224,7 +229,6 @@ class MainController extends AdminBaseController
             ->find();
         // 获取分页显示
         // $items = $list->items();
-       
             $whee['user_id']=$info['user_id'];
             $whee['crf_id']=$info['crf_id'];
             $crf=Db::name('admin_user_crf')->field('crf_desc')->where($whee)->find();
@@ -240,11 +244,32 @@ class MainController extends AdminBaseController
     //回复
     public function answer()
     {
+        
         $request = $this->request->param();
         $id=$request['id'];
         $answer=$request['answer'];
         $where['id']=$id;
         $ask_info=Db::name('user_ask')->where($where)->find();
+        if($ask_info['respone_status']==1)
+        {
+            $data['code']=1;
+            $data['msg']='您暂时不能进行回复';
+            echo json_encode($data);die;
+        }
+        if(session('ADMIN_ID')==1)
+        {
+            //判断权限
+        }else{
+            //
+            if($ask_info['respone_id'] != session('ADMIN_ID'))
+            {
+                $data['code']=1;
+                $data['msg']='您不能进行回复';
+                echo json_encode($data);die;
+            }
+
+        }
+        
         $ask_json=$ask_info['ask'];
         $ask_json=json_decode($ask_json,true);
         //最后一个数组
@@ -258,6 +283,10 @@ class MainController extends AdminBaseController
         $result=Db::name('user_ask')->where($where)->update($save);
         if($result)
         {
+            $log='回复疑问';
+            $action=$this->action;
+            $user_id=$ask_info['user_id'];
+            cmf_action_log($action,$log,json_encode($save),$user_id);
             $data['code']=0;
             $data['msg']='回复成功';
             echo json_encode($data);die;
@@ -272,15 +301,28 @@ class MainController extends AdminBaseController
     //疑问
     public function ask()
     {
+        
         $request = $this->request->param();
         $id=$request['id'];
         $ask=$request['ask'];
         $where['id']=$id;
         $ask_info=Db::name('user_ask')->where($where)->find();
+        if(session('ADMIN_ID')==1)
+        {
+            //判断权限
+        }else{
+            //
+            if($ask_info['admin_id'] != session('ADMIN_ID'))
+            {
+                $data['code']=1;
+                $data['msg']='您不能提交疑问';
+                echo json_encode($data);die;
+            }
+
+        }
         $ask_json=$ask_info['ask'];
         $ask_json=json_decode($ask_json,true);
          //最后一个数组
-     
         $ask_last['ask']=$ask;
         $ask_last['answer']='';
         $ask_last['time']=time();
@@ -292,6 +334,10 @@ class MainController extends AdminBaseController
         $result=Db::name('user_ask')->where($where)->update($save);
         if($result)
         {
+            $log='提交疑问';
+            $action=$this->action;
+            $user_id=$ask_info['user_id'];
+            cmf_action_log($action,$log,json_encode($save),$user_id);
             $data['code']=0;
             $data['msg']='提交疑问成功';
             echo json_encode($data);die;
@@ -306,16 +352,34 @@ class MainController extends AdminBaseController
     //结束疑问
     public function end()
     {
+       
         $request = $this->request->param();
         $id=$request['id'];
         $ask=$request['ask'];
         $where['id']=$id;
         $ask_info=Db::name('user_ask')->where($where)->find();
+        if(session('ADMIN_ID')==1)
+        {
+            //判断权限
+        }else{
+            //
+            if($ask_info['admin_id'] != session('ADMIN_ID'))
+            {
+                $data['code']=1;
+                $data['msg']='您不能结束疑问';
+                echo json_encode($data);die;
+            }
+
+        }
         $save['respone_status']=1;
         $save['status']=2;
         $result=Db::name('user_ask')->where($where)->update($save);
         if($result)
         {
+            $log='结束疑问';
+            $action=$this->action;
+            $user_id=$ask_info['user_id'];
+            cmf_action_log($action,$log,json_encode($save),$user_id);
             $data['code']=0;
             $data['msg']='结束提问';
             echo json_encode($data);die;

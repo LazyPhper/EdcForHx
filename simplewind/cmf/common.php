@@ -33,6 +33,50 @@ function cmf_get_current_admin_id()
 }
 
 /**
+ * 操作记录
+ * @param string $user_id 管理员id
+ * @param string $action 操作的url
+ * @param string $log 字符描述
+ * @param string $ip ip地址
+ * @param string $data 提交的数据 json 字符串
+ * @return bloo
+ */
+function cmf_action_log($action, $log = '',$data,$user_id=0)
+{
+    //管理员id
+    $userId = session('ADMIN_ID');
+    $ip = get_client_ip(0, true);//修复ip获取
+    $data=$data;
+    $action = $action;
+    $log=$log;
+    $user_id=$user_id;
+    //添加时间
+    $time=time();
+
+    if (empty($userId)) {
+       return false;
+    }
+    // 插入操作表
+    $res=Db::name('action_log')->insert([
+        'admin_id'=>$userId ,
+        'action'=>$action ,
+        'action_log'=>$log ,
+        'ip'=>$ip ,
+        'data'=>$data,
+        'user_id'=>$user_id,
+        'time'=>$time
+        ]);
+    if($res)
+    {
+        return true;
+    }else{
+        return false;
+    }
+
+
+}
+
+/**
  * 判断前台用户是否登录
  * @return boolean
  */

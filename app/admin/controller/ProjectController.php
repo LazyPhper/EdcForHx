@@ -114,6 +114,14 @@ class ProjectController extends AdminBaseController
                 Db::rollback();
                 $this->error("添加失败！");
             }
+            //
+            $p_data['project']=$project;
+            $p_data['project_condition']=$project_condition;
+            $p_data['project_device']=$project_device;
+            $p_data['project_config']=$project_config;
+            $log='新增项目-信息';
+            $action=$this->action;
+            cmf_action_log($action,$log,json_encode($p_data));
             $this->success("添加成功！", url("project/index"));
 
         }
@@ -176,7 +184,6 @@ class ProjectController extends AdminBaseController
             Db::startTrans();
             try{
                 $project_id=Db::name('admin_project')->where($where)->update($project);
-
                 Db::name('admin_project_condition')->where($where_p)->update($project_condition);
                 Db::name('admin_project_device')->where($where_p)->update($project_device);
                 Db::name('admin_project_config')->where($where_p)->update($project_config);
@@ -187,6 +194,13 @@ class ProjectController extends AdminBaseController
                 Db::rollback();
                 $this->error("修改失败！");
             }
+            $p_data['project']=$project;
+            $p_data['project_condition']=$project_condition;
+            $p_data['project_device']=$project_device;
+            $p_data['project_config']=$project_config;
+            $log='修改项目信息';
+            $action=$this->action;
+            cmf_action_log($action,$log,json_encode($p_data));
             $this->success("修改成功！", url("project/index"));
 
         }
@@ -246,6 +260,9 @@ class ProjectController extends AdminBaseController
 //                print_r(Db::getLastSql());
                 $this->error("crf设置失败！");
             }
+            $log='新增项目crf';
+            $action=$this->action;
+            cmf_action_log($action,$log,json_encode($returndata));
             $this->success("crf设置成功！", url("project/index"));
 
         }
@@ -462,6 +479,9 @@ class ProjectController extends AdminBaseController
                 Db::rollback();
                 $this->error("crf规则更新失败！");
             }
+            $log='项目规则提交';
+            $action=$this->action;
+            cmf_action_log($action,$log,json_encode($save));
             $this->success("crf规则更新成功！");
 
 
@@ -546,6 +566,9 @@ class ProjectController extends AdminBaseController
 
                 $this->error("crf更新失败！");
             }
+            $log='crf编辑提交';
+            $action=$this->action;
+            cmf_action_log($action,$log,json_encode($returndata));
             $this->success("crf更新成功！", url("project/index"));
 
         }
@@ -667,8 +690,6 @@ class ProjectController extends AdminBaseController
 
             }
         }
-
-
 
         //
         return $newdata;

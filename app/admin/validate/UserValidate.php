@@ -19,6 +19,7 @@ class UserValidate extends Validate
         'user_pass'  => 'require',
         'user_sn'  => 'require|unique:user',
         'user_email' => 'require|email|unique:user,user_email',
+        'center_id'  => 'require',
     ];
     protected $message = [
         'user_login.require' => '用户不能为空',
@@ -29,11 +30,13 @@ class UserValidate extends Validate
         'user_email.unique'  => '邮箱已经存在',
         'user_sn.require' => '编号不能为空',
         'user_sn.unique'  => '编号已存在',
+        'center_id.require'  => '中心不能为空',
     ];
 
     protected $scene = [
         'add'  => ['user_login', 'user_pass', 'user_email'],
-        'edit' => ['user_login', 'user_email'],
+        'edit' => ['user_login', 'user_email','center_id'],
         'adduser' => ['user_login','user_sn'],
+      
     ];
 }

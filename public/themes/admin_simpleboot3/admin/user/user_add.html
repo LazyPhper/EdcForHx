@@ -48,8 +48,10 @@
 				<label for="more-group-select" class="col-sm-2 control-label"><span class="form-required">*</span>受试者分组</label>
 				<div class="col-md-5 col-sm-10">
 					<select class="form-control" name="post[group]" id="more-group-select">
-						<option value="1">对照组</option>
-						<option value="2">受试组</option>
+						<foreach name='group_list' item='v'>
+							<option value="{$v.id}">{$v.group_name}</option>
+						</foreach>
+					
 					</select>
 				</div>
 			</div>

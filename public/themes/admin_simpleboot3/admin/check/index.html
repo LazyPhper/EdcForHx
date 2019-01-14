@@ -4,7 +4,6 @@
 <div class="wrap">
     <ul class="nav nav-tabs">
         <li class="active"><a>受试者列表</a></li>
-        <li ><a href="{:url('user/user_add')}">增加受试者</a></li>
     </ul>
     <form class="well form-inline margin-top-20" method="post" action="{:url('user/adminIndex/index')}">
         用户ID：
@@ -25,7 +24,6 @@
                 <th>用户编号</th>
                 <th>加入时间</th>
                 <th>中心</th>
-                <th>分组</th>
                 <th>{:lang('STATUS')}</th>
                 <th>{:lang('ACTIONS')}</th>
             </tr>
@@ -42,14 +40,10 @@
                     <td>{$vo['user_sn']?$vo['user_sn']:lang('NOT_FILLED')}</td>
                     <td>{$vo.create_time}</td>
                     <td>{$vo.center_name}</td>
-                    <td>{$vo.group_name}</td>
                     <td>{$crf_status[$vo['crf_status']]}</td>
                     <td>
-                        <a href='{:url("user/user_edit",array("id"=>$vo["id"]))}'>{:lang('EDIT')}</a>|
-                        <a href='{:url("user/user_crf",array("id"=>$vo["id"]))}'>录入</a> |
-                        <a href='{:url("user/check_user_crf",array("id"=>$vo["id"]))}'>审查</a> |
-                        <a href='{:url("user/sign",array("user_id"=>$vo["id"]))}'>签名</a>
-
+                        <a href='{:url("check/check_list",array("id"=>$vo["id"]))}'>查看</a>
+                      
                     </td>
                 </tr>
             </foreach>

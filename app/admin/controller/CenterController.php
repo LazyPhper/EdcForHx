@@ -73,8 +73,11 @@ class CenterController extends AdminBaseController
                         ->join('role_user ru','ru.user_id = u.id')
                         ->where(array('ru.role_id'=>8))
                         ->select();
+        //项目列表
+         $project_list=Db::name('admin_project')->field('id,project_name')->select();
          $this->assign("arrStatus", $arrStatus);
          $this->assign("admin_list", $admin_list);
+         $this->assign("project_list", $project_list);
         return $this->fetch();
     }
 
@@ -94,6 +97,9 @@ class CenterController extends AdminBaseController
         $result  = DB::name('center')->insertGetId($arrData);
         if($result)
         {
+            $log='添加中心提交数据';
+            $action=$this->action;
+            cmf_action_log($action,$log,json_encode($arrData));
             $this->success("添加成功！");
         }else{
             $this->error("添加失败！");
@@ -116,6 +122,9 @@ class CenterController extends AdminBaseController
         $result = DB::name('center')->where(["id" => $intId])->update($data);
         if($result)
         {
+            $log='更新中心数据';
+            $action=$this->action;
+            cmf_action_log($action,$log,json_encode($data));
             $this->success("更新成功！");
         }else{
             $this->error("更新失败！");
@@ -139,8 +148,10 @@ class CenterController extends AdminBaseController
                         ->join('role_user ru','ru.user_id = u.id')
                         ->where(array('ru.role_id'=>8))
                         ->select();
-        // 
-         $center_info = DB::name('center')->where(["id" => $intId])->find();             
+         $center_info = DB::name('center')->where(["id" => $intId])->find(); 
+          //项目列表
+         $project_list=Db::name('admin_project')->field('id,project_name')->select();
+         $this->assign("project_list", $project_list);            
          $this->assign("arrStatus", $arrStatus);
          $this->assign("info", $center_info);
          $this->assign("admin_list", $admin_list);
@@ -168,6 +179,9 @@ class CenterController extends AdminBaseController
         $result = DB::name('center')->where(["id" => $intId])->update($arrData);
         if($result)
         {
+            $log='更新中心数据';
+            $action=$this->action;
+            cmf_action_log($action,$log,json_encode($arrData));
             $this->success("更新成功！");
         }else{
             $this->error("更新失败！");
@@ -187,9 +201,12 @@ class CenterController extends AdminBaseController
         
         if($result)
         {
-            $this->success("更新成功！");
+            $log='删除中心成功！';
+            $action=$this->action;
+            cmf_action_log($action,$log,'');
+            $this->success("删除成功！");
         }else{
-            $this->error("更新失败！");
+            $this->error("删除失败！");
         }
     }
 }

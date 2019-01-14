@@ -154,21 +154,25 @@
 				 <!-- 提出的疑问 -->
 				 <?php $ask=json_decode($v['ask'],true);?>
 				 <div>
-				 	
 					 	<foreach name='ask' item='va'>
-					 		
 				 			<span>提出的疑问:&nbsp;&nbsp;&nbsp;{$va.time|date='Y-m-d H:i:s',###}&nbsp;&nbsp;&nbsp;<br><span style='color:red'>{$va.ask}</span></span><br>
 				 			<span>答复:&nbsp;&nbsp;&nbsp;<?php if(empty($va['respone_time'])){ $va['respone_time']=time();} ?> {$va.respone_time|date='Y-m-d H:i:s',###}&nbsp;&nbsp;&nbsp;<br><span style='color:red'>{$va.answer}</span></span>
 				 			<hr>
 					 	</foreach>
 					 	<div>
-					 		<php> if($v['status']!=2){</php>
-					 	疑问或答复:&nbsp;&nbsp;&nbsp;
+					 		<!-- 已回复等待结束疑问或者重新提交疑问 -->
+					 		<php> if($v['status']!=2){ if($v['respone_status']==1){</php>
+					 		疑问:&nbsp;&nbsp;&nbsp;
 					 		<textarea id='answer-{$v.ask_id}' id='content'  style='width:98%;height:100px;' placeholder='疑问或答复'></textarea>
-					 		<button class='btn btn-danger' onclick='answer({$v.ask_id})'>提交</button>
+					 		<button class='btn btn-danger' onclick='ask({$v.ask_id})'>提交</button>
 					 		<button class='btn btn-primary' onclick='end({$v.ask_id})'>结束疑问</button>
 					 		</div>
-					 		<php>}</php>
+					 		<php>}else{</php>
+					 			回复:&nbsp;&nbsp;&nbsp;
+						 		<textarea id='answer-{$v.ask_id}' id='content'  style='width:98%;height:100px;' placeholder='疑问或答复'></textarea>
+						 		<button class='btn btn-danger' onclick='answer({$v.ask_id})'>提交</button>
+						 		</div>
+					 		<php>}}</php>
 				 	
 				 </div>
 			
@@ -201,6 +205,33 @@ function answer(id)
                        		layer.msg(data.msg);
                        		//刷新页面
                        		window.location.href="{:url('admin/main/index')}";
+                      	 	
+                       }
+                    }  
+                });  
+
+	}
+
+	function ask(id)
+	{
+		var id=id;
+		//textarea
+		var textareahtml=$('#answer-'+id).val();
+                //serialize() 方法通过序列化表单值，创建 URL 编码文本字符串,这个是jquery提供的方法  
+                $.ajax({  
+                    type:"post",  
+                    url:"{:url('admin/main/ask')}",  
+                    dataType:"json",
+                    data:{id:id,ask:textareahtml},//这里data传递过去的是序列化以后的字符串  
+                    success:function(data){  
+                       if(data.code==1)
+                       {
+                       		layer.msg(data.msg);
+
+                       }else{
+                       		layer.msg(data.msg);
+                       		//刷新页面
+                       	window.location.href="{:url('admin/main/index')}";
                       	 	
                        }
                     }  

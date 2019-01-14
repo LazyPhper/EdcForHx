@@ -7,7 +7,7 @@
 			<li><a href="{:url('user/user_edit')}">添加受试者</a></li>
 			<li class="active"><a>编辑受试者</a></li>
 		</ul>
-		<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('admin/user/adduserpost')}">
+		<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('admin/user/edituserpost')}">
 			<div class="form-group">
 				<label for="input-user_login" class="col-sm-2 control-label"><span class="form-required">*</span>受试者姓名</label>
 				<div class="col-md-5 col-sm-10">
@@ -49,9 +49,12 @@
 				<label for="more-group-select" class="col-sm-2 control-label"><span class="form-required">*</span>受试者分组</label>
 				<div class="col-md-5 col-sm-10">
 					<select class="form-control" name="post[group]" id="more-group-select">
-						<option value="1" <?php if($info['group']==1){echo 'selected';} ?> >对照组</option>
-						<option value="2" <?php if($info['group']==2){echo 'selected';} ?> >受试组</option>
+						<foreach name='group_list' item='v'>
+							<option value="{$v.id}" <?php if($info['group']==$v['id']){echo 'selected';} ?>>{$v.group_name}</option>
+						</foreach>
+					
 					</select>
+					
 				</div>
 			</div>
 
@@ -63,6 +66,7 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<input name='id' value='{$info.id}' type='hidden'>
 				<div class="col-sm-offset-2 col-sm-10">
 					<button type="submit" class="btn btn-primary js-ajax-submit">{:lang('SAVE')}</button>
 				</div>

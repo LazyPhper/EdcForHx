@@ -2,6 +2,8 @@
 return array (
   'ADMIN_CENTER_DEFAULT' => '中心管理',
   'ADMIN_CENTER_INDEX' => '中心列表',
+  'ADMIN_CHECK_INDEX' => ' 研究项目稽查记录',
+  'ADMIN_DOWN_INDEX' => '导出数据',
   'ADMIN_HOOK_INDEX' => '钩子管理',
   'ADMIN_HOOK_PLUGINLISTORDER' => '钩子插件排序',
   'ADMIN_HOOK_PLUGINS' => '钩子插件管理',
@@ -134,6 +136,7 @@ return array (
   'ADMIN_USER_INDEX' => '管理员',
   'ADMIN_USER_USERINFO' => '个人信息',
   'ADMIN_USER_USERINFOPOST' => '管理员个人信息修改提交',
+  'ADMIN_USER_USER_GROUP' => '受试者分组',
   'ADMIN_USER_USER_LIST' => '受试者',
   'PLUGIN/DEMO_ADMININDEX_INDEX' => '演示插件',
   'PLUGIN/DEMO_ADMININDEX_SETTING' => '演示插件设置',

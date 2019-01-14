@@ -130,11 +130,16 @@ class UserController extends AdminBaseController
             if (!empty($_POST['role_id']) && is_array($_POST['role_id'])) {
                 $role_ids = $_POST['role_id'];
                 unset($_POST['role_id']);
-                $result = $this->validate($this->request->param(), 'User');
+                $result = $this->validate($this->request->param(), 'User.edit');
                 if ($result !== true) {
                     $this->error($result);
                 } else {
                     $_POST['user_pass'] = cmf_password($_POST['user_pass']);
+                    $_POST['admin_id'] = session('ADMIN_ID');
+                    //
+                    $center_id=$_POST['center_id'];
+                    $center_info=Db::name('center')->where(['id'=>$center_id])->find();
+                    $_POST['project_id']=$center_info['project_id'];
                     $result             = DB::name('user')->insertGetId($_POST);
                     if ($result !== false) {
                         //$role_user_model=M("RoleUser");
@@ -144,6 +149,10 @@ class UserController extends AdminBaseController
                             }
                             Db::name('RoleUser')->insert(["role_id" => $role_id, "user_id" => $result]);
                         }
+                        //记录
+                        $log='管理员添加提交';
+                        $action=$this->action;
+                        cmf_action_log($action,$log,json_encode($_POST));
                         $this->success("添加成功！", url("user/index"));
                     } else {
                         $this->error("添加失败！");
@@ -221,6 +230,9 @@ class UserController extends AdminBaseController
                     // 验证失败 输出错误信息
                     $this->error($result);
                 } else {
+                    $center_id=$_POST['center_id'];
+                    $center_info=Db::name('center')->where(['id'=>$center_id])->find();
+                    $_POST['project_id']=$center_info['project_id'];
                     $result = DB::name('user')->update($_POST);
                     if ($result !== false) {
                         $uid = $this->request->param('id', 0, 'intval');
@@ -231,6 +243,10 @@ class UserController extends AdminBaseController
                             }
                             DB::name("RoleUser")->insert(["role_id" => $role_id, "user_id" => $uid]);
                         }
+                        //记录
+                        $log='管理员编辑提交';
+                        $action=$this->action;
+                        cmf_action_log($action,$log,json_encode($_POST));
                         $this->success("保存成功！");
                     } else {
                         $this->error("保存失败！");
@@ -286,6 +302,10 @@ class UserController extends AdminBaseController
             $data['id']       = cmf_get_current_admin_id();
             $create_result    = Db::name('user')->update($data);;
             if ($create_result !== false) {
+                //记录
+                        $log='管理员个人信息修改提交';
+                        $action=$this->action;
+                        cmf_action_log($action,$log,json_encode($data));
                 $this->success("保存成功！");
             } else {
                 $this->error("保存失败！");
@@ -315,6 +335,11 @@ class UserController extends AdminBaseController
 
         if (Db::name('user')->delete($id) !== false) {
             Db::name("RoleUser")->where(["user_id" => $id])->delete();
+             //记录
+                $log='管理员删除';
+                $action=$this->action;
+                $data['id']=$id;
+                cmf_action_log($action,$log,json_encode($data));
             $this->success("删除成功！");
         } else {
             $this->error("删除失败！");
@@ -340,6 +365,11 @@ class UserController extends AdminBaseController
         if (!empty($id)) {
             $result = Db::name('user')->where(["id" => $id, "user_type" => 1])->setField('user_status', '0');
             if ($result !== false) {
+                    //记录
+                    $log='停用管理员';
+                    $action=$this->action;
+                    $data['id']=$id;
+                    cmf_action_log($action,$log,json_encode($data));
                 $this->success("管理员停用成功！", url("user/index"));
             } else {
                 $this->error('管理员停用失败！');
@@ -368,6 +398,11 @@ class UserController extends AdminBaseController
         if (!empty($id)) {
             $result = Db::name('user')->where(["id" => $id, "user_type" => 1])->setField('user_status', '1');
             if ($result !== false) {
+                      //记录
+                    $log='启用管理员';
+                    $action=$this->action;
+                    $data['id']=$id;
+                    cmf_action_log($action,$log,json_encode($data));
                 $this->success("管理员启用成功！", url("user/index"));
             } else {
                 $this->error('管理员启用失败！');
@@ -384,7 +419,9 @@ class UserController extends AdminBaseController
      */
     public function user_add()
     {
-        //所属中心
+        //所属分组
+        $group_list=Db::name('group')->select();
+        $this->assign('group_list',$group_list);
         return $this->fetch();
     }
 
@@ -399,6 +436,10 @@ class UserController extends AdminBaseController
         }
         $id    = $this->request->param('id', 0, 'intval');
         $user = DB::name('user')->where(["id" => $id])->find();
+         //所属分组
+        $group_list=Db::name('group')->select();
+        $this->assign('group_list',$group_list);
+
         $this->assign('info',$user);
         return $this->fetch();
 
@@ -447,12 +488,13 @@ class UserController extends AdminBaseController
         }
        
         $list = $usersQuery
-                        ->field('u.*,c.center_name')
+                        ->field('u.*,c.center_name,g.group_name')
                         ->whereOr($keywordComplex)
                         ->alias('u')
                         ->join('center c','c.id = u.center_id')
+                        ->join('group g','g.id = u.group')
                         ->where($where)
-                        ->order("create_time DESC")
+                        ->order("u.id DESC")
                         ->paginate(10);
         // 获取分页显示
         $page = $list->render();
@@ -484,8 +526,14 @@ class UserController extends AdminBaseController
                 $data['user_type']=2;
                 $data['admin_id']=$_SESSION['think']['ADMIN_ID'];
                 $data['center_id']=$_SESSION['think']['CENTER_ID'];
-                $res =Db::name('user')->insert($data);
+                //根据center_id 查project_id
+                $center_info=Db::name('center')->field('project_id')->where(['id'=>$data['center_id']])->find();
+                $res =Db::name('user')->insertGetId($data);
                 if ($res !== false) {
+                            //记录
+                            $log='增加受试者';
+                            $action=$this->action;
+                            cmf_action_log($action,$log,json_encode($data),$res);
                     $this->success("受试者添加成功！", url("admin/user/user_list"));
                 } else {
                     $this->error('受试者添加失败！');
@@ -497,6 +545,38 @@ class UserController extends AdminBaseController
         }
 
     }
+
+    /**
+     * 编辑受试者
+     *
+     */
+
+    public function edituserpost()
+    {
+        if($this->request->isPost())
+        {
+            $request=$this->request->param();
+            $data=$request['post'];
+            $user_id=$request['id'];
+                //受试者user_type=2
+                $res =Db::name('user')->where(['id'=>$user_id])->update($data);
+                if ($res !== false) {
+                            //记录
+                            $log='编辑受试者';
+                            $action=$this->action;
+                            cmf_action_log($action,$log,json_encode($data),$user_id);
+                    $this->success("受试者编辑成功！", url("admin/user/user_list"));
+                } else {
+                    $this->error('受试者编辑失败！');
+                }
+
+            
+             $this->error('受试者编辑失败！');
+
+        }
+
+    }
+
 
     /**
      * user_crf
@@ -605,7 +685,8 @@ class UserController extends AdminBaseController
     }
 
     /**
-     *crfpost
+     *录入受试者数据
+     *
      */
 
     public function crfpost()
@@ -657,6 +738,10 @@ class UserController extends AdminBaseController
                 echo json_encode($da);die;
                 
             }
+                    //记录
+                    $log='录入受试者数据';
+                    $action=$this->action;
+                    cmf_action_log($action,$log,json_encode($crf),$user_id);
                 $da['code']=0;
                 $da['msg']='success';
                 echo json_encode($da);die;
@@ -696,7 +781,10 @@ class UserController extends AdminBaseController
         $this->assign('user_id',$user_id);
         return $this->fetch();
     }
-    /*疑问插入*/
+    /**
+    *
+    *疑问插入
+    */
     public function askpost()
     {
         if($this->request->isPost())
@@ -747,6 +835,10 @@ class UserController extends AdminBaseController
             $res=Db::name('user_ask')->data($save)->insert();
             if($res)
             {
+                 //记录
+                    $log='新增新疑问-插入';
+                    $action=$this->action;
+                    cmf_action_log($action,$log,json_encode($save),$user_id);
                 $da['code']=0;
                 $da['msg']='提交疑问成功';
                 echo json_encode($da);die;
@@ -779,6 +871,10 @@ class UserController extends AdminBaseController
 
         if($result)
             {
+                //记录
+                    $log='更新受试者状态';
+                    $action=$this->action;
+                    cmf_action_log($action,$log,json_encode($data),$user_id);
                 $da['code']=0;
                 $da['msg']='更新状态成功';
                 echo json_encode($da);die;
@@ -808,7 +904,10 @@ class UserController extends AdminBaseController
         $this->assign('user_id',$user_id);
         return $this->fetch();
     }
-    //进行签名
+    /**
+    *对受试者数据进行签名
+    */
+    //
     public function doSign()
     {
         $user_id=$this->request->param('user_id');
@@ -838,6 +937,10 @@ class UserController extends AdminBaseController
                 $result=Db::name('user')->where(['id'=>$user_id])->update(['crf_status'=>4]);
                 if($result)
                 {
+                    //记录
+                    $log='对受试者数据进行签名';
+                    $action=$this->action;
+                    cmf_action_log($action,$log,json_encode($data),$user_id);
                     $data['code']=0;
                     $data['msg']='success';
                     echo json_encode($data);die;
@@ -853,6 +956,107 @@ class UserController extends AdminBaseController
         }
         
     }
+
+    /**
+    *受试者分组
+    */
+    public function user_group()
+    {
+
+        $list = Db::name('group')
+                        ->order("add_time DESC")
+                        ->paginate(10);
+        // 获取分页显示
+        $page = $list->render();
+        $this->assign('list', $list);
+        $this->assign('page', $page);
+        return $this->fetch();
+    }
+
+    /**
+    *添加分组
+    */
+    public function group_add()
+    {
+
+        return $this->fetch();
+    }
+
+    /**
+    *编辑分组
+    */
+    public function group_edit()
+    {
+        $id=$this->request->param('id');
+        $info=Db::name('group')->where(['id'=>$id])->find();
+        $this->assign('info',$info);
+        return $this->fetch();
+    }
+
+    /**
+    *提交数据
+    */
+
+    public function groupaddpost()
+    {
+        if($this->request->isPost())
+        {
+            $group_name=$this->request->param('group_name');
+                $res =Db::name('group')->insert([
+                    'add_time'=>time(),
+                    'group_name'=>$group_name
+                    ]);
+                if ($res !== false) {
+                            
+                            $log='新增分组';
+                            $action=$this->action;
+                            $data['group_name']=$group_name;
+                            cmf_action_log($action,$log,json_encode($data));
+                    $this->success("新增分组成功！", url("admin/user/user_group"));
+                } else {
+                    $this->error('新增分组失败！');
+                }
+
+            
+             $this->error('新增分组失败！');
+
+        }
+       
+    }
+
+     /**
+    *提交编辑数据
+    */
+
+    public function groupeditpost()
+    {
+        if($this->request->isPost())
+        {
+            $group_name=$this->request->param('group_name');
+            $id=$this->request->param('id');
+                $res =Db::name('group')->where(['id'=>$id])->update([
+                    'add_time'=>time(),
+                    'group_name'=>$group_name
+                    ]);
+                if ($res !== false) {
+                            
+                            $log='编辑分组';
+                            $action=$this->action;
+                            $data['group_name']=$group_name;
+                            cmf_action_log($action,$log,json_encode($data));
+                    $this->success("编辑分组成功！", url("admin/user/user_group"));
+                } else {
+                    $this->error('编辑分组失败！');
+                }
+
+             $this->error('编辑分组失败！');
+
+        }
+       
+    }
+
+
+
 
 
 

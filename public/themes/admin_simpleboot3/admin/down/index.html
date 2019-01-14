@@ -1,0 +1,92 @@
+<include file="public@header" />
+</head>
+<body>
+	<div class="wrap">
+		<span style='color:red'></span>
+		 <form class="well form-inline margin-top-20" method="post" action="{:url('User/user_group')}">
+            请选择项目:
+           <select name='project_id' id='project_id'>
+           		<foreach name='project_list' item='v'>
+           				<option value='{$v.id}'>{$v.project_name}</option>
+           		</foreach>
+			</select>
+
+        </form>
+         <form class="well form-inline margin-top-20" method="post" action="{:url('User/user_group')}">
+            开始时间:
+           <input class="form-control js-date" id="input-start_time" type="text" name="start_time"
+						   value="{:date('Y-m-d',time())}">&nbsp;&nbsp;——&nbsp;&nbsp;
+			结束时间:
+           <input class="form-control js-date" id="input-end_time" type="text" name="end_time"
+						   value="{:date('Y-m-d',time())}">		   
+
+        </form>
+        <table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th width="50"><label>选择</label></th>
+					<th width="50">ID</th>
+					<th>事件名称</th>
+				</tr>
+			</thead>
+			<tbody id='crf_list'>
+				<foreach name="crf_list" item="vo">
+				<tr>
+				<td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}" title="ID:{$vo.id}"></td>
+					<td>{$vo.id}</td>
+					<td>{$vo.event_desc}</td>
+				</tr>
+				</foreach>
+			</tbody>
+		</table>
+
+		<button class='btn btn-danger' onclick='ajaxDown()'>导出</button>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+	function ajaxDown()
+	{
+		var project_id=$('#project_id').val();
+		var ids='';
+		$("input[name='ids[]']:checked").each(function() {
+			ids+=$(this).val()+',';
+		});
+		ids=(ids.substring(ids.length-1)==',')?ids.substring(0,ids.length-1):ids;
+		//开始时间
+		var start_time=$("input[name='start_time']").val();
+		var end_time=$("input[name='end_time']").val();
+		if(!project_id)
+		{
+			layer.msg('项目没有选择',{time: 1000, icon:6});
+			return false;
+		}
+		if(!ids)
+		{
+			layer.msg('事件没有选择',{time: 1000, icon:6});
+			return false;
+		}
+		if(!start_time)
+		{
+			layer.msg('开始时间没有选择',{time: 1000, icon:6});
+			return false;
+		}
+		if(!end_time)
+		{
+			layer.msg('结束时间没有选择',{time: 1000, icon:6});
+			return false;
+		}
+		var param='?project_id='+project_id+'&ids='+ids+'&start_time='+start_time+'&end_time='+end_time;
+		var url="{:url('admin/down/down')}";
+		var path=url+param;
+		// alert(path);return false;
+		window.location.href=path;
+
+
+	}
+
+	 
+</script>
+
+
