@@ -526,6 +526,7 @@ class UserController extends AdminBaseController
                 $data['user_type']=2;
                 $data['admin_id']=$_SESSION['think']['ADMIN_ID'];
                 $data['center_id']=$_SESSION['think']['CENTER_ID'];
+                $data['create_time']=time();
                 //根据center_id 查project_id
                 $center_info=Db::name('center')->field('project_id')->where(['id'=>$data['center_id']])->find();
                 $res =Db::name('user')->insertGetId($data);
