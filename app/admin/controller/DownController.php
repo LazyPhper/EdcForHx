@@ -285,9 +285,9 @@ class DownController extends AdminBaseController
     //打印输出pdf
 public function printContract(){
         // vendor('TCPDF-master.examples.config.tcpdf_config_alt');
-        vendor('Tcpdf.tcpdf');
+        vendor('TCPDF.tcpdf');
         $letter=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
-        $pdf = new \Tcpdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        $pdf = new \TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         // 设置打印模式
         $pdf->SetCreator(PDF_CREATOR);
         $pdf->SetAuthor('郑州弘新医疗');
