@@ -16,7 +16,6 @@ class IndexController extends HomeBaseController
 {
     public function index()
     {
-        return $this->fetch(':index');
-
+        $this->redirect('admin/index/index');
     }
 }

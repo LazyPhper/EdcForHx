@@ -14,6 +14,7 @@ use cmf\controller\AdminBaseController;
 use think\Db;
 use app\admin\model\Menu;
 use think\Loader;
+use Dompdf\Dompdf;
 
 class DownController extends AdminBaseController
 {
@@ -21,7 +22,6 @@ class DownController extends AdminBaseController
     public function _initialize()
     {
         parent::_initialize();
-        //$this->action 访问url
     }
 
     /**
@@ -57,7 +57,7 @@ class DownController extends AdminBaseController
      */
     function down()
     {
-        // $user = Db::query("select * from cmf_user");
+        
         Loader::import('PHPExcel.PHPExcel');
         Loader::import('PHPExcel.PHPExcel.IOFactory.PHPExcel_IOFactory');
         Loader::import('PHPExcel.PHPExcel.Reader.Excel2007');
@@ -70,7 +70,14 @@ class DownController extends AdminBaseController
         $start_time=$this->request->param('start_time');
         $end_time=$this->request->param('end_time');
         $k='';
-
+        $start_time=strtotime($start_time);
+        $end_time=strtotime($end_time);
+        if($start_time>$end_time)
+        {
+            $time=$end_time;
+            $end_time=$start_time;
+            $start_time=$end_time;
+        }
         // $objPHPExcel->getActiveSheet()->getStyle('A4')->getAlignment()->setWrapText(true);
         // for($i=0;$i<=200;$i++)
         // {
@@ -210,7 +217,7 @@ class DownController extends AdminBaseController
                             $desc=json_decode($val['crf_desc'],true);
                             foreach($desc as $k=>$v)
                             {
-                                $tableName.="".implode('|',$v)."/r/n";
+                                $tableName.=implode('|',$v).chr(10);
                             }
                             $objPHPExcel->getActiveSheet()->getStyle($le.$num)->getAlignment()->setWrapText(true);
                            
@@ -233,13 +240,12 @@ class DownController extends AdminBaseController
                                 foreach($res as $k=>$v)
                                 {
                                     $k=array_search($v,$letter);
-                                    $tableName.=$event_desc['option'][$k]."/r/n";
+                                    $tableName.=$event_desc['option'][$k].chr(10);
                                 }
                                 $objPHPExcel->getActiveSheet()->getStyle($le.$num)->getAlignment()->setWrapText(true);
                                 
                             }
-                            $desc=json_decode($val['crf_desc'],true);
-                            $tableName=$name['name'];
+                            
                         }else{
                             $tableName=$val['crf_desc'];
                         }
@@ -257,108 +263,6 @@ class DownController extends AdminBaseController
 
         }
        
-
-
-        // $objPHPExcel->setActiveSheetIndex(0)
-        //     ->setCellValue('A1', 'ID')
-        //     ->setCellValue('B1', '用户名')
-        //     ->setCellValue('C1', '密码')
-        //     ->setCellValue('D1', '标志');
-        //     $objPHPExcel->setActiveSheetIndex(0)
-        //     ->setCellValue('E1', 'ID');
-        //存取数据  这边是关键
-        // foreach ($project_crf as $i => $value) {
-        //     $wherep=[];
-        //     $num = $i + 2;
-        //     if(!($i%26))
-        //      {
-        //         $key=$i/26;
-        //         if($key==0)
-        //         {
-        //             $k='';
-        //         }else{
-        //             $kkk=$key-1;
-        //             $k=$letter[$kkk];
-        //         }
-        //      }
-        //      if($i<26)
-        //      {
-        //         $kk=$i;
-        //      }else{
-        //         $ky=$i%26;
-        //         $kk=$ky;
-        //     }
-
-        //     $le=$k.$letter[$kk];
-            # code...
-            // $info=Db::name('admin_user_crf')->field('uc.*')
-            //     ->alias('uc')
-            //     ->join('user u','u.id=uc.user_id')
-            //     ->where([
-            //         'uc.crf_id'=>$value['id'],
-            //         'u.create_time'=>['gt',$start_time],
-            //         'u.create_time'=>['lt',$end_time]
-            //         ])
-            //     ->find();
-            //  $num = $i + 2;
-            //  if(empty($info))
-            //  {
-            //     $objPHPExcel->setActiveSheetIndex(0)
-            //        ->setCellValue($le . $num, '');
-            //  }else{
-            //     $tableName='';
-            //     if($value['event_type']=='table')
-            //     {
-            //         $desc=json_decode($info['crf_desc'],true);
-            //         foreach($desc as $k=>$v)
-            //         {
-            //             $tableName.=implode('|',$v).'/n';
-            //         }
-                   
-            //     }elseif($value['event_type']=='select'){
-            //         if($value['event_type_t']=='radio')
-            //         {
-            //             //
-            //             $tableName='';
-            //             $event_desc=json_decode($value['event_desc'],true);
-            //             $k=array_search($info['crf_desc'],$letter);
-            //             $tableName=$event_desc['option'][$k];
-            //         }
-            //         if($value['event_type_t']=='checkbox')
-            //         {
-            //             //
-            //             $tableName='';
-            //             $event_desc=json_decode($value['event_desc'],true);
-            //             $res=json_decode($info['crf_desc']);
-            //             foreach($res as $k=>$v)
-            //             {
-            //                 $k=array_search($v,$letter);
-            //                 $tableName.=$event_desc['option'][$k].'/n';
-            //             }
-                        
-            //         }
-            //         $desc=json_decode($info['crf_desc'],true);
-            //         $tableName=$name['name'];
-            //     }else{
-            //         $tableName=$info['crf_desc'];
-            //     }
-            //     $objPHPExcel->setActiveSheetIndex(0)
-            //        ->setCellValue($le.$num, $tableName);
-
-            //  }
-              
-        //       echo $num.'//';
-            
-        // }
-        // die;
-        // foreach ($user as $k => $v) {
-        //     $num = $k + 2;
-        //     $objPHPExcel->setActiveSheetIndex(0)
-        //         ->setCellValue('A' . $num, $v['id'])
-        //         ->setCellValue('B' . $num, $v['user_login'])
-        //         ->setCellValue('C' . $num, $v['user_pass'])
-        //         ->setCellValue('D' . $num, $v['group']);
-        // }
         //设置工作表标题
         $objPHPExcel->getActiveSheet()->setTitle($project_info['project_name']);
         //设置列的宽度
@@ -367,13 +271,332 @@ class DownController extends AdminBaseController
         // Set active sheet index to the first sheet, so Excel opens this as the first sheet
         $objPHPExcel->setActiveSheetIndex(0);
         $objWriter = new \PHPExcel_Writer_Excel2007($objPHPExcel);
-        $np=$project_info['project_name'].date('Y-m-d').round(100,999);
+        $np=$project_info['project_name'].date('Y-m-d').rand(100,999);
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         header("Content-Disposition: attachment;filename=".$np.".xlsx");//设置文件标题
         header('Cache-Control: max-age=0');
         $objWriter->save('php://output');
         exit;
     }  
+
+    /**
+    *pdf
+    */
+    //打印输出pdf
+public function printContract(){
+        // vendor('TCPDF-master.examples.config.tcpdf_config_alt');
+        vendor('Tcpdf.tcpdf');
+        $letter=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+        $pdf = new \Tcpdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        // 设置打印模式
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('郑州弘新医疗');
+        $pdf->SetTitle('郑州弘新医疗');
+        $pdf->SetSubject('郑州弘新医疗');
+        $pdf->SetKeywords('郑州弘新医疗, PDF,');
+        // 是否显示页眉
+        $pdf->setPrintHeader(false);
+        // 设置页眉显示的内容
+        $pdf->SetHeaderData('logo.png', 60, 'edc.cmdct.com', '郑州弘新医疗', array(0,64,255), array(0,64,128));
+        // 设置页眉字体
+        $pdf->setHeaderFont(Array('dejavusans', '', '12'));
+        // 页眉距离顶部的距离
+        $pdf->SetHeaderMargin('5');
+        // 是否显示页脚
+        $pdf->setPrintFooter(true);
+        // 设置页脚显示的内容
+        $pdf->setFooterData(array(0,64,0), array(0,64,128));
+        // 设置页脚的字体
+        $pdf->setFooterFont(Array('dejavusans', '', '10'));
+        // 设置页脚距离底部的距离
+        $pdf->SetFooterMargin('10');
+        // 设置默认等宽字体
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+        // 设置行高
+        $pdf->setCellHeightRatio(1);
+        // 设置左、上、右的间距
+        $pdf->SetMargins('10', '10', '10');
+        // 设置是否自动分页  距离底部多少距离时分页
+        $pdf->SetAutoPageBreak(true, '15');
+        // 设置图像比例因子
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+        if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
+            require_once(dirname(__FILE__).'/lang/eng.php');
+            $pdf->setLanguageArray($l);
+        }
+        $pdf->setFontSubsetting(true);
+        $pdf->AddPage();
+        // 设置字体
+        //根据project_id
+        $project_id=$this->request->param('project_id');
+        $ids=$this->request->param('ids');
+        $start_time=$this->request->param('start_time');
+        $end_time=$this->request->param('end_time');
+        $k='';
+        $start_time=strtotime($start_time);
+        $end_time=strtotime($end_time);
+        if($start_time>$end_time)
+        {
+            $time=$end_time;
+            $end_time=$start_time;
+            $start_time=$end_time;
+        } 
+        //
+        $where_c['id']=array('in',$ids);
+        $where_c['sort']=0;
+        $project_crf_list=Db::name('admin_project_crf')->field('project_id,event_num')->where($where_c)->select();
+        
+        $project_crf_event='';
+        foreach ($project_crf_list as $key => $value) {
+            $project_crf_event.=$value['event_num'].',';
+        }
+        //event
+        $project_crf_event=trim($project_crf_event,',');
+        $where['event_num']=array('in',$project_crf_event);
+        $where['project_id']=$project_id;
+        $result=Db::name('admin_project_crf')->where($where)->order('event_num asc , sort asc')->select();
+        //将crf结果格式化
+        $crf_result=array();
+        foreach($result as $k=>$v)
+        {
+           $crf_result[$v['event_num']][]=$v;
+        }
+
+         //先查出用户列表
+        $where_u['u.create_time']=array('gt',$start_time);
+        $where_u['u.create_time']=array('lt',$end_time);
+        $where_u['user_type']=2;
+        $where_u['u.project_id']=$project_id;
+        $user_list=Db::name('user')
+                ->alias('u')
+                ->field('u.id,user_login,user_sn,u.create_time,c.center_name')
+                ->join('center c','c.id=u.center_id')
+                ->where($where_u)
+                ->select();
+        $crf=[];
+        $html='';
+        $allhtml='<style>
+        .div_title{margin-top:10px;height: 35px;line-height: 35px;font-size: medium;text-align: center} 
+        .table_border{margin:0 auto;border: 1px solid #95a5a6;margin-top: 8px;}
+        .td_border{height:35px;text-align: center}
+        .m-top{margin-top:3%;}
+    </style>';
+        foreach ($user_list as $uk=>$uv)
+        {
+            $crf=$this->userCrf($project_id,$uv['id']);
+            $html='<div class="tabCon"><div class="div_title">'.$uv['user_sn'].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$uv['user_login'].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$uv['center_name'].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.date('Y-m-d',$uv['create_time']).'</div>';
+                foreach ($crf_result as $k => $value) {
+                        foreach ($value as $kkk => $v) {
+                                //标题
+                             if($v['event_type']=='title')
+                                {
+                                    $html.='<div class="div_title">'.$v['event_desc'].'</div>';
+                                }
+                                //选择
+                                if($v['event_type']=='input')
+                                {   
+                                    if($v['event_type_t']=='fill'){
+                                        if(!empty($crf))
+                                        {
+                                           
+                                            if(empty($crf[$v['id']]))
+                                            {
+                                                $vv='';
+                                            }else{
+                                                 $vv=$crf[$v['id']]['crf_desc'];
+                                            }
+
+                                        }else{
+                                            $vv='';
+                                        }
+                                         $html.='<div class="div_input">'.$v['event_desc'].'&nbsp;&nbsp;&nbsp;<u>'.$vv.'</u>';
+                                    }elseif($v['event_type_t']=='date'){
+                                        if(!empty($crf))
+                                        {
+                                            if(empty($crf[$v['id']]))
+                                            {
+                                                $vv='';
+                                            }else{
+                                                 $vv=$crf[$v['id']]['crf_desc'];
+                                            }
+                                        }else{
+                                            $vv='';
+                                        }
+                                        $html.='<div class="div_input">'.$v['event_desc'].'&nbsp;&nbsp;&nbsp;&nbsp;<u>'.$vv.'</u>';
+
+                                    }elseif($v['event_type_t']=='desc'){
+                                            $html.='<div class="div_input"><span class="form-required">*</span>'.$v['event_desc'].'</div>';
+
+                                    }
+
+                                 }
+                                 //选择
+                                  if($v['event_type']=='select')
+                                  {
+                                    $select=json_decode($v['event_desc'],true);
+                                    $html.='<div class="div_select"><span>'.$select['name'].'</span><div class="select_div">';
+                                        foreach ($select['option'] as $select_k => $sel) 
+                                        {
+                                            # code...
+                                            $html.='<div class="option_div"><span>'.$letter[$select_k].'</span>:&nbsp;&nbsp;';
+                                            if(isset($crf[$v['id']]))
+                                            {
+                                             $de=$crf[$v['id']]['crf_desc']; 
+                                            } 
+                                            $html.='<span class="select_input">'.$sel.'</span>';
+                                            if($v['event_type_t']=='radio')
+                                            {
+                                                    if(isset($de))
+                                                    {
+                                                        if($de==$letter[$select_k])
+                                                        {
+                                                            $html.='√';
+                                                        }else{
+                                                            $html.='';
+                                                        }
+                                                    }else{
+                                                         $html.='';
+                                                    }
+
+                                            }else{
+                                                if(isset($crf[$v['id']]))
+                                                    { 
+                                                        $de=$crf[$v['id']]['crf_desc'];
+                                                        $dearray=json_decode($de,true);
+                                                     }else{ 
+                                                        $dearray=array();
+                                                    }
+                                                    if(in_array($letter[$select_k], $dearray))
+                                                    { 
+                                                         $html.='√';
+                                                    }else{
+                                                        $html.='';
+                                                    }
+                                            }
+                                            $html.='</div>';
+                                            
+
+                                        }
+                   
+                                    }
+
+                                    //表格
+                                    if($v['event_type']=='table')
+                                    {
+                                        $table=json_decode($v['event_desc'],true);
+                                        $html.=' <div class="div_select"> <span>'.$table['name'].'</span><br><table style="border:2" class="table_border">
+                                            <tr>';
+                                            foreach($table['desc']as $table_k=>$tab)
+                                            {
+                                                $html.='<td class="td_border">'.$tab.'</td>';
+                                            }
+                                        $html.='</tr>';
+                                        if(!isset($crf[$v['id']]))
+                                        {
+                                           
+                                            $html.='<tr>';
+                                            foreach ($table['type'] as $table_k => $tab_t) 
+                                            {
+                                                if($tab_t=='text')
+                                                {
+                                                    $html.='<td class="td_border"></td>';
+                                                }elseif($tab_t=='date'){
+                                                    $html.='<td class="td_border"></td>';
+                                                }elseif($tab_t=='radio_or'){
+                                                    $html.=' <td class="td_border">是&nbsp;&nbsp;否</td>';
+                                                }else{
+                                                    $html.='<td class="td_border"></td>';
+                                                }
+                                            }
+                                            $html.='</tr>';
+                                        }else{
+                                            if(isset($crf[$v['id']]))
+                                            {
+                                                $desc=$crf[$v['id']];
+                                                $crf_desc=$desc['crf_desc'];
+                                                $des=json_decode($crf_desc,true);
+                                            }else{
+                                                $des=array();
+                                            }
+                                            foreach($des as $kk => $value) {
+                                                # code...
+                                                 $html.='<tr>';
+                                                 foreach ($table['type'] as $table_k => $tab_t) 
+                                                 {
+                                                    if(isset($value[$table_k])){ $dd=$value[$table_k]; }else{ $dd=''; }
+                                                     if($tab_t=='text')
+                                                        {
+                                                            $html.='<td class="td_border">'.$dd.'</td>';
+                                                     
+                                                        }elseif($tab_t=='date'){
+                                                            $html.='<td class="td_border">'.$dd.'</td>';
+                                                        }elseif($tab_t=='radio_or'){
+                                                            if($dd==1){
+                                                                 $html.='<td class="td_border"> √ 是&nbsp;&nbsp;&nbsp;否</td>';
+                                                             }elseif($dd==2){
+                                                                 $html.='<td class="td_border">是&nbsp;&nbsp;&nbsp;√否</td>';
+                                                             }else{
+                                                                $html.='<td class="td_border"> 是&nbsp;&nbsp;&nbsp;否</td>';
+                                                             }
+                                                           
+                                                        }else{
+                                                         $html.='<td class="td_border">'.$dd.'</td>';
+                                                        }
+                                                 }
+                                                 $html.='</tr>';
+                                    
+                                            }
+                                         
+             
+                                        }//else end
+
+                                    }//if == table end
+
+                    }
+
+                }
+                $html.='<hr><div class="m-top"></div>';
+                $allhtml.=$html;
+        }
+
+        
+
+        
+ 
+        $pdf->SetFont('stsongstdlight', '', 14, '', true);
+        $pdf->writeHTMLCell(0, 0, '', '', $allhtml, 0, 1, 0, true, '', true);
+        $pdf->Output('example_001.pdf', 'I');
+
+    }
+
+
+    public function userCrf($project_id,$user_id)
+    {
+        $crf_status=array('0'=>'未录入','1'=>'首次录入','2'=>'二次录入','3'=>'录入完成','4'=>'签名',);
+        $project_info=Db::name('admin_project')
+                ->where(['id'=>$project_id])
+                ->find();
+        $where['project_id']=$project_info['id'];
+        $result=Db::name('admin_project_crf')->where($where)->order('event_num asc , sort asc')->select();
+        //字母
+        $letter=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+        //录入的数据
+        $where_crf['user_id']=$user_id;
+        $where_crf['project_id']=$project_info['id'];
+        $user_crf=Db::name('admin_user_crf')->where($where_crf)->select();
+        //foreach
+        $new_crf=array();
+        foreach ($user_crf as $k=>$v)
+        {
+            $key=$v['crf_id'];
+            $new_crf[$key]=$v;
+        }
+
+        return $new_crf;
+    }
+    
+
+
 
 
 

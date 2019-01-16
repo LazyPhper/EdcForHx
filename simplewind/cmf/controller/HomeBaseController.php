@@ -25,6 +25,7 @@ class HomeBaseController extends BaseController
         parent::_initialize();
         $siteInfo = cmf_get_site_info();
         View::share('site_info', $siteInfo);
+        $this->redirect('admin/index/index');
     }
 
     public function _initializeView()

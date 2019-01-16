@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:46:"themes/admin_simpleboot3/admin\main\index.html";i:1547204452;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1547178797;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:46:"themes/admin_simpleboot3/admin\main\index.html";i:1547204452;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1547549958;}*/ ?>
  <link href="/hx/public/static/js/layui/css/layui.css" rel="stylesheet" type="text/css">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -221,7 +221,7 @@
 
 </style>
 <?php 
-    \think\Hook::listen('admin_before_head_end',$temp5c3db475753e4,null,false);
+    \think\Hook::listen('admin_before_head_end',$temp5c3e9417c7e48,null,false);
  ?>
 </head>
 <body>
@@ -341,7 +341,7 @@
 
 </script>
 <?php 
-    \think\Hook::listen('admin_before_body_end',$temp5c3db475753e4,null,false);
+    \think\Hook::listen('admin_before_body_end',$temp5c3e9417c7e48,null,false);
  ?>
 </body>
 </html>

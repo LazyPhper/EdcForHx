@@ -40,7 +40,8 @@
 			</tbody>
 		</table>
 
-		<button class='btn btn-danger' onclick='ajaxDown()'>导出</button>
+		<button class='btn btn-danger' onclick='ajaxDown()'>导出EXCEL</button>
+		<a class='btn btn-danger' href='javascript:;' onclick='printPdf()'>PDF</a>
 	</div>
 	<script src="__STATIC__/js/admin.js"></script>
 </body>
@@ -79,6 +80,45 @@
 		}
 		var param='?project_id='+project_id+'&ids='+ids+'&start_time='+start_time+'&end_time='+end_time;
 		var url="{:url('admin/down/down')}";
+		var path=url+param;
+		// alert(path);return false;
+		window.location.href=path;
+
+	}
+
+	function printPdf()
+	{
+		var project_id=$('#project_id').val();
+		var ids='';
+		$("input[name='ids[]']:checked").each(function() {
+			ids+=$(this).val()+',';
+		});
+		ids=(ids.substring(ids.length-1)==',')?ids.substring(0,ids.length-1):ids;
+		//开始时间
+		var start_time=$("input[name='start_time']").val();
+		var end_time=$("input[name='end_time']").val();
+		if(!project_id)
+		{
+			layer.msg('项目没有选择',{time: 1000, icon:6});
+			return false;
+		}
+		if(!ids)
+		{
+			layer.msg('事件没有选择',{time: 1000, icon:6});
+			return false;
+		}
+		if(!start_time)
+		{
+			layer.msg('开始时间没有选择',{time: 1000, icon:6});
+			return false;
+		}
+		if(!end_time)
+		{
+			layer.msg('结束时间没有选择',{time: 1000, icon:6});
+			return false;
+		}
+		var param='?project_id='+project_id+'&ids='+ids+'&start_time='+start_time+'&end_time='+end_time;
+		var url="{:url('admin/down/printContract')}";
 		var path=url+param;
 		// alert(path);return false;
 		window.location.href=path;

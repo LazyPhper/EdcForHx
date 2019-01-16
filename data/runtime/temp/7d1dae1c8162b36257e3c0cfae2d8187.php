@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:47:"themes/admin_simpleboot3/admin\index\index.html";i:1544846704;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:47:"themes/admin_simpleboot3/admin\index\index.html";i:1547549944;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh_CN" style="overflow: hidden;">
 <head>
@@ -225,6 +225,7 @@
 
     <div class="sidebar" id="sidebar">
         <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+            <?php if(session('ADMIN_ID')==1){ ?>
             <a class="btn btn-sm btn-warning" href="/hx/public/"
                title="<?php echo lang('WEBSITE_HOME_PAGE'); ?>"
                target="_blank"
@@ -271,7 +272,7 @@
                    data-toggle="tooltip">
                     <i class="fa fa-list"></i>
                 </a>
-            <?php endif; ?>
+            <?php endif; } ?>
 
         </div>
         <div id="nav-wrapper">

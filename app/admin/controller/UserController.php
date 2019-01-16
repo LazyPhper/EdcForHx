@@ -580,6 +580,7 @@ class UserController extends AdminBaseController
 
 
     /**
+    *查看用户crf
      * user_crf
      */
 
@@ -619,7 +620,7 @@ class UserController extends AdminBaseController
            $crf_result[$v['event_num']][]=$v;
             
         }
-        //会员状态
+        //信息
         $user_info=Db::name('user')->field('user_login,user_sn,crf_status')->where(array('id'=>$user_id))->find();
         $this->assign('crf_result',$crf_result);
         $this->assign('user_id',$user_id);
@@ -631,7 +632,8 @@ class UserController extends AdminBaseController
     }
 
 
-       /**
+    /**
+    *审查受试者数据
      * check_user_crf
      */
 

@@ -245,6 +245,7 @@
 
     <div class="sidebar" id="sidebar">
         <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+            <php>if(session('ADMIN_ID')==1){</php>
             <a class="btn btn-sm btn-warning" href="__ROOT__/"
                title="{:lang('WEBSITE_HOME_PAGE')}"
                target="_blank"
@@ -300,6 +301,8 @@
                     <i class="fa fa-list"></i>
                 </a>
             </if>
+
+            <php>}</php>
 
         </div>
         <div id="nav-wrapper">
