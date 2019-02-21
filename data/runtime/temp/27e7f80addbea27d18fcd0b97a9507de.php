@@ -1,18 +1,48 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:46:"themes/admin_simpleboot3/admin\main\index.html";i:1547204452;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1547549958;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:46:"themes/admin_simpleboot3/admin\main\index.html";i:1550648241;s:81:"D:\phpStudy\PHPTutorial\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1547549958;}*/ ?>
  <link href="/hx/public/static/js/layui/css/layui.css" rel="stylesheet" type="text/css">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">联系方式</h3>
+                <h3 class="panel-title">各中心受试者入组情况</h3>
             </div>
-            <div class="panel-body home-info">
-                <ul class="list-unstyled">
-                    <li>
-                        <em>官网</em> <span><a href="http://www.thinkcmf.com" target="_blank">www.baidu.com</a></span>
-                    </li>
-                    <li><em>QQ</em> <span>1016122628</span></li>
-                    <li><em>联系邮箱</em> <span>1016122628@qq.com</span></li>
-                </ul>
+           
+
+      
+    <table class="layui-table">
+  <colgroup>
+    <col width="150">
+    <col width="200">
+    <col width="150">
+    <col width="">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>中心</th>
+      <th>已入组</th>
+      <th>预计入组</th>
+      <th>进度</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php if(is_array($center_info) || $center_info instanceof \think\Collection || $center_info instanceof \think\Paginator): if( count($center_info)==0 ) : echo "" ;else: foreach($center_info as $key=>$vo): ?>
+        <tr>
+          <td><?php echo $vo['center_name']; ?></td>
+          <td><?php echo $vo['center_num']; ?></td>
+          
+          <td><?php echo $vo['center_number']; ?></td>
+         <td>
+            <div class="layui-progress layui-progress-big" lay-showpercent="true">
+              <div class="layui-progress-bar" lay-percent="<?php echo $vo['percent']; ?>%"></div>
             </div>
+            </td>
+        </tr>
+    <?php endforeach; endif; else: echo "" ;endif; ?>
+    
+   
+  </tbody>
+</table>
+     
+
+           
         </div>
    
         <div class="panel panel-default">
@@ -221,7 +251,7 @@
 
 </style>
 <?php 
-    \think\Hook::listen('admin_before_head_end',$temp5c3e9417c7e48,null,false);
+    \think\Hook::listen('admin_before_head_end',$temp5c6d2fe56b0eb,null,false);
  ?>
 </head>
 <body>
@@ -230,6 +260,12 @@
 </div>
 <script src="/hx/public/static/js/admin.js"></script>
 <script src="/hx/public/static/js/layui/layui.js"></script>
+<script>
+//注意进度条依赖 element 模块，否则无法进行正常渲染和功能性操作
+layui.use('element', function(){
+  var element = layui.element;
+});
+</script>
 <?php 
     $lang_set=defined('LANG_SET')?LANG_SET:'';
     $thinkcmf_version=defined('THINKCMF_VERSION')?THINKCMF_VERSION:'';
@@ -341,7 +377,7 @@
 
 </script>
 <?php 
-    \think\Hook::listen('admin_before_body_end',$temp5c3e9417c7e48,null,false);
+    \think\Hook::listen('admin_before_body_end',$temp5c6d2fe56b0eb,null,false);
  ?>
 </body>
 </html>

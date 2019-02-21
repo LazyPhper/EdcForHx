@@ -37,8 +37,9 @@
 					</td>
 					<td>{$vo.project_charge_name}</td>
 					<td>{$vo.start_time}</td>
-					<td>{$vo.start_time}</td>
+					<td>{$vo.project_status_desc}</td>
 					<td>
+							<a href='javascript:;' onclick='updateProjectStatus({$vo.id})'>修改状态</a> |
 							<a href='{:url("project/edit",array("id"=>$vo["id"]))}'>{:lang('EDIT')}</a> |
 							<a href='{:url("project/project_crf",array("project_id"=>$vo["id"]))}'>查看crf</a>
 
@@ -52,3 +53,20 @@
 	<script src="__STATIC__/js/admin.js"></script>
 </body>
 </html>
+<script>
+function updateProjectStatus(project_id)
+{
+	var param='?project_id='+project_id;
+			var url="{:url('admin/project/status')}";
+			// alert(url);
+		    layer.open({
+		      type: 2,
+		      title: '修改项目状态',
+		      shadeClose: true,
+		      shade: false,
+		      maxmin: true, //开启最大化最小化按钮
+		      area: ['893px', '600px'],
+		      content: url+param
+		    });
+}
+</script>

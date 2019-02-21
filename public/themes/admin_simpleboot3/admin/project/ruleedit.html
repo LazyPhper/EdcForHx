@@ -99,12 +99,19 @@
 
 										<?php if($tab_t=='text')
 												{
+													if(isset($rule[$table_k]))
+													{
+														$rule_res=$rule[$table_k];
+													}else{
+													$rule_res='';
+												}
+													
 												?>
-												<td class="td_border"><span class="rule-span">规则：</span><input type="text" class="input-normal" name="rule[{$v.id}][]" value="<?php echo $rule[$table_k]; ?>"></td>
+												<td class="td_border"><span class="rule-span">规则：</span><input type="text" class="input-normal" name="rule[{$v.id}][]" value="<?php echo $rule_res; ?>"></td>
 										<?php
 												}elseif($tab_t=='date'){
 												?>
-												<td class="td_border"><span class="rule-span">规则：</span><input class="input-normal" type="text"  name="rule[{$v.id}][]" value="<?php echo $rule[$table_k]; ?>"></td>
+												<td class="td_border"><span class="rule-span">规则：</span><input class="input-normal" type="text"  name="rule[{$v.id}][]" value="<?php echo $rule_res; ?>"></td>
 										<?php
 												}elseif($tab_t=='radio_or'){
 												?>
@@ -112,7 +119,7 @@
 										<?php
 												}else{
 												?>
-												<td class="td_border"><span class="rule-span">规则：</span><input type="text" class="input-normal" name="rule[{$v.id}][]" value="<?php echo $rule[$table_k]; ?>"></td>
+												<td class="td_border"><span class="rule-span">规则：</span><input type="text" class="input-normal" name="rule[{$v.id}][]" value="<?php echo $rule_res; ?>"></td>
 										<?php
 												}
 												?>

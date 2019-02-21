@@ -9,10 +9,10 @@
     <form class="well form-inline margin-top-20" method="post" action="{:url('user/adminIndex/index')}">
         用户ID：
         <input class="form-control" type="text" name="uid" style="width: 200px;" value="{:input('request.uid')}"
-               placeholder="请输入用户ID">
+               placeholder="请输入受试者ID">
         关键字：
         <input class="form-control" type="text" name="keyword" style="width: 200px;" value="{:input('request.keyword')}"
-               placeholder="用户名/昵称/邮箱/手机">
+               placeholder="受试者/昵称/邮箱/手机">
         <input type="submit" class="btn btn-primary" value="搜索"/>
         <a class="btn btn-danger" href="{:url('user/adminIndex/index')}">清空</a>
     </form>
@@ -21,8 +21,8 @@
             <thead>
             <tr>
                 <th>ID</th>
-                <th>{:lang('USERNAME')}</th>
-                <th>用户编号</th>
+                <th>受试者名称</th>
+                <th>受试者编号</th>
                 <th>加入时间</th>
                 <th>中心</th>
                 <th>分组</th>
@@ -45,10 +45,21 @@
                     <td>{$vo.group_name}</td>
                     <td>{$crf_status[$vo['crf_status']]}</td>
                     <td>
-                        <a href='{:url("user/user_edit",array("id"=>$vo["id"]))}'>{:lang('EDIT')}</a>|
-                        <a href='{:url("user/user_crf",array("id"=>$vo["id"]))}'>录入</a> |
+                        <php>if($project_info['project_status']>=2){
+
+                        </php>
+                        <a href='javascript:;' style='color: #CCC'>删除</a>|
+                        <a href='javascript:;' style='color: #CCC'>{:lang('EDIT')}</a>|
+                        <a href='javascript:;' style='color: #CCC'>录入</a> |
                         <a href='{:url("user/check_user_crf",array("id"=>$vo["id"]))}'>审查</a> |
-                        <a href='{:url("user/sign",array("user_id"=>$vo["id"]))}'>签名</a>
+                        <a href='javascript:;' style='color: #CCC''>签名</a>
+                        <php>}else{</php>
+                             <a href='javascript:;' onclick='deleteUser({$vo.id})'>删除</a>|
+                            <a href='{:url("user/user_edit",array("id"=>$vo["id"]))}'>{:lang('EDIT')}</a>|
+                            <a href='{:url("user/user_crf",array("id"=>$vo["id"]))}'>录入</a> |
+                            <a href='{:url("user/check_user_crf",array("id"=>$vo["id"]))}'>审查</a> |
+                            <a href='javascript:;' onclick='updateUserStatus({$vo.id})'>签名</a>
+                        <php>}</php>
 
                     </td>
                 </tr>
@@ -61,3 +72,55 @@
 <script src="__STATIC__/js/admin.js"></script>
 </body>
 </html>
+<script>
+function updateUserStatus(user_id)
+{
+	var param='?crf_status=4&user_id='+user_id;
+			var url="{:url('admin/user/sign')}";
+			// alert(url);
+		    layer.open({
+		      type: 2,
+		      title: '签名',
+		      shadeClose: true,
+		      shade: false,
+		      maxmin: true, //开启最大化最小化按钮
+		      area: ['893px', '600px'],
+		      content: url+param
+		    });
+}
+
+function deleteUser(user_id)
+    {
+
+            //询问框
+                layer.confirm('您确定要删除该受试者？', {
+                  btn: ['确定','取消'] //按钮
+                }, function(){
+                    //确定
+                    $.ajax({  
+                            type:"post",  
+                            url:"{:url('admin/user/userdelete')}",  
+                            data:{id:user_id},//这里data传递过去的是序列化以后的字符串 
+                            dataType:'json',
+                            success:function(data){  
+                                if(data.code==0)
+                                {
+                                     layer.msg('删除成功', {time: 1500, icon:6});
+                                     location.reload();
+                                }else{
+                                     layer.msg('删除失败', {time: 1500, icon:6});
+                                }
+                               
+                            }  
+                    });  
+                  
+                },
+                //取消
+                 function(){
+                  layer.msg('已取消');
+                });
+ 
+    }
+
+
+</script>

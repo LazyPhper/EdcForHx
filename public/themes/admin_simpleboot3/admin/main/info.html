@@ -161,13 +161,18 @@
 					 	</foreach>
 					 	<div>
 					 		<!-- 已回复等待结束疑问或者重新提交疑问 -->
-					 		<php> if($v['status']!=2){ if($v['respone_status']==1){</php>
+					 		<php> if($v['status']!=2){
+					 		 if($v['respone_status']==1){ if($v['admin_id'] == $_SESSION['think']['ADMIN_ID']){</php>
 					 		疑问:&nbsp;&nbsp;&nbsp;
 					 		<textarea id='answer-{$v.ask_id}' id='content'  style='width:98%;height:100px;' placeholder='疑问或答复'></textarea>
 					 		<button class='btn btn-danger' onclick='ask({$v.ask_id})'>提交</button>
 					 		<button class='btn btn-primary' onclick='end({$v.ask_id})'>结束疑问</button>
 					 		</div>
 					 		<php>}else{</php>
+								
+					 		<php>}
+
+					 		}elseif($v['respone_status']==0){</php>
 					 			回复:&nbsp;&nbsp;&nbsp;
 						 		<textarea id='answer-{$v.ask_id}' id='content'  style='width:98%;height:100px;' placeholder='疑问或答复'></textarea>
 						 		<button class='btn btn-danger' onclick='answer({$v.ask_id})'>提交</button>
@@ -175,6 +180,7 @@
 					 		<php>}}</php>
 				 	
 				 </div>
+			
 			
 
 

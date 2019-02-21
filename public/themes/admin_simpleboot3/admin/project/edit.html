@@ -49,24 +49,17 @@
                      <tr>
                         <th>主要研究者</th>
                         <td>
-                             <select class="form-control" name="post[project_student]" >
-								 <foreach name="admin_y" item="vv">
-									 <option value="{$vv.id}" <?php if($project_info['project_student']==$vv['id']){ echo 'selected';} ?> >{$vv.user_login}</option>
-								 </foreach>
-                               
-                            </select>
+                            <input class="form-control" type="text" name="post[project_student]"
+                                   id="project_name" required value="{$project_info.project_student}" placeholder="请输入主要研究者"/>
                         </td>
                     </tr>
 
                       <tr>
                         <th>负责人</th>
                         <td>
-                              <select class="form-control" name="post[project_charge]" >
-								  <foreach name="admin_f" item="vv">
-									  <option value="{$vv.id}" <?php if($project_info['project_charge']==$vv['id']){ echo 'selected';} ?> >{$vv.user_login}</option>
-								  </foreach>
-                               
-                            </select>
+                        	 <input class="form-control" type="text" name="post[project_charge]"
+                                   id="project_name" required value="{$project_info.project_charge}" placeholder="请输入负责人"/>
+                             
                         </td>
                     </tr>
 
@@ -98,7 +91,7 @@
                         </td>
                     </tr>
 
-
+<!-- 
 					<tr>
                         <th>目的</th>
                         <td>
@@ -118,7 +111,7 @@
                                 <option value="2">预期的</option>
                             </select>
                         </td>
-                    </tr>
+                    </tr> -->
                 </table>
 
                 <div>您必须展开每个部分并填写所需的字段。如果你不填写每个部分所需的字段，你的数据将不被保存，你将不得不重新编辑研究。</div>
@@ -280,7 +273,7 @@
           		</div>
           		
         <!-- 研究项目参数配置 -->
-      	<div style='font-size: 14px;color:#66CCCC;margin:20px 0 20px 20px;width: 100%' onclick="tableOnclick('project-config')"><p id='project-config-show' style='display:inline'>+</p>&nbsp;&nbsp;&nbsp;研究项目参数配置</div>
+      	<!-- <div style='font-size: 14px;color:#66CCCC;margin:20px 0 20px 20px;width: 100%' onclick="tableOnclick('project-config')"><p id='project-config-show' style='display:inline'>+</p>&nbsp;&nbsp;&nbsp;研究项目参数配置</div>
       		<div id='project-config' style='display: none'>
 	                <table class="table table-bordered">
 	                    <tr>
@@ -417,7 +410,7 @@
                         <a class="btn btn-default" href="{:url('project/index')}">{:lang('BACK')}</a>
                         <a class="btn btn-default" href="{:url('project/edcadd',['id'=>$project_info['id']])}">生成CRF</a>
                     </div>
-                </div>
+                </div> -->
 
 
 

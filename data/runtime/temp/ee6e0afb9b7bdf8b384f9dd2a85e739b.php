@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:50:"themes/admin_simpleboot3/admin\user\user_list.html";i:1547454287;s:69:"D:\phpStudy\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1547549958;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:50:"themes/admin_simpleboot3/admin\user\user_list.html";i:1550660110;s:81:"D:\phpStudy\PHPTutorial\WWW\hx\public\themes\admin_simpleboot3\public\header.html";i:1547549958;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -92,10 +92,10 @@
     <form class="well form-inline margin-top-20" method="post" action="<?php echo url('user/adminIndex/index'); ?>">
         用户ID：
         <input class="form-control" type="text" name="uid" style="width: 200px;" value="<?php echo input('request.uid'); ?>"
-               placeholder="请输入用户ID">
+               placeholder="请输入受试者ID">
         关键字：
         <input class="form-control" type="text" name="keyword" style="width: 200px;" value="<?php echo input('request.keyword'); ?>"
-               placeholder="用户名/昵称/邮箱/手机">
+               placeholder="受试者/昵称/邮箱/手机">
         <input type="submit" class="btn btn-primary" value="搜索"/>
         <a class="btn btn-danger" href="<?php echo url('user/adminIndex/index'); ?>">清空</a>
     </form>
@@ -104,8 +104,8 @@
             <thead>
             <tr>
                 <th>ID</th>
-                <th><?php echo lang('USERNAME'); ?></th>
-                <th>用户编号</th>
+                <th>受试者名称</th>
+                <th>受试者编号</th>
                 <th>加入时间</th>
                 <th>中心</th>
                 <th>分组</th>
@@ -127,10 +127,19 @@
                     <td><?php echo $vo['group_name']; ?></td>
                     <td><?php echo $crf_status[$vo['crf_status']]; ?></td>
                     <td>
-                        <a href='<?php echo url("user/user_edit",array("id"=>$vo["id"])); ?>'><?php echo lang('EDIT'); ?></a>|
-                        <a href='<?php echo url("user/user_crf",array("id"=>$vo["id"])); ?>'>录入</a> |
+                        <?php if($project_info['project_status']>=2){ ?>
+                        <a href='javascript:;' style='color: #CCC'>删除</a>|
+                        <a href='javascript:;' style='color: #CCC'><?php echo lang('EDIT'); ?></a>|
+                        <a href='javascript:;' style='color: #CCC'>录入</a> |
                         <a href='<?php echo url("user/check_user_crf",array("id"=>$vo["id"])); ?>'>审查</a> |
-                        <a href='<?php echo url("user/sign",array("user_id"=>$vo["id"])); ?>'>签名</a>
+                        <a href='javascript:;' style='color: #CCC''>签名</a>
+                        <?php }else{ ?>
+                             <a href='javascript:;' onclick='deleteUser(<?php echo $vo['id']; ?>)'>删除</a>|
+                            <a href='<?php echo url("user/user_edit",array("id"=>$vo["id"])); ?>'><?php echo lang('EDIT'); ?></a>|
+                            <a href='<?php echo url("user/user_crf",array("id"=>$vo["id"])); ?>'>录入</a> |
+                            <a href='<?php echo url("user/check_user_crf",array("id"=>$vo["id"])); ?>'>审查</a> |
+                            <a href='javascript:;' onclick='updateUserStatus(<?php echo $vo['id']; ?>)'>签名</a>
+                        <?php } ?>
 
                     </td>
                 </tr>
@@ -143,3 +152,55 @@
 <script src="/hx/public/static/js/admin.js"></script>
 </body>
 </html>
+<script>
+function updateUserStatus(user_id)
+{
+	var param='?crf_status=4&user_id='+user_id;
+			var url="<?php echo url('admin/user/sign'); ?>";
+			// alert(url);
+		    layer.open({
+		      type: 2,
+		      title: '签名',
+		      shadeClose: true,
+		      shade: false,
+		      maxmin: true, //开启最大化最小化按钮
+		      area: ['893px', '600px'],
+		      content: url+param
+		    });
+}
+
+function deleteUser(user_id)
+    {
+
+            //询问框
+                layer.confirm('您确定要删除该受试者？', {
+                  btn: ['确定','取消'] //按钮
+                }, function(){
+                    //确定
+                    $.ajax({  
+                            type:"post",  
+                            url:"<?php echo url('admin/user/userdelete'); ?>",  
+                            data:{id:user_id},//这里data传递过去的是序列化以后的字符串 
+                            dataType:'json',
+                            success:function(data){  
+                                if(data.code==0)
+                                {
+                                     layer.msg('删除成功', {time: 1500, icon:6});
+                                     location.reload();
+                                }else{
+                                     layer.msg('删除失败', {time: 1500, icon:6});
+                                }
+                               
+                            }  
+                    });  
+                  
+                },
+                //取消
+                 function(){
+                  layer.msg('已取消');
+                });
+ 
+    }
+
+
+</script>

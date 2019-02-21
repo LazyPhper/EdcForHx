@@ -44,12 +44,11 @@
                     success:function(data){  
                        if(data.code==2)
                        {
-                       		 layer.msg('签名完成~', {time: 1500, icon:6});
-
+                       		 layer.msg('签名失败~', {time: 1500, icon:6});
                        }else{
-
                       	 	parent.layer.closeAll();
                       	 	parent.layer.msg(data.msg);
+							 parent.location.reload();
                        }
                     }  
                 });  

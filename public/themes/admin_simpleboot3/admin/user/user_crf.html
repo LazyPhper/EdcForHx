@@ -117,10 +117,17 @@
 				<?php
 					if($v['event_type']=='input')
 					{
+
 						if($v['event_type_t']=='fill'){
 						if(!empty($user_crf))
 						{
+						if(isset($user_crf[$v['id']]))
+						{
 							$vv=$user_crf[$v['id']]['crf_desc'];
+						}else{
+							$vv='';
+						}
+							
 
 						}else{
 							$vv='';

@@ -94,6 +94,8 @@ class ProjectController extends AdminBaseController
                 $this->error($result_condition);
             }
             $project=$data['post'];
+            $project['project_status']=0;
+            $project['project_status_desc']='设计';
             $project_device=$data['device'];
             $project_condition=$data['condition'];
             $project_config=$data['config'];
@@ -405,11 +407,12 @@ class ProjectController extends AdminBaseController
         $project_id=$this->request->param('project_id');
         //查询出所有事件
         $where['project_id']=$project_id;
+
         $result=Db::name('admin_project_crf')->where($where)->order('event_num asc , sort asc')->select();
         //字母
         $letter=array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
         $this->assign('result',$result);
-
+        // print_r($result);die;
         $this->assign('project_id',$project_id);
         $this->assign('letter',$letter);
         return $this->fetch();
@@ -704,6 +707,70 @@ class ProjectController extends AdminBaseController
     {
         return $this->fetch();
     }
+
+
+     /*
+     * 修改项目状态
+     * */
+    public function status()
+    {
+        $id=$this->request->param('project_id');
+        if(!$id)
+        {
+         $this->error("访问失效！");   
+        }
+        $project_info=Db::name('admin_project')->field('project_status,project_status_desc')->where(['id'=>$id])->find();
+        $project_status=array('0'=>'设计','1'=>'进行中','2'=>'完成','3'=>'锁定');
+        $this->assign('project_info',$project_info);
+        $this->assign('project_status',$project_status);
+        $this->assign('project_id',$id);
+        return $this->fetch();
+    }
+
+
+     /*
+     * 修改项目状态
+     * */
+    public function updateProjectStatus()
+    {
+        $project_status_desc=array('0'=>'设计','1'=>'进行中','2'=>'完成','3'=>'锁定');
+         $project_status = $this->request->param('project_status');
+         $project_id= $this->request->param('project_id');
+         if(empty($project_status))
+         {
+            $crf_status=0;
+         }
+         if(empty($project_id))
+         {
+            $data['code']=1;
+            $data['msg']='缺少必要参数';
+            echo json_encode($data);die;
+         }
+
+         $result=Db::name('admin_project')->where(['id'=>$project_id])->update(['project_status'=>$project_status,'project_status_desc'=>$project_status_desc[$project_status]]);
+
+        if($result)
+            {
+                //记录
+                $data['project_status']=$project_status;
+                $data['project_status_desc']=$project_status_desc[$project_status];
+                $log='更新项目'.$project_id.'状态为'.$project_status_desc[$project_status];
+                $action=$this->action;
+                $user_id='';
+                cmf_action_log($action,$log,json_encode($data),$user_id);
+                $da['code']=0;
+                $da['msg']='更新状态成功';
+                echo json_encode($da);die;
+            }else{
+                 $da['code']=1;
+                 $da['msg']='更新状态失败';
+                echo json_encode($da);die;
+            }
+
+
+    }
+
+
 
 
 }

@@ -23,13 +23,18 @@ class AdminBaseController extends BaseController
         $session_admin_id = session('ADMIN_ID');
         //操作url
         $this->action=$this->request->path();
+
         if (!empty($session_admin_id)) {
             $user = Db::name('user')->where(['id' => $session_admin_id])->find();
-
+            //查找项目 和所属中心
+            $project_info=Db::name('admin_project')->field('project_name,project_status,project_status_desc')->where(['id'=>$user['project_id']])->find();
+            $center_info=Db::name('center')->field('center_name')->where(['id'=>$user['center_id']])->find();
+            $project_info['center_name']=$center_info['center_name'];
             if (!$this->checkAccess($session_admin_id)) {
                 $this->error("您没有访问权限！");
             }
             $this->assign("admin", $user);
+            $this->assign("ppinfo", $project_info);
         } else {
             if ($this->request->isPost()) {
                 $this->error("您还没有登录！", url("admin/public/login"));

@@ -28,9 +28,31 @@ class MainController extends AdminBaseController
      */
     public function index()
     {
+         $admin_id=$_SESSION['think']['ADMIN_ID'];
+       
+        //根据中心
+        $admin_info=Db::name('user')->where(['id'=>$admin_id])->find();
+        $center_id=$admin_info['center_id'];
+        //中心入组人数
+        $center_num=0;
+       
+        //中心项目人数
+        $where_cen['id']=$center_id;
+        $center_info=Db::name('center')->field('id,center_name,center_number')->where(['id'=>$center_id])->select();
+        $data = $center_info->all();
+        foreach($data as $k=>$v)
+        {
+            $center_num = Db::name('user')
+            ->where(['center_id'=>$v['id'],'user_type'=>2])
+            ->count();
+            $data[$k]['center_num']=$center_num;
+            $data[$k]['percent']=round($center_num/$v['center_number'],2)*100;
+        }
+        // $this->assign('center_num',$center_num);
+        $this->assign('center_info',$data);
      
         //查询疑问
-        $admin_id=$_SESSION['think']['ADMIN_ID'];
+       
         if($admin_id==1)
         {
             //

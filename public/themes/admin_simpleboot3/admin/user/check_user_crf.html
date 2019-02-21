@@ -60,7 +60,7 @@
 <body>
 	<div class="wrap js-check-wrap">
 		<ul class="nav nav-tabs">
-			<li ><a href="{:url('user/project_info',['id'=>$project_id])}">项目基本信息</a></li>
+			
 			<li class="active"><a href="">CRF审查</a></li>
 		</ul>
 		<!--# 选项卡 -->
@@ -105,7 +105,13 @@
 						if($v['event_type_t']=='fill'){
 						if(!empty($user_crf))
 						{
+						if(isset($user_crf[$v['id']]))
+						{
 							$vv=$user_crf[$v['id']]['crf_desc'];
+						}else{
+							$vv='';
+						}
+							
 
 						}else{
 							$vv='';
@@ -247,8 +253,15 @@
 												<?php if($tab_t=='text')
 												{
 													$ruleArray=json_decode($v['rule']);
-													$rule=$ruleArray[$table_k];
-													$con=$dd.$rule;
+													if(isset($ruleArray[$table_k]))
+													{
+														$rule=$ruleArray[$table_k];
+														$con=$dd.$rule;
+													}else{
+														$rule='';
+														$con='';
+													}
+													
 													if($con)
 													{
 														if(@eval("return $con;"))
@@ -286,8 +299,15 @@
 												<?php if($tab_t=='text')
 												{
 												$ruleArray=json_decode($v['rule']);
-												$rule=$ruleArray[$table_k];
-												$con=$dd.$rule;
+												if(isset($ruleArray[$table_k]))
+													{
+														$rule=$ruleArray[$table_k];
+														$con=$dd.$rule;
+													}else{
+														$rule='';
+														$con='';
+													}
+												
 												if($con)
 												{
 													if(@eval("return $con;"))

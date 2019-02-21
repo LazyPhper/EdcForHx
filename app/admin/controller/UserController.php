@@ -346,6 +346,47 @@ class UserController extends AdminBaseController
         }
     }
 
+
+    /**
+     * 受试者删除
+     * @adminMenu(
+     *     'name'   => '受试者删除',
+     *     'parent' => 'index',
+     *     'display'=> false,
+     *     'hasView'=> false,
+     *     'order'  => 10000,
+     *     'icon'   => '',
+     *     'remark' => '受试者删除',
+     *     'param'  => ''
+     * )
+     */
+    public function userdelete()
+    {
+        $id = $this->request->param('id', 0, 'intval');
+        if ($id == 1) {
+            $da['code']=1;
+            $da['msg']='最高管理员不能删除！';
+           echo json_encode($da);
+        }
+        if (Db::name('user')->where(['id'=>$id])->update(['user_status'=>0]) !== false) {
+           
+             //记录
+                $log='受试者删除删除';
+                $action=$this->action;
+                $data['id']=$id;
+                cmf_action_log($action,$log,json_encode($data));
+            $da['code']=0;
+            $da['msg']='删除成功！';
+           echo json_encode($da);
+           
+        } else {
+            $da['code']=1;
+            $da['msg']='删除成功！';
+           echo json_encode($da);
+           
+        }
+    }
+
     /**
      * 停用管理员
      * @adminMenu(
@@ -465,7 +506,9 @@ class UserController extends AdminBaseController
         if (!empty($request['uid'])) {
             $where['id'] = intval($request['uid']);
         }
+        $project_info=[];
         $where['user_type']=2;
+        $where['user_status']=1;
         $where['u.admin_id']=$_SESSION['think']['ADMIN_ID'];
         //查出center_id
         $where_a['id']=$_SESSION['think']['ADMIN_ID'];
@@ -477,6 +520,8 @@ class UserController extends AdminBaseController
             $where['center_id']=$center_id;
             $center_info=Db::name('center')->where(array('id'=>$center_id))->find();
             $center_name=$center_info['center_name'];
+            $project_info=Db::name('admin_project')->field('project_status')->where(['id'=>$center_info['project_id']])->find();
+            
         }
        
         
@@ -498,6 +543,8 @@ class UserController extends AdminBaseController
                         ->paginate(10);
         // 获取分页显示
         $page = $list->render();
+        //查询项目状态
+        $this->assign('project_info', $project_info);
         $this->assign('list', $list);
         $this->assign('page', $page);
         $this->assign('crf_status', $crf_status);
@@ -514,6 +561,7 @@ class UserController extends AdminBaseController
 
     public function adduserpost()
     {
+
         if($this->request->isPost())
         {
             $request=$this->request->param();
@@ -529,6 +577,13 @@ class UserController extends AdminBaseController
                 $data['create_time']=time();
                 //根据center_id 查project_id
                 $center_info=Db::name('center')->field('project_id')->where(['id'=>$data['center_id']])->find();
+                $data['project_id']=$center_info['project_id'];
+                //查询项目状态
+                $project_info=Db::name('admin_project')->field('project_status,project_status_desc')->where(['id'=>$center_info['project_id']])->find();
+                if($project_info['project_status']>=2)
+                {
+                    $this->error('由于项目状态,受试者添加失败！');
+                }
                 $res =Db::name('user')->insertGetId($data);
                 if ($res !== false) {
                             //记录
@@ -590,10 +645,15 @@ class UserController extends AdminBaseController
         // 0 未录入 1首次录入 2 二次录入 3 完成 4签名
         $crf_status=array('0'=>'未录入','1'=>'首次录入','2'=>'二次录入','3'=>'录入完成','4'=>'签名',);
         $admin_id=$_SESSION['think']['ADMIN_ID'];
+        $center_info=Db::name('user')->where(['id'=>$admin_id])->find();
+        $user_admin_id=$center_info['admin_id'];
         $user_id=$this->request->param('id');
-        $project_info=Db::name('admin_project')
-                ->where('project_student|project_charge','eq',$admin_id)
+        $user_info=Db::name('user')->where(['id'=>$user_id])->find();
+        $project_id=$user_info['project_id'];
+         $project_info=Db::name('admin_project')
+                ->where(['id'=>$project_id])
                 ->find();
+        $where['project_id']=$user_info['project_id'];
         $where['project_id']=$project_info['id'];
         $result=Db::name('admin_project_crf')->where($where)->order('event_num asc , sort asc')->select();
         //字母
@@ -620,7 +680,7 @@ class UserController extends AdminBaseController
            $crf_result[$v['event_num']][]=$v;
             
         }
-        //信息
+        //会员状态
         $user_info=Db::name('user')->field('user_login,user_sn,crf_status')->where(array('id'=>$user_id))->find();
         $this->assign('crf_result',$crf_result);
         $this->assign('user_id',$user_id);
@@ -772,12 +832,9 @@ class UserController extends AdminBaseController
             $user_info=Db::name('user')->field('center_id')->where($where_a)->find();
             $where['center_id']=$user_info['center_id'];
             $where['id']=array('neq',$admin_id);
-            $user_info=Db::name('user')->field('center_id')->where($where_a)->find();
-            $where['center_id']=$user_info['center_id'];
-            $where['id']=array('neq',$admin_id);
             $where['user_type']=1;
         }
-       
+		// print_r($where);
         $center_list=Db::name('user')->field('id,user_login')->where($where)->select();
         $this->assign('center_list',$center_list);
         $this->assign('id',$id);
@@ -937,15 +994,16 @@ class UserController extends AdminBaseController
 
         $info = Db::name('user')->where(['id'=>$admin_id])->find();
         if (cmf_password($password)==$info['user_pass']) {
-                $result=Db::name('user')->where(['id'=>$user_id])->update(['crf_status'=>4]);
+				$da['crf_status']=4;
+                $result=Db::name('user')->where(['id'=>$user_id])->update($da);
                 if($result)
                 {
                     //记录
                     $log='对受试者数据进行签名';
                     $action=$this->action;
-                    cmf_action_log($action,$log,json_encode($data),$user_id);
+                    cmf_action_log($action,$log,json_encode($da),$user_id);
                     $data['code']=0;
-                    $data['msg']='success';
+                    $data['msg']='签名成功';
                     echo json_encode($data);die;
                 }else{
                      $data['code']=2;

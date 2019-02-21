@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:47:"themes/admin_simpleboot3/admin\index\index.html";i:1547549944;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:47:"themes/admin_simpleboot3/admin\index\index.html";i:1550650157;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh_CN" style="overflow: hidden;">
 <head>
@@ -167,6 +167,25 @@
                         <li class="cmf-component-tabitem noclose" app-id="0" app-url="<?php echo url('main/index'); ?>"
                             app-name="首页">
                             <a class="cmf-tabs-item-text"><?php echo lang('HOME'); ?></a>
+                        </li>
+                    </ul>
+                    <div style="clear:both;"></div>
+                </div>
+                  <div id="task-content">
+                    <ul class="nav navbar-nav cmf-component-tab" id="task-content-inner">
+                        <li class="cmf-component-tabitem noclose" app-id="0" 
+                            app-name="项目名称">
+                            <a class="cmf-tabs-item-text"><?php echo $ppinfo['project_name']; ?></a>
+                        </li>
+                    </ul>
+                    <div style="clear:both;"></div>
+                </div>
+
+                 <div id="task-content">
+                    <ul class="nav navbar-nav cmf-component-tab" id="task-content-inner">
+                        <li class="cmf-component-tabitem noclose" app-id="0" 
+                            app-name="中心名称">
+                            <a class="cmf-tabs-item-text"><?php echo $ppinfo['center_name']; ?></a>
                         </li>
                     </ul>
                     <div style="clear:both;"></div>
